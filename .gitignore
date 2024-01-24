@@ -104,10 +104,7 @@ ProjectSettings/GvhProjectSettings.xml
 **/.idea/**/dynamic.xml
 
 # Rider
-# Rider auto-generates .iml files, and contentModel.xml
-**/.idea/**/*.iml
-**/.idea/**/contentModel.xml
-**/.idea/**/modules.xml
+.idea/
 
 [Bb]in/
 [Oo]bj/
