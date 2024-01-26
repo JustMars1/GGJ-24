@@ -1,0 +1,22 @@
+{
+    "name": "PlayerInput",
+    "maps": [
+        {
+            "name": "PlayerInputActionMaps",
+            "id": "87496760-8c2b-4d7a-9ec6-e5e65dc0d9a0",
+            "actions": [
+                {
+                    "name": "Move",
+                    "type": "PassThrough",
+                    "id": "319cadc1-aace-4e12-9b2f-47d5bd3c6035",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": []
+        }
+    ],
+    "controlSchemes": []
+}
