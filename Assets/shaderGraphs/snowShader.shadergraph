@@ -344,7 +344,7 @@
     "m_StageCapability": 3,
     "m_BareResource": false,
     "m_Texture": {
-        "m_SerializedTexture": "{\"texture\":{\"fileID\":2800000,\"guid\":\"607f7dbeb484e0f4fad58b93bd9e35d9\",\"type\":3}}",
+        "m_SerializedTexture": "{\"texture\":{\"fileID\":2800000,\"guid\":\"0fbb5b4fc7b0f4e4ab14fcb8ee673ec7\",\"type\":3}}",
         "m_Guid": ""
     },
     "m_DefaultType": 0
@@ -583,10 +583,10 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -382.9999694824219,
-            "y": 571.0,
+            "x": -375.0,
+            "y": 493.5,
             "width": 208.0,
-            "height": 434.00006103515627
+            "height": 434.0
         }
     },
     "m_Slots": [

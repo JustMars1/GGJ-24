@@ -44,6 +44,15 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Debug1"",
+                    ""type"": ""Button"",
+                    ""id"": ""c6c192d0-8315-45e5-8c7b-af3d6a98f038"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -178,6 +187,28 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""action"": ""Look"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""61a6b1ff-9ad7-4717-b8b5-9c782b73659a"",
+                    ""path"": ""<Pointer>/delta"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Look"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""69d57b2a-86df-4b8c-a5c5-4333639fcc12"",
+                    ""path"": ""<Keyboard>/1"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Debug1"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -188,6 +219,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         m_PlayerInputActionMaps = asset.FindActionMap("PlayerInputActionMaps", throwIfNotFound: true);
         m_PlayerInputActionMaps_Move = m_PlayerInputActionMaps.FindAction("Move", throwIfNotFound: true);
         m_PlayerInputActionMaps_Look = m_PlayerInputActionMaps.FindAction("Look", throwIfNotFound: true);
+        m_PlayerInputActionMaps_Debug1 = m_PlayerInputActionMaps.FindAction("Debug1", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -251,12 +283,14 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
     private List<IPlayerInputActionMapsActions> m_PlayerInputActionMapsActionsCallbackInterfaces = new List<IPlayerInputActionMapsActions>();
     private readonly InputAction m_PlayerInputActionMaps_Move;
     private readonly InputAction m_PlayerInputActionMaps_Look;
+    private readonly InputAction m_PlayerInputActionMaps_Debug1;
     public struct PlayerInputActionMapsActions
     {
         private @PlayerInput m_Wrapper;
         public PlayerInputActionMapsActions(@PlayerInput wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_PlayerInputActionMaps_Move;
         public InputAction @Look => m_Wrapper.m_PlayerInputActionMaps_Look;
+        public InputAction @Debug1 => m_Wrapper.m_PlayerInputActionMaps_Debug1;
         public InputActionMap Get() { return m_Wrapper.m_PlayerInputActionMaps; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -272,6 +306,9 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @Look.started += instance.OnLook;
             @Look.performed += instance.OnLook;
             @Look.canceled += instance.OnLook;
+            @Debug1.started += instance.OnDebug1;
+            @Debug1.performed += instance.OnDebug1;
+            @Debug1.canceled += instance.OnDebug1;
         }
 
         private void UnregisterCallbacks(IPlayerInputActionMapsActions instance)
@@ -282,6 +319,9 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @Look.started -= instance.OnLook;
             @Look.performed -= instance.OnLook;
             @Look.canceled -= instance.OnLook;
+            @Debug1.started -= instance.OnDebug1;
+            @Debug1.performed -= instance.OnDebug1;
+            @Debug1.canceled -= instance.OnDebug1;
         }
 
         public void RemoveCallbacks(IPlayerInputActionMapsActions instance)
@@ -303,5 +343,6 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
     {
         void OnMove(InputAction.CallbackContext context);
         void OnLook(InputAction.CallbackContext context);
+        void OnDebug1(InputAction.CallbackContext context);
     }
 }

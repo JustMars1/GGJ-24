@@ -1,30 +1,28 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class House : MonoBehaviour
 {
-    int residentsAmount;
+    public int residentsAmount;
     public int maxResidents;
     public float force;
-    public GameObject doorPoint;
-    
+    public GameObject humanPrefab;
+    GameObject doorCollider;
+    public float spawnRadius = 10f;
+
     // Start is called before the first frame update
     void Start()
     {
         residentsAmount = 0;
+        doorCollider = transform.Find("DoorCollider").gameObject;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(doorPoint != null)
+        if(doorCollider && residentsAmount == maxResidents)
         {
-            if(residentsAmount == maxResidents)
-            {
-                Destroy(doorPoint);
-                DestroyDoorCollider();
-            }
+            DestroyDoorCollider();
         }
     }
 
@@ -50,6 +48,8 @@ public class House : MonoBehaviour
                 // Start shrinking and fading out the child gameobjects
                 StartCoroutine(ShrinkAndFadeOut(child));
             }
+
+            StartCoroutine(SpawnHumans());
         }
     }
 
@@ -89,7 +89,6 @@ public class House : MonoBehaviour
 
     void DestroyDoorCollider()
     {
-        GameObject doorCollider = transform.Find("DoorCollider").gameObject;
         if (doorCollider != null)
         {
             Debug.Log("Found door collider");
@@ -108,5 +107,14 @@ public class House : MonoBehaviour
         }
 
         return childrenList;
+    }
+
+    IEnumerator SpawnHumans()
+    {
+        for (int i = 0; i < residentsAmount; i++)
+        {
+            GameObject newHuman = Instantiate(humanPrefab, transform.position, Quaternion.identity);
+            yield return null;
+        }
     }
 }
