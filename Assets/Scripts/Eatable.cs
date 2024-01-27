@@ -13,7 +13,7 @@ public abstract class Eatable : MonoBehaviour
     [SerializeField]
     protected string eatenAnimationName;
 
-    private void Start()
+    protected virtual void Start()
     {
         animator = GetComponent<Animator>();
     }

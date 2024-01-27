@@ -3,12 +3,12 @@ using System.Collections;
 using UnityEngine.AI;
 using System.Collections.Generic;
 
-public class Human : Eatable
+public class Civilian : Eatable
 {
     // Enumeration to represent different states of the human
-    private enum HumanState
+    public enum CivilianState
     {
-        Idle,
+        Wonder,
         RunningAway,
         FallingOver,
         Cooldown,
@@ -45,7 +45,7 @@ public class Human : Eatable
     private bool isFalling;
     private float cooldownTimer;
     private float currentRunAwayTime;  // Track how long they have been running away
-    private HumanState currentState = HumanState.Idle;
+    public CivilianState currentState = CivilianState.Wonder;
 
 
     // Add a field to store the chosen house position
@@ -54,8 +54,9 @@ public class Human : Eatable
     // Reference to house GameObjects
     private GameObject[] houses;
 
-    void Start()
+    protected override void Start()
     {
+        base.Start();
         // Initialize references to components
         navMeshAgent = GetComponent<NavMeshAgent>();
         navMeshAgent.stoppingDistance = 0.1f;
@@ -78,7 +79,7 @@ public class Human : Eatable
         navMeshAgent.speed = normalWanderSpeed;
     }
 
-    void Update()
+    public void Update()
     {
         // Update timers
         timer += Time.deltaTime;
@@ -88,25 +89,34 @@ public class Human : Eatable
         // State machine to handle different human behaviors based on the current state
         switch (currentState)
         {
-            case HumanState.Idle:
-                UpdateIdleState();
+            case CivilianState.Wonder:
+                UpdateWonderState();
                 break;
-            case HumanState.RunningAway:
+            case CivilianState.RunningAway:
                 UpdateRunningAwayState();
                 break;
-            case HumanState.FallingOver:
+            case CivilianState.FallingOver:
                 // Falling over state is handled separately
                 break;
-            case HumanState.Cooldown:
+            case CivilianState.Cooldown:
                 UpdateCooldownState();
                 break;
-            case HumanState.RunningToHouse:
+            case CivilianState.RunningToHouse:
                 UpdateRunningToHouseState();
                 break;
         }
+        // Update animator parameters based on the current state
+        UpdateAnimatorParameters();
+    }
+    private void UpdateAnimatorParameters()
+    {
+        // Update animator parameters based on the current state
+        animator.SetBool("IsWalking", currentState == CivilianState.Wonder);
+        animator.SetBool("IsRunning", currentState == CivilianState.RunningAway);
+        animator.SetBool("IsRunning", currentState == CivilianState.RunningToHouse);
     }
 
-    void UpdateIdleState()
+    public void UpdateWonderState()
     {
         // Check if it's time to pick a new destination for wandering
         if (timer >= wanderTimer)
@@ -123,15 +133,15 @@ public class Human : Eatable
         // Check if the player is nearby
         if (playerTransform != null && Vector3.Distance(transform.position, playerTransform.position) < detectionRadius)
         {
-            // Transition to RunningAway state
-            currentState = HumanState.RunningAway;
+            // Transition to FollowingPlayer state
+            currentState = CivilianState.RunningAway;
             navMeshAgent.speed = runAwaySpeed;
             stuckTimer = 0;
             currentRunAwayTime = 0;  // Reset the run-away time
         }
     }
 
-    void UpdateRunningAwayState()
+    public void UpdateRunningAwayState()
     {
         // Increment the time the human has been running away
         currentRunAwayTime += Time.deltaTime;
@@ -150,9 +160,9 @@ public class Human : Eatable
         if (Random.value < runToHouseChance)
         {
             // Transition to RunningToHouse state
-            currentState = HumanState.RunningToHouse;
+            currentState = CivilianState.RunningToHouse;
             Debug.Log("Decided to run to the house!");
-            return; // Skip the rest of the RunningAway logic
+            return; // Skip the rest of the FollowingPlayer logic
         }
 
         // Continue with the general running away behavior
@@ -179,7 +189,7 @@ public class Human : Eatable
         if (currentRunAwayTime >= runAwayDuration)
         {
             // Transition back to idle state
-            currentState = HumanState.Idle;
+            currentState = CivilianState.Wonder;
             navMeshAgent.speed = normalWanderSpeed;
             timer = wanderTimer; // Reset the timer for the next idle destination
         }
@@ -187,24 +197,24 @@ public class Human : Eatable
         // Occasionally fall over
         if (!isFalling && Random.value < fallChance)
         {
-            currentState = HumanState.FallingOver;
+            currentState = CivilianState.FallingOver;
             animator.SetTrigger("FallOver");
             StartCoroutine(FallOver());
         }
     }
 
-    void UpdateCooldownState()
+    public void UpdateCooldownState()
     {
         // Check if cooldown duration is over
         if (cooldownTimer <= 0)
         {
             // Transition back to idle state
-            currentState = HumanState.Idle;
+            currentState = CivilianState.Wonder;
             navMeshAgent.speed = normalWanderSpeed;
         }
     }
 
-    void UpdateRunningToHouseState()
+    public void UpdateRunningToHouseState()
     {
         // Check if the chosen house position is still valid
         if (!IsHousePositionValid(chosenHousePosition, runToHouseDistance))
@@ -231,7 +241,7 @@ public class Human : Eatable
         if (Vector3.Distance(transform.position, chosenHousePosition) <= runToHouseDistance)
         {
             // Transition back to idle state
-            currentState = HumanState.Idle;
+            currentState = CivilianState.Wonder;
             navMeshAgent.speed = normalWanderSpeed;
             timer = wanderTimer; // Reset the timer for the next idle destination
         }
@@ -239,7 +249,7 @@ public class Human : Eatable
         // Occasionally fall over
         if (!isFalling && Random.value < fallChance)
         {
-            currentState = HumanState.FallingOver;
+            currentState = CivilianState.FallingOver;
             animator.SetTrigger("FallOver");
             StartCoroutine(FallOver());
         }
@@ -255,7 +265,7 @@ public class Human : Eatable
         // Reset state and animation parameters
         isFalling = false;
         navMeshAgent.enabled = true;
-        currentState = HumanState.Cooldown;
+        currentState = CivilianState.Cooldown;
         cooldownTimer = cooldownDuration;
 
         // Set a new destination to resume wandering
