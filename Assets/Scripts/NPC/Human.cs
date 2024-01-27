@@ -6,7 +6,7 @@ using System.Collections.Generic;
 public class Human : MonoBehaviour
 {
     // Enumeration to represent different states of the human
-    private enum HumanState
+    public enum HumanState
     {
         Idle,
         RunningAway,
@@ -46,7 +46,7 @@ public class Human : MonoBehaviour
     private bool isFalling;
     private float cooldownTimer;
     private float currentRunAwayTime;  // Track how long they have been running away
-    private HumanState currentState = HumanState.Idle;
+    public HumanState currentState = HumanState.Idle;
 
 
     // Add a field to store the chosen house position

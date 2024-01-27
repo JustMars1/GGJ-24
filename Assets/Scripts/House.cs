@@ -8,7 +8,9 @@ public class House : MonoBehaviour
     public int maxResidents;
     public float force;
     public GameObject doorPoint;
-    
+    public GameObject humanPrefab;
+    public float spawnRadius = 10f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -50,6 +52,8 @@ public class House : MonoBehaviour
                 // Start shrinking and fading out the child gameobjects
                 StartCoroutine(ShrinkAndFadeOut(child));
             }
+
+            StartCoroutine(SpawnHumans());
         }
     }
 
@@ -108,5 +112,14 @@ public class House : MonoBehaviour
         }
 
         return childrenList;
+    }
+
+    IEnumerator SpawnHumans()
+    {
+        for (int i = 0; i < residentsAmount; i++)
+        {
+            GameObject newHuman = Instantiate(humanPrefab, transform.position, Quaternion.identity);
+            yield return null;
+        }
     }
 }
