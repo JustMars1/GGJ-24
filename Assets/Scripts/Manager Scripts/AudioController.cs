@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.InputSystem.Utilities;
 
 public static class AudioController
 {
@@ -26,13 +27,20 @@ public static class AudioController
     {
         audioMixer.SetFloat("masterVol", Mathf.Log10(value) * 20);
     }
+
     public static void SetMusicVolume(float value)
     {
         audioMixer.SetFloat("musicVol", Mathf.Log10(value) * 20);
     }
+
     public static void SetSoundVolume(float value)
     {
         audioMixer.SetFloat("soundVol", Mathf.Log10(value) * 20);
+    }
+
+    public static void SetVoiceVolume(float value)
+    {
+        audioMixer.SetFloat("voiceVol", Mathf.Log10(value) * 20);
     }
 
     /// <summary>
@@ -44,10 +52,12 @@ public static class AudioController
     /// <param name="position">Lokaatio mihin ‰‰nisource luodaan. Vaikuttaa siihen mist‰ suunnasta ‰‰ni kuuluu.</param>
     public static void PlaySound(AudioClip soundEffect, Vector3 position)
     {
+        // On yksi tai useampi audio source
         if(audioSources.Count > 0)
         {
             foreach (AudioSource source in audioSources)
             {
+                // On audiosource vapaana
                 if (!source.isPlaying)
                 {
                     source.clip = soundEffect;
@@ -60,14 +70,26 @@ public static class AudioController
                 }
             }
 
+            // On yksi tai useampi audio source mutta yksik‰‰n ei ole vapaana
             if(noOfTimesFailed >= audioSources.Count)
             {
-                audioSources.Add(AudioCreateSource.CreateAudioSource(position));
+                AudioSource soundSource = CreateAudioSource(position);
+                audioSources.Add(soundSource);
+                soundSource.outputAudioMixerGroup = audioMixer.FindMatchingGroups("Sound")[0];
+
+                soundSource.clip = soundEffect;
+                soundSource.Play();
             }
         }
+        // Ei yht‰k‰‰n audio sourcea
         else
         {
-            audioSources.Add(AudioCreateSource.CreateAudioSource(position));
+            AudioSource soundSource = CreateAudioSource(position);
+            audioSources.Add(soundSource);
+            soundSource.outputAudioMixerGroup = audioMixer.FindMatchingGroups("Sound")[0];
+
+            soundSource.clip = soundEffect;
+            soundSource.Play();
         }
 
         noOfTimesFailed = 0;
@@ -81,11 +103,21 @@ public static class AudioController
     {
         if(musicSource == null)
         {
-            musicSource = AudioCreateSource.CreateAudioSource(Camera.main.transform.position);
+            musicSource = CreateAudioSource(Camera.main.transform.position);
             musicSource.transform.parent = Camera.main.transform;
+            musicSource.outputAudioMixerGroup = audioMixer.FindMatchingGroups("Music")[0];
         }
 
         musicSource.clip = musicClip;
         musicSource.Play();
+    }
+
+    public static AudioSource CreateAudioSource(Vector3 position)
+    {
+        GameObject audioGo = new GameObject();
+        AudioSource audioSource = audioGo.AddComponent<AudioSource>();
+        audioGo.transform.position = position;
+
+        return audioSource;
     }
 }
