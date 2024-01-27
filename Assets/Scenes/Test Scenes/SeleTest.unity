@@ -1443,7 +1443,6 @@ MonoBehaviour:
   residentsAmount: 0
   maxResidents: 2
   force: 20
-  doorPoint: {fileID: 0}
   humanPrefab: {fileID: 584301822052563484, guid: d38c1ed7688ff4244b6e94605f86fb47, type: 3}
   spawnRadius: 10
 --- !u!1 &1845238468
