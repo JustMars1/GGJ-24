@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine.AI;
 using System.Collections.Generic;
 
-public class Human : MonoBehaviour
+public class Human : Eatable
 {
     // Enumeration to represent different states of the human
     private enum HumanState
@@ -17,7 +17,6 @@ public class Human : MonoBehaviour
 
     // References to components
     private NavMeshAgent navMeshAgent;
-    private Animator animator;
 
     // Parameters for human behavior
     public float detectionRadius = 10f;
@@ -59,7 +58,6 @@ public class Human : MonoBehaviour
     {
         // Initialize references to components
         navMeshAgent = GetComponent<NavMeshAgent>();
-        animator = GetComponent<Animator>();
         navMeshAgent.stoppingDistance = 0.1f;
         // Find the player by tag
         GameObject playerObject = GameObject.FindGameObjectWithTag("Player");

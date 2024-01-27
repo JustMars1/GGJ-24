@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 4860002134903733127}
   m_Layer: 0
   m_Name: Human
-  m_TagString: Untagged
+  m_TagString: Human
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -144,6 +144,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bc1a67c3356ccb45922669514710fe3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 0}
+  eatenAnimationName: 
   detectionRadius: 10
   normalWanderSpeed: 2
   runAwaySpeed: 6
