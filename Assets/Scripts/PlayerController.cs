@@ -22,6 +22,9 @@ public class PlayerController : MonoBehaviour
 
     Vector3 _forwardVec;
     Vector3 _rightVec;
+
+    [SerializeField] 
+    LayerMask _slopeMask;
     
     // Start is called before the first frame update
     void Start()
@@ -54,7 +57,7 @@ public class PlayerController : MonoBehaviour
         float dotWithRight = Vector3.Dot(playerForward, rotatedMoveInputRight);
         float sign = dotWithRight == 0.0f ? 1.0f : dotWithRight / Mathf.Abs(dotWithRight);
         
-        Debug.Log(rotatedMoveInputFwd);
+        //Debug.Log(rotatedMoveInputFwd);
         
         if (moveInputXZ.magnitude > 0.0f)
         {
@@ -67,6 +70,15 @@ public class PlayerController : MonoBehaviour
     {
         Vector3 moveDirection = _forwardVec * _moveInput.y - _rightVec * _moveInput.x;
         _rb.MovePosition(_rb.position + Time.fixedDeltaTime * _moveSpeed * moveDirection);
+
+        if (Physics.Linecast(transform.position, transform.position + Vector3.down * 2, _slopeMask))
+        {
+            Debug.Log("Hitting slope");
+        }
+        else
+        {
+            Debug.Log("Not hitting slope");
+        }
     }
 
     private void LateUpdate()

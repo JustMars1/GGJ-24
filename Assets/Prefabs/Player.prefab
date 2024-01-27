@@ -425,3 +425,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _cam: {fileID: 8811117134200096408}
+  _slopeMask:
+    serializedVersion: 2
+    m_Bits: 64
