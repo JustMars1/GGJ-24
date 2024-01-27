@@ -1,0 +1,178 @@
+{
+	"connections": [
+		{
+			"from": "invert",
+			"from_port": 0,
+			"to": "Material",
+			"to_port": 0
+		},
+		{
+			"from": "warp",
+			"from_port": 0,
+			"to": "invert",
+			"to_port": 0
+		},
+		{
+			"from": "voronoi2",
+			"from_port": 0,
+			"to": "warp",
+			"to_port": 0
+		},
+		{
+			"from": "invert",
+			"from_port": 0,
+			"to": "normal_map2",
+			"to_port": 0
+		},
+		{
+			"from": "normal_map2",
+			"from_port": 0,
+			"to": "Material",
+			"to_port": 4
+		},
+		{
+			"from": "invert",
+			"from_port": 0,
+			"to": "math",
+			"to_port": 0
+		},
+		{
+			"from": "clouds_noise",
+			"from_port": 0,
+			"to": "warp",
+			"to_port": 1
+		}
+	],
+	"label": "Graph",
+	"longdesc": "",
+	"name": "387",
+	"node_position": {
+		"x": 0,
+		"y": 0
+	},
+	"nodes": [
+		{
+			"export_paths": {
+
+			},
+			"name": "Material",
+			"node_position": {
+				"x": 635.611084,
+				"y": -17.40707
+			},
+			"parameters": {
+				"albedo_color": {
+					"a": 1,
+					"b": 1,
+					"g": 1,
+					"r": 1,
+					"type": "Color"
+				},
+				"ao": 1,
+				"depth_scale": 0.5,
+				"emission_energy": 1,
+				"flags_transparent": true,
+				"metallic": 0,
+				"normal": 1,
+				"roughness": 0,
+				"size": 10,
+				"sss": 1
+			},
+			"seed_int": 0,
+			"type": "material"
+		},
+		{
+			"name": "voronoi2",
+			"node_position": {
+				"x": -632.820923,
+				"y": -95.027161
+			},
+			"parameters": {
+				"intensity": 1,
+				"randomness": 0.85,
+				"scale_x": 4,
+				"scale_y": 4,
+				"stretch_x": 1,
+				"stretch_y": 1
+			},
+			"seed_int": 4000109056,
+			"type": "voronoi2"
+		},
+		{
+			"name": "invert",
+			"node_position": {
+				"x": -77.76371,
+				"y": 37.464066
+			},
+			"parameters": {
+
+			},
+			"seed_int": 0,
+			"type": "invert"
+		},
+		{
+			"name": "warp",
+			"node_position": {
+				"x": -334.268738,
+				"y": 8.108721
+			},
+			"parameters": {
+				"amount": 0.085,
+				"eps": 0.1,
+				"mode": 0
+			},
+			"seed_int": 0,
+			"type": "warp"
+		},
+		{
+			"name": "normal_map2",
+			"node_position": {
+				"x": 416.907257,
+				"y": 256.684601
+			},
+			"parameters": {
+				"buffer": 1,
+				"param2": 0,
+				"size": 10,
+				"strength": 1
+			},
+			"seed_int": 0,
+			"type": "normal_map2"
+		},
+		{
+			"name": "math",
+			"node_position": {
+				"x": 10.907257,
+				"y": 184.742432
+			},
+			"parameters": {
+				"clamp": false,
+				"default_in1": 0,
+				"default_in2": 0,
+				"op": 0
+			},
+			"seed_int": 0,
+			"type": "math"
+		},
+		{
+			"name": "clouds_noise",
+			"node_position": {
+				"x": -655.290405,
+				"y": 134.013474
+			},
+			"parameters": {
+				"n_scale": 1,
+				"param0": 10,
+				"param1": 1
+			},
+			"seed_int": 554051840,
+			"type": "clouds_noise"
+		}
+	],
+	"parameters": {
+
+	},
+	"seed_int": 0,
+	"shortdesc": "",
+	"type": "graph"
+}
