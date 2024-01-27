@@ -13,12 +13,6 @@
 			"to_port": 0
 		},
 		{
-			"from": "fill_to_gradient",
-			"from_port": 0,
-			"to": "warp",
-			"to_port": 0
-		},
-		{
 			"from": "warp",
 			"from_port": 0,
 			"to": "gaussian_blur",
@@ -35,12 +29,6 @@
 			"from_port": 0,
 			"to": "warp_2",
 			"to_port": 1
-		},
-		{
-			"from": "voronoi2",
-			"from_port": 0,
-			"to": "warp_2",
-			"to_port": 0
 		},
 		{
 			"from": "invert",
@@ -131,6 +119,42 @@
 			"from_port": 0,
 			"to": "invert",
 			"to_port": 0
+		},
+		{
+			"from": "fill_to_gradient",
+			"from_port": 0,
+			"to": "blend2_3",
+			"to_port": 0
+		},
+		{
+			"from": "clouds_noise",
+			"from_port": 0,
+			"to": "blend2_3",
+			"to_port": 1
+		},
+		{
+			"from": "blend2_3",
+			"from_port": 0,
+			"to": "warp",
+			"to_port": 0
+		},
+		{
+			"from": "voronoi2",
+			"from_port": 0,
+			"to": "blend2_4",
+			"to_port": 0
+		},
+		{
+			"from": "blend2_4",
+			"from_port": 0,
+			"to": "warp_2",
+			"to_port": 0
+		},
+		{
+			"from": "clouds_noise",
+			"from_port": 0,
+			"to": "blend2_4",
+			"to_port": 1
 		}
 	],
 	"label": "Graph",
@@ -164,7 +188,7 @@
 				"depth_scale": 0.5,
 				"emission_energy": 1,
 				"flags_transparent": true,
-				"metallic": 0.5,
+				"metallic": 0,
 				"normal": 1,
 				"roughness": 1,
 				"size": 11,
@@ -176,8 +200,8 @@
 		{
 			"name": "voronoi2",
 			"node_position": {
-				"x": -1370.140869,
-				"y": -191.274109
+				"x": -1658.140869,
+				"y": -204.946579
 			},
 			"parameters": {
 				"intensity": 1,
@@ -262,8 +286,8 @@
 			"longdesc": "",
 			"name": "graph",
 			"node_position": {
-				"x": -1071.572266,
-				"y": -511.518585
+				"x": -1456.052368,
+				"y": -526.630249
 			},
 			"nodes": [
 				{
@@ -432,8 +456,8 @@
 		{
 			"name": "fill_to_gradient",
 			"node_position": {
-				"x": -1062.401001,
-				"y": -211.136688
+				"x": -1270.653687,
+				"y": -103.02343
 			},
 			"parameters": {
 				"grad": {
@@ -441,10 +465,10 @@
 					"points": [
 						{
 							"a": 1,
-							"b": 0,
-							"g": 0,
+							"b": 0.295328,
+							"g": 0.295328,
 							"pos": 0,
-							"r": 0
+							"r": 0.295328
 						},
 						{
 							"a": 1,
@@ -668,6 +692,48 @@
 			},
 			"seed_int": 0,
 			"type": "invert"
+		},
+		{
+			"name": "clouds_noise",
+			"node_position": {
+				"x": -1467.655151,
+				"y": 138.160721
+			},
+			"parameters": {
+				"n_scale": 1,
+				"param0": 11,
+				"param1": 1
+			},
+			"seed_int": 0,
+			"type": "clouds_noise"
+		},
+		{
+			"generic_size": 1,
+			"name": "blend2_3",
+			"node_position": {
+				"x": -887.108582,
+				"y": 5.604786
+			},
+			"parameters": {
+				"amount1": 0.1,
+				"blend_type1": 0
+			},
+			"seed_int": 0,
+			"type": "blend2"
+		},
+		{
+			"generic_size": 1,
+			"name": "blend2_4",
+			"node_position": {
+				"x": -1102.895874,
+				"y": -263.52301
+			},
+			"parameters": {
+				"amount1": 0.1,
+				"blend_type1": 0
+			},
+			"seed_int": 0,
+			"type": "blend2"
 		}
 	],
 	"parameters": {

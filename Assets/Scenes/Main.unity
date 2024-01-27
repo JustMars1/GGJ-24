@@ -108,7 +108,7 @@ NavMeshSettings:
     agentTypeID: 0
     agentRadius: 0.5
     agentHeight: 2
-    agentSlope: 45
+    agentSlope: 51.1
     agentClimb: 0.4
     ledgeDropHeight: 0
     maxJumpAcrossDistance: 0
@@ -122,7 +122,7 @@ NavMeshSettings:
     preserveTilesOutsideBounds: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 0}
+  m_NavMeshData: {fileID: 23800000, guid: 327a4fb67b532694a9020d7f5b6d7b8a, type: 2}
 --- !u!1 &271805958
 GameObject:
   m_ObjectHideFlags: 0
@@ -274,6 +274,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1995605456111776076, guid: b1a9349a30030c948834c00f3f97e946, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 2715937166737607321, guid: b1a9349a30030c948834c00f3f97e946, type: 3}
       propertyPath: m_Name
       value: Player
@@ -498,6 +502,56 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 0
+--- !u!1 &1085222285
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1085222287}
+  - component: {fileID: 1085222286}
+  m_Layer: 0
+  m_Name: NavMeshVille
+  m_TagString: House
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1085222286
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1085222285}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56bd505a93551d64692eba72008ed947, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  normalCivilPrefab: {fileID: 584301822052563484, guid: d38c1ed7688ff4244b6e94605f86fb47, type: 3}
+  bigCivilPrefab: {fileID: 3619541380589020684, guid: 3aac9c5ca3fd496418b3b8382d410d17, type: 3}
+  enemyPrefab: {fileID: 3399045552607249049, guid: cacde2fd5e2dcdc4ebc7b40b16935981, type: 3}
+  numberOfNormalCivil: 40
+  numberOfBigCivil: 10
+  spawnRadius: 100
+--- !u!4 &1085222287
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1085222285}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -104.8, y: 22.97, z: 67.8}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1883592940
 GameObject:
   m_ObjectHideFlags: 0
@@ -571,7 +625,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5253248500375443475, guid: d5ffaa22d683a804989bc1f3a7ef0787, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 62.8
+      value: 52.6
       objectReference: {fileID: 0}
     - target: {fileID: 5253248500375443475, guid: d5ffaa22d683a804989bc1f3a7ef0787, type: 3}
       propertyPath: m_LocalRotation.w
@@ -616,3 +670,4 @@ SceneRoots:
   - {fileID: 305609378}
   - {fileID: 271805964}
   - {fileID: 1883592942}
+  - {fileID: 1085222287}
