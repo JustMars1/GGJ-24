@@ -5,6 +5,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.Audio;
 
 public class SettingsMenu : MonoBehaviour
 {
@@ -29,14 +30,29 @@ public class SettingsMenu : MonoBehaviour
     {
         _graphicsQualityDropdown.ClearOptions();
         _graphicsQualityDropdown.AddOptions(QualitySettings.names.ToList());
-        
+
         _fullScreenToggle.isOn = Screen.fullScreen;
         _vSyncToggle.isOn = QualitySettings.vSyncCount > 0;
-        
+
         UpdateResolutions(Screen.fullScreen);
-        
+
+
+        // Load the values from the audiomixer
+        float masterVal, musicVal, soundVal, voiceVal;
+        AudioController.audioMixer.GetFloat("masterVol", out masterVal);
+        AudioController.audioMixer.GetFloat("musicVol", out musicVal);
+        AudioController.audioMixer.GetFloat("soundVol", out soundVal);
+        AudioController.audioMixer.GetFloat("voiceVol", out voiceVal);
+
+        // Set the slider values based on the loaded values
+        _masterVolumeSlider.value = Mathf.Pow(10.0f, masterVal / 20.0f);
+        _musicVolumeSlider.value = Mathf.Pow(10.0f, musicVal / 20.0f);
+        _soundVolumeSlider.value = Mathf.Pow(10.0f, soundVal / 20.0f);
+        _voiceVolumeSlider.value = Mathf.Pow(10.0f, voiceVal / 20.0f);
+
+
         // Callbacks
-        
+
         _graphicsQualityDropdown.onValueChanged.AddListener(OnGraphicsQualityChanged);
         _resolutionDropdown.onValueChanged.AddListener(OnResolutionChanged);
         
@@ -117,22 +133,24 @@ public class SettingsMenu : MonoBehaviour
 
     void OnMasterVolumeChanged()
     {
-        
+        AudioController.SetMasterVolume(_masterVolumeSlider.value);
     }
     
     void OnMusicVolumeChanged()
     {
-        
+        AudioController.SetMusicVolume(_musicVolumeSlider.value);
+
     }
-    
+
     void OnSoundVolumeChanged()
     {
-        
+        AudioController.SetSoundVolume(_soundVolumeSlider.value);
+
     }
-    
+
     void OnVoiceVolumeChanged()
     {
-        
+        AudioController.SetVoiceVolume(_voiceVolumeSlider.value);
     }
 
     void OnGraphicsQualityChanged(int value)
