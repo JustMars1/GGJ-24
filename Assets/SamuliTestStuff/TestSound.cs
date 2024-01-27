@@ -14,6 +14,6 @@ public class TestSound : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        AudioController.PlaySound(testClip, Camera.main.transform.position);
+        //AudioController.PlaySound(testClip, Camera.main.transform.position);
     }
 }
