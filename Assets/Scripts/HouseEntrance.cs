@@ -18,14 +18,10 @@ public class HouseEntrance : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Trigger entered!");
         if (other.CompareTag("Human"))
         {
-            Debug.Log("Got here");
-            
             if(other.GetComponent<Human>() && other.GetComponent<Human>().currentState == Human.HumanState.RunningToHouse)
             {
-                Debug.Log("Got here2");
                 if (transform.parent.GetComponent<House>() != null)
                 {
                     transform.parent.GetComponent<House>().residentsAmount++;
