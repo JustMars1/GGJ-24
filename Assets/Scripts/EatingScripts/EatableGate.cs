@@ -10,7 +10,7 @@ public class EatableGate : Eatable
         {
             if(CheckThreshold())
             {
-                Consume();
+                //Consume();
             }
         }
     }
