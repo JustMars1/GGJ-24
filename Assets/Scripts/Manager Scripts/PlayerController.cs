@@ -22,7 +22,10 @@ public class PlayerController : MonoBehaviour
     float _cameraXAngle;
 
     Vector3 _calculatedPlayerCameraLoc;
-    Vector3 _calculatedPlayerCameraRot;
+    Quaternion _calculatedPlayerCameraRot;
+
+    Vector3 _cameraInitialLoc;
+    Quaternion _cameraInitialRot;
 
     bool _isGamepad;
 
@@ -39,14 +42,19 @@ public class PlayerController : MonoBehaviour
     [SerializeField] 
     LayerMask _slopeMask;
 
-    bool _shouldMoveCameraToPlayerCamLoc = true;
-    bool _canUpdatePlayerCamRotations = true;
+    bool _shouldMoveCameraToPlayerCamLoc = false;
+    bool _canUpdatePlayerCamRotations = false;
+
+    bool _canMove = false;
 
     Vector3 _globalSlopeDirection = Vector3.forward;
 
+    bool _isOnSlope = false;
     bool _isOnRamp = false;
 
     bool _isOnGround = false;
+    
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -56,9 +64,13 @@ public class PlayerController : MonoBehaviour
 
         _playerInput.PlayerInputActionMaps.Move.performed += OnMove;
         _playerInput.PlayerInputActionMaps.Look.performed += OnLook;
+        _playerInput.PlayerInputActionMaps.Debug1.performed += OnDebug1Pressed;
 
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
+
+       _cameraInitialLoc = _cam.transform.position;
+       _cameraInitialRot = _cam.transform.rotation;
     }
 
     void OnMove(InputAction.CallbackContext ctx)
@@ -72,41 +84,67 @@ public class PlayerController : MonoBehaviour
         _isGamepad = ctx.control.device is Gamepad;
     }
 
-    void StartCameraBlend()
+    void OnDebug1Pressed(InputAction.CallbackContext ctx)
+    {
+        StartCameraBlend();
+    }
+
+    public void StartCameraBlend()
     {
         StartCoroutine(StartCameraBlendCo());
     }
 
     IEnumerator StartCameraBlendCo()
     {
-        
         float time = 0.0f;
         while (time < 1.0f)
         {
             yield return null;
             time += Time.deltaTime / 2.0f;
-            
-            //_cam.transform.position = Vector3.Lerp(Vector3.zero, Vector3.)
+
+           _cam.transform.position = Vector3.Lerp(_cameraInitialLoc, _calculatedPlayerCameraLoc, time);
+           _cam.transform.rotation = Quaternion.Lerp(_cameraInitialRot, _calculatedPlayerCameraRot, time);
         }
+        _shouldMoveCameraToPlayerCamLoc = true;
+        _canUpdatePlayerCamRotations = true;
+        _canMove = true;
     }
 
     void Orient()
     {
-        Vector3 playerForward = transform.forward;
-        Vector3 moveInputXZ = new Vector3(_moveInput.x, 0.0f, _moveInput.y);
-        Vector3 rotatedMoveInputFwd = Quaternion.AngleAxis(_cameraYAngle, Vector3.up) * moveInputXZ;
-        Vector3 rotatedMoveInputRight = Vector3.Cross(rotatedMoveInputFwd, Vector3.up);
-        float dotWithFwd = Vector3.Dot(playerForward, rotatedMoveInputFwd);
-        float dotWithRight = Vector3.Dot(playerForward, rotatedMoveInputRight);
-        float sign = Mathf.Approximately(dotWithRight, 0.0f) ? 1.0f : dotWithRight / Mathf.Abs(dotWithRight);
-
-        dotWithFwd = Mathf.Clamp(dotWithFwd, -1.0f, 1.0f);
-        
-        float angleToMoveDir = sign * Mathf.Acos(dotWithFwd) * Mathf.Rad2Deg;
- 
-        if (moveInputXZ.magnitude > 0.0f)
+        if (_canMove)
         {
-            _rb.MoveRotation(_rb.rotation * Quaternion.Euler(0.0f, angleToMoveDir * _orientSpeed, 0.0f));
+            // movement direction when walking normally
+            Vector3 playerForward = transform.forward;
+            Vector3 moveInputXZ = new Vector3(_moveInput.x, 0.0f, _moveInput.y);
+            Vector3 rotatedMoveInputFwd = Quaternion.AngleAxis(_cameraYAngle, Vector3.up) * moveInputXZ;
+            Vector3 rotatedMoveInputRight = Vector3.Cross(rotatedMoveInputFwd, Vector3.up);
+            float dotWithFwd = Vector3.Dot(playerForward, rotatedMoveInputFwd);
+            float dotWithRight = Vector3.Dot(playerForward, rotatedMoveInputRight);
+            float sign = Mathf.Approximately(dotWithRight, 0.0f) ? 1.0f : dotWithRight / Mathf.Abs(dotWithRight);
+
+            dotWithFwd = Mathf.Clamp(dotWithFwd, -1.0f, 1.0f);
+        
+            float angleToMoveDir = sign * Mathf.Acos(dotWithFwd) * Mathf.Rad2Deg;
+
+            // movement direction when sliding down slope
+            float dotWithSlopeDir = Vector3.Dot(playerForward, _globalSlopeDirection);
+            float dotWithSlopeAxis = Vector3.Dot(playerForward, Vector3.Cross(_globalSlopeDirection, Vector3.up));
+            
+            float signSlope = dotWithSlopeAxis == 0.0f ? 1.0f : dotWithSlopeAxis / Mathf.Abs(dotWithSlopeAxis);
+
+            dotWithSlopeDir = Mathf.Clamp(dotWithSlopeDir, -1.0f, 1.0f);
+
+            float angleToSlopeSlideDir = signSlope * Mathf.Acos(dotWithSlopeDir) * Mathf.Rad2Deg;
+ 
+            if (moveInputXZ.magnitude > 0.0f && !_isOnSlope)
+            {
+                _rb.MoveRotation(_rb.rotation * Quaternion.Euler(0.0f, angleToMoveDir * _orientSpeed, 0.0f));
+            }
+            if (_isOnSlope)
+            {
+                _rb.MoveRotation(_rb.rotation * Quaternion.Euler(0.0f, angleToSlopeSlideDir * _orientSpeed, 0.0f));
+            }
         }
     }
 
@@ -127,11 +165,12 @@ public class PlayerController : MonoBehaviour
         camPos = Quaternion.AngleAxis(-_cameraXAngle, _rightVec) * camPos;
         
         _calculatedPlayerCameraLoc = _rb.position + camPos*_cameraBoomLength;
-
+        _calculatedPlayerCameraRot = Quaternion.Euler(_cameraXAngle, _cameraYAngle, 0.0f);
+        
         if (_shouldMoveCameraToPlayerCamLoc)
         {
             _cam.transform.position = _calculatedPlayerCameraLoc;
-            _cam.transform.rotation = Quaternion.Euler(_cameraXAngle, _cameraYAngle, 0.0f);
+            _cam.transform.rotation = _calculatedPlayerCameraRot;
         }
     }
 
@@ -146,58 +185,65 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        _rb.AddForce(Vector3.down*9.81f, ForceMode.Acceleration);
-        if (_isOnGround)
+        if (_canMove)
         {
-            _rb.velocity = new Vector3(0.0f, _rb.velocity.y, 0.0f);
-        }
-        
-        Vector3 moveDirection = _forwardVec * _moveInput.y - _rightVec * _moveInput.x;
-        
-        if (Physics.Raycast(transform.position, -transform.up, out RaycastHit hit1, 1.2f))
-        {
-            Debug.Log("Hit");
-            _groundHitLoc = hit1.point;
-            DrawDebugPoint(_groundHitLoc, Color.red);
-
-            Vector3 slopeAxis = Vector3.Cross(hit1.normal, Vector3.up);
-            float slopeAngle = -Mathf.Acos(Vector3.Dot(hit1.normal, Vector3.up)) * Mathf.Rad2Deg;
-
-            moveDirection = Quaternion.AngleAxis(slopeAngle, slopeAxis) * moveDirection;
-            Debug.DrawLine(transform.position, transform.position + slopeAxis, Color.blue);
-            Debug.DrawLine(transform.position, transform.position + moveDirection, Color.green);
-            Debug.Log(slopeAngle);
-
-            _isOnGround = true;
-        }
-        else
-        {
-            _isOnGround = false;
-        }
-        
-        if (Physics.Raycast(transform.position, -transform.up, out RaycastHit hit2, 1.2f, _slopeMask))
-        {
-            Debug.Log("On Slope");
-
-            Vector3 slopeAxis = Vector3.Cross(_globalSlopeDirection, hit2.normal);
-            Vector3 slopeSlideDir = Vector3.Cross(hit2.normal, slopeAxis);
-            Debug.DrawLine(transform.position, transform.position + slopeSlideDir, Color.yellow);
-            
-            _rb.MovePosition(_rb.position + Time.fixedDeltaTime * 20.0f * slopeSlideDir + Time.fixedDeltaTime * _moveSpeed * moveDirection);
-
-            if (Vector3.Dot(slopeSlideDir, Vector3.up) > 0.0f)
+            _rb.AddForce(Vector3.down*9.81f, ForceMode.Acceleration);
+            if (_isOnGround)
             {
-                _isOnRamp = true;
+                _rb.velocity = new Vector3(0.0f, _rb.velocity.y, 0.0f);
             }
-        }
-        else
-        {
-            _rb.MovePosition(_rb.position + Time.fixedDeltaTime * _moveSpeed * moveDirection);
-            if (_isOnRamp)
+        
+            Vector3 moveDirection = _forwardVec * _moveInput.y - _rightVec * _moveInput.x;
+        
+            if (Physics.Raycast(transform.position, -transform.up, out RaycastHit hit1, 1.2f))
             {
-                Debug.Log("Launch off ramp!");
-                _rb.AddForce(_globalSlopeDirection*15.0f+Vector3.up*5.0f, ForceMode.Impulse);
-                _isOnRamp = false;
+                Debug.Log("Hit");
+                _groundHitLoc = hit1.point;
+                DrawDebugPoint(_groundHitLoc, Color.red);
+
+                Vector3 slopeAxis = Vector3.Cross(hit1.normal, Vector3.up);
+                float slopeAngle = -Mathf.Acos(Vector3.Dot(hit1.normal, Vector3.up)) * Mathf.Rad2Deg;
+
+                moveDirection = Quaternion.AngleAxis(slopeAngle, slopeAxis) * moveDirection;
+                Debug.DrawLine(transform.position, transform.position + slopeAxis, Color.blue);
+                Debug.DrawLine(transform.position, transform.position + moveDirection, Color.green);
+                Debug.Log(slopeAngle);
+
+                _isOnGround = true;
+            }
+            else
+            {
+                _isOnGround = false;
+            }
+        
+            if (Physics.Raycast(transform.position, -transform.up, out RaycastHit hit2, 1.2f, _slopeMask))
+            {
+                Debug.Log("On Slope");
+
+                Vector3 slopeAxis = Vector3.Cross(_globalSlopeDirection, hit2.normal);
+                Vector3 slopeSlideDir = Vector3.Cross(hit2.normal, slopeAxis);
+                Debug.DrawLine(transform.position, transform.position + slopeSlideDir, Color.yellow);
+            
+                _rb.MovePosition(_rb.position + Time.fixedDeltaTime * 20.0f * slopeSlideDir + Time.fixedDeltaTime * _moveSpeed * moveDirection);
+
+                if (Vector3.Dot(slopeSlideDir, Vector3.up) > 0.0f)
+                {
+                    _isOnRamp = true;
+                }
+
+                _isOnSlope = true;
+            }
+            else
+            {
+                _rb.MovePosition(_rb.position + Time.fixedDeltaTime * _moveSpeed * moveDirection);
+                if (_isOnRamp)
+                {
+                    Debug.Log("Launch off ramp!");
+                    _rb.AddForce(_globalSlopeDirection*15.0f+Vector3.up*5.0f, ForceMode.Impulse);
+                    _isOnRamp = false;
+                }
+
+                _isOnSlope = false;
             }
         }
     }
