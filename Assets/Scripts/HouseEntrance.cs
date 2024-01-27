@@ -20,7 +20,7 @@ public class HouseEntrance : MonoBehaviour
     {
         if (other.CompareTag("Human"))
         {
-            if(other.GetComponent<Human>() && other.GetComponent<Human>().currentState == Human.HumanState.RunningToHouse)
+            if(other.GetComponent<Civilian>() && other.GetComponent<Civilian>().currentState == Civilian.CivilianState.RunningToHouse)
             {
                 if (transform.parent.GetComponent<House>() != null)
                 {

@@ -18,7 +18,7 @@ public abstract class Eatable : MonoBehaviour
     [Tooltip("The length in seconds how long the eating animation lasts.")]
     protected float eatDuration;
 
-    private void Start()
+    protected virtual void Start()
     {
         animator = GetComponent<Animator>();
     }
