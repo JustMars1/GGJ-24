@@ -24,6 +24,7 @@ public class House : MonoBehaviour
     {
         if(other.CompareTag("Player"))
         {
+            Debug.Log("Player hit trigger");
             Rigidbody[] rbList = gameObject.GetComponentsInChildren<Rigidbody>();
             Vector3 playerDirection = other.transform.forward;
 
