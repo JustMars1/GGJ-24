@@ -26,6 +26,7 @@ public class PlayerController : MonoBehaviour
     float _cameraBoomLength = 6.0f;
     float _cameraSensitivity = 0.5f;
     float _moveSpeed = 10.0f;
+    float _orientSpeed = 0.05f;
 
     Vector3 _forwardVec;
     Vector3 _rightVec;
@@ -60,7 +61,7 @@ public class PlayerController : MonoBehaviour
         _isGamepad = ctx.control.device is Gamepad;
     }
 
-    void Orient(float deltaTime)
+    void Orient()
     {
         Vector3 playerForward = transform.forward;
         Vector3 moveInputXZ = new Vector3(_moveInput.x, 0.0f, _moveInput.y);
@@ -73,16 +74,28 @@ public class PlayerController : MonoBehaviour
         dotWithFwd = Mathf.Clamp(dotWithFwd, -1.0f, 1.0f);
         
         float angleToMoveDir = sign * Mathf.Acos(dotWithFwd) * Mathf.Rad2Deg;
-        
-        if (float.IsNaN(angleToMoveDir))
-        {
-            Debug.Log("angleToMoveDir is nan"); 
-        }
-        
+ 
         if (moveInputXZ.magnitude > 0.0f)
         {
-            _rb.MoveRotation(_rb.rotation * Quaternion.Euler(0.0f, angleToMoveDir * 0.01f, 0.0f));
+            _rb.MoveRotation(_rb.rotation * Quaternion.Euler(0.0f, angleToMoveDir * _orientSpeed, 0.0f));
         }
+    }
+
+    void UpdateCamera()
+    {
+        float ffInd = Time.deltaTime / (1.0f / 60.0f) * 3.0f;
+        _cameraYAngle += _lookInput.x * _cameraSensitivity * (_isGamepad ? ffInd : 1.0f);
+        _cameraXAngle -= _lookInput.y * _cameraSensitivity * (_isGamepad ? ffInd : 1.0f);
+        _cameraXAngle = Mathf.Clamp(_cameraXAngle, -90, 90);
+        
+        _forwardVec = Quaternion.AngleAxis(_cameraYAngle, Vector3.up) *  new Vector3(0.0f, 0.0f, 1.0f);
+        _rightVec = Vector3.Cross(_forwardVec, Vector3.up);
+
+        Vector3 camPos = -_forwardVec;
+        camPos = Quaternion.AngleAxis(-_cameraXAngle, _rightVec) * camPos;
+        
+        _cam.transform.position = _rb.position + camPos*_cameraBoomLength;
+        _cam.transform.rotation = Quaternion.Euler(_cameraXAngle, _cameraYAngle, 0.0f);
     }
 
     void DrawDebugPoint(Vector3 origin, Color color)
@@ -92,12 +105,7 @@ public class PlayerController : MonoBehaviour
         Debug.DrawLine(origin, origin + Vector3.right * s, color, 1.0f);
         Debug.DrawLine(origin, origin + Vector3.forward * s, color, 1.0f);
     }
-
-    //private void OnDrawGizmos()
-   // {
-    //    Gizmos.DrawSphere(_groundHitLoc, 0.1f);
-   // }
-
+    
     // Update is called once per frame
     void FixedUpdate()
     {
@@ -122,6 +130,7 @@ public class PlayerController : MonoBehaviour
             Debug.Log("No hit");
         }
 
+        _rb.AddForce(Vector3.down*9.81f, ForceMode.Acceleration);
         _rb.velocity = new Vector3(0.0f, _rb.velocity.y, 0.0f);
         
         _rb.MovePosition(_rb.position + Time.fixedDeltaTime * _moveSpeed * moveDirection);
@@ -129,20 +138,7 @@ public class PlayerController : MonoBehaviour
 
     private void LateUpdate()
     {
-        float ffInd = Time.deltaTime / (1.0f / 60.0f) * 3.0f;
-        _cameraYAngle += _lookInput.x * _cameraSensitivity * (_isGamepad ? ffInd : 1.0f);
-        _cameraXAngle -= _lookInput.y * _cameraSensitivity * (_isGamepad ? ffInd : 1.0f);
-        _cameraXAngle = Mathf.Clamp(_cameraXAngle, -90, 90);
-        
-        _forwardVec = Quaternion.AngleAxis(_cameraYAngle, Vector3.up) *  new Vector3(0.0f, 0.0f, 1.0f);
-        _rightVec = Vector3.Cross(_forwardVec, Vector3.up);
-
-        Vector3 camPos = -_forwardVec;
-        camPos = Quaternion.AngleAxis(-_cameraXAngle, _rightVec) * camPos;
-        
-        _cam.transform.position = _rb.position + camPos*_cameraBoomLength;
-        _cam.transform.rotation = Quaternion.Euler(_cameraXAngle, _cameraYAngle, 0.0f);
-        
-        Orient(Time.deltaTime);
+        UpdateCamera();
+        Orient();
     }
 }
