@@ -115,7 +115,10 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        hungerMeter.fillAmount = satiate / maxSatiate;
+        if(hungerMeter)
+        {
+            hungerMeter.fillAmount = satiate / maxSatiate;
+        }
     }
 
     public GameManager GetGameManager()
