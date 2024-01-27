@@ -21,6 +21,9 @@ public class PlayerController : MonoBehaviour
     float _cameraYAngle;
     float _cameraXAngle;
 
+    Vector3 _calculatedPlayerCameraLoc;
+    Vector3 _calculatedPlayerCameraRot;
+
     bool _isGamepad;
 
     float _cameraBoomLength = 6.0f;
@@ -39,7 +42,7 @@ public class PlayerController : MonoBehaviour
     bool _shouldMoveCameraToPlayerCamLoc = true;
     bool _canUpdatePlayerCamRotations = true;
 
-    Vector3 _globalSlopeDirection = Vector3.right;
+    Vector3 _globalSlopeDirection = Vector3.forward;
 
     bool _isOnRamp = false;
 
@@ -67,6 +70,24 @@ public class PlayerController : MonoBehaviour
     {
         _lookInput = ctx.ReadValue<Vector2>();
         _isGamepad = ctx.control.device is Gamepad;
+    }
+
+    void StartCameraBlend()
+    {
+        StartCoroutine(StartCameraBlendCo());
+    }
+
+    IEnumerator StartCameraBlendCo()
+    {
+        
+        float time = 0.0f;
+        while (time < 1.0f)
+        {
+            yield return null;
+            time += Time.deltaTime / 2.0f;
+            
+            //_cam.transform.position = Vector3.Lerp(Vector3.zero, Vector3.)
+        }
     }
 
     void Orient()
@@ -104,10 +125,12 @@ public class PlayerController : MonoBehaviour
 
         Vector3 camPos = -_forwardVec;
         camPos = Quaternion.AngleAxis(-_cameraXAngle, _rightVec) * camPos;
+        
+        _calculatedPlayerCameraLoc = _rb.position + camPos*_cameraBoomLength;
 
         if (_shouldMoveCameraToPlayerCamLoc)
         {
-            _cam.transform.position = _rb.position + camPos*_cameraBoomLength;
+            _cam.transform.position = _calculatedPlayerCameraLoc;
             _cam.transform.rotation = Quaternion.Euler(_cameraXAngle, _cameraYAngle, 0.0f);
         }
     }
@@ -173,7 +196,7 @@ public class PlayerController : MonoBehaviour
             if (_isOnRamp)
             {
                 Debug.Log("Launch off ramp!");
-                _rb.AddForce(_globalSlopeDirection*10.0f, ForceMode.Impulse);
+                _rb.AddForce(_globalSlopeDirection*15.0f+Vector3.up*5.0f, ForceMode.Impulse);
                 _isOnRamp = false;
             }
         }
