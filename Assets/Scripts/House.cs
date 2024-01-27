@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class House : MonoBehaviour
 {
-    int residentsAmount;
+    public int residentsAmount;
     public int maxResidents;
     public float force;
     public GameObject doorPoint;
