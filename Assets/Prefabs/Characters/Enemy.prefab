@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &584301822052563484
+--- !u!1 &3399045552607249049
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,51 +8,50 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 3022926602701221282}
-  - component: {fileID: 8539926994257686540}
-  - component: {fileID: 6990892287113919041}
-  - component: {fileID: 380990327485342682}
-  - component: {fileID: 7513387795985999455}
-  - component: {fileID: 5108753183970493825}
-  - component: {fileID: 4860002134903733127}
-  - component: {fileID: 9222138743405530498}
+  - component: {fileID: 695007223842504949}
+  - component: {fileID: 3747981415245221678}
+  - component: {fileID: 8123326538222112184}
+  - component: {fileID: 2997707178337208489}
+  - component: {fileID: 9199640985915663548}
+  - component: {fileID: 4911572890618206569}
+  - component: {fileID: 6607036506635903548}
   m_Layer: 0
-  m_Name: Human
+  m_Name: Enemy
   m_TagString: Human
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &3022926602701221282
+--- !u!4 &695007223842504949
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 584301822052563484}
+  m_GameObject: {fileID: 3399045552607249049}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.277344, y: -11.26, z: 2.8546126}
+  m_LocalPosition: {x: 1.3088508, y: -11.34, z: -5.5195045}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &8539926994257686540
+--- !u!33 &3747981415245221678
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 584301822052563484}
+  m_GameObject: {fileID: 3399045552607249049}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &6990892287113919041
+--- !u!23 &8123326538222112184
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 584301822052563484}
+  m_GameObject: {fileID: 3399045552607249049}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -66,7 +65,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: f3267d2c89765a64ca152a082082725a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -88,13 +87,13 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &380990327485342682
+--- !u!136 &2997707178337208489
 CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 584301822052563484}
+  m_GameObject: {fileID: 3399045552607249049}
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -111,13 +110,13 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!195 &7513387795985999455
+--- !u!195 &9199640985915663548
 NavMeshAgent:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 584301822052563484}
+  m_GameObject: {fileID: 3399045552607249049}
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
@@ -133,47 +132,17 @@ NavMeshAgent:
   m_BaseOffset: 1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &5108753183970493825
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 584301822052563484}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8bc1a67c3356ccb45922669514710fe3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animator: {fileID: 0}
-  eatenAnimationName: 
-  detectionRadius: 10
-  normalWanderSpeed: 2
-  runAwaySpeed: 6
-  wanderRadius: 20
-  wanderTimer: 2
-  runAwayDistance: 20
-  fearZigzagFactor: 8
-  fallChance: 0.0003
-  fallDuration: 3
-  cooldownDuration: 5
-  runAwayDuration: 8
-  runToHouseChance: 0.005
-  runToHouseDistance: 1
-  timeBetweenDestinations: 1.5
-  stuckTimerThreshold: 2
-  currentState: 0
---- !u!95 &4860002134903733127
+--- !u!95 &4911572890618206569
 Animator:
   serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 584301822052563484}
+  m_GameObject: {fileID: 3399045552607249049}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 69428f526cd21824699bb735d4b01e0d, type: 2}
+  m_Controller: {fileID: 9100000, guid: 6bdff6bbeac0ee7439c06c9c0459738a, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -184,30 +153,25 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!54 &9222138743405530498
-Rigidbody:
+--- !u!114 &6607036506635903548
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 584301822052563484}
-  serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
+  m_GameObject: {fileID: 3399045552607249049}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef8880f51cacbd44ab7a4adcf5681464, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eatenAnimationName: 
+  detectionRadius: 10
+  normalWanderSpeed: 2
+  followPlayerSpeed: 6
+  wanderRadius: 20
+  wanderTimer: 2
+  cooldownDuration: 5
+  attackRange: 1.5
+  timeBetweenDestinations: 1.5
+  stuckTimerThreshold: 2
