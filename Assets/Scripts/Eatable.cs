@@ -5,11 +5,10 @@ using UnityEngine;
 [RequireComponent(typeof(Animator))]
 public abstract class Eatable : MonoBehaviour
 {
+    protected Animator animator;
+
     protected int eatThreshold;
     protected int scoreWorth;
-
-    [SerializeField]
-    protected Animator animator;
 
     [SerializeField]
     protected string eatenAnimationName;
