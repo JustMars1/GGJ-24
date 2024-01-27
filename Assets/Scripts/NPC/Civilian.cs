@@ -111,9 +111,27 @@ public class Civilian : Eatable
     private void UpdateAnimatorParameters()
     {
         // Update animator parameters based on the current state
-        animator.SetBool("IsWalking", currentState == CivilianState.Wonder);
-        animator.SetBool("IsRunning", currentState == CivilianState.RunningAway);
-        animator.SetBool("IsRunning", currentState == CivilianState.RunningToHouse);
+        if (currentState == CivilianState.Wonder)
+        {
+            animator.SetTrigger("IsWalking");
+            animator.ResetTrigger("IsRunning");
+        }
+        else if (currentState == CivilianState.RunningAway)
+        {
+            animator.SetTrigger("IsRunning");
+            animator.ResetTrigger("IsWalking");
+        }
+        else if (currentState == CivilianState.RunningToHouse)
+        {
+            animator.SetTrigger("IsRunning");
+            animator.ResetTrigger("IsWalking");
+        }
+        else
+        {
+            // Reset both triggers if not in Walk or Run state
+            animator.ResetTrigger("IsWalking");
+            animator.ResetTrigger("IsRunning");
+        }
     }
 
     public void UpdateWonderState()

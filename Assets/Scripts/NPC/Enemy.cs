@@ -93,8 +93,22 @@ public class Enemy : Eatable
     private void UpdateAnimatorParameters()
     {
         // Update animator parameters based on the current state
-        animator.SetBool("IsWalking", currentState == EnemyState.Wonder);
-        animator.SetBool("IsRunning", currentState == EnemyState.FollowingPlayer);
+        if (currentState == EnemyState.Wonder)
+        {
+            animator.SetTrigger("IsWalking");
+            animator.ResetTrigger("IsRunning");
+        }
+        else if (currentState == EnemyState.FollowingPlayer)
+        {
+            animator.SetTrigger("IsRunning");
+            animator.ResetTrigger("IsWalking");
+        }
+        else
+        {
+            // Reset both triggers if not in Walk or Run state
+            animator.ResetTrigger("IsWalking");
+            animator.ResetTrigger("IsRunning");
+        }
     }
 
     public void UpdateWonderState()
