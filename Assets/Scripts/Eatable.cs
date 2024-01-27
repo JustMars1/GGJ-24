@@ -2,14 +2,35 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Animator))]
 public abstract class Eatable : MonoBehaviour
 {
-    public int eatThreshold;
+    protected Animator animator;
 
-    public bool CheckThreshold()
+    protected int eatThreshold;
+    protected int scoreWorth;
+
+    [SerializeField]
+    protected string eatenAnimationName;
+
+    private void Start()
+    {
+        animator = GetComponent<Animator>();
+    }
+
+    protected bool CheckThreshold()
     {
         return eatThreshold > GameManager.manager.score;
     }
 
-    public abstract void Consume();
+    protected virtual void PlayAnimation()
+    {
+        animator.Play(eatenAnimationName);
+    }
+
+    public virtual void Consume()
+    {
+        PlayAnimation();
+        GameManager.manager.AddScore(scoreWorth);
+    }
 }

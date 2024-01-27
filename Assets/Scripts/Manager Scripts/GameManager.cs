@@ -123,15 +123,15 @@ public class GameManager : MonoBehaviour
         return manager;
     }
 
-    public void AddScore()
+    public void AddScore(int scoreWorth)
     {
-        score += 10;
+        score += scoreWorth;
         AddSatiate();
     }
 
-    public void ReduceScore()
+    public void ReduceScore(int scoreWorth)
     {
-        score -= 10;
+        score -= scoreWorth;
     }
 
     private void AddSatiate()
