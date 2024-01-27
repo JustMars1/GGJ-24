@@ -16,7 +16,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &8666334584402726380
 Transform:
@@ -51,7 +51,7 @@ Light:
   m_InnerSpotAngle: 69.76697
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 0
+    m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -90,7 +90,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_BoundingSphereOverride: {x: 8.17e-43, y: 0.00050557265, z: 8.17e-43, w: 0.0010393886}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
@@ -134,7 +134,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &573668828671016353
 Transform:
@@ -169,7 +169,7 @@ Light:
   m_InnerSpotAngle: 69.76697
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 0
+    m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -208,7 +208,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_BoundingSphereOverride: {x: 1, y: 5.23e-43, z: 1, w: 5.47e-43}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
@@ -266,7 +266,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d5236dfa58d401242ad2f903e3b5ce3d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 46.6
+      value: 40.415
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d5236dfa58d401242ad2f903e3b5ce3d, type: 3}
       propertyPath: m_LocalRotation.w
@@ -303,6 +303,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: d5236dfa58d401242ad2f903e3b5ce3d, type: 3}
       propertyPath: m_Name
       value: flood_light
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d5236dfa58d401242ad2f903e3b5ce3d, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
