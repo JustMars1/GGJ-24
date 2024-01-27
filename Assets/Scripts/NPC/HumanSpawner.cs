@@ -1,30 +1,77 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
 public class HumanSpawner : MonoBehaviour
 {
-    public GameObject humanPrefab;
-    public int numberOfHumans = 10;
+    public GameObject normalCivilPrefab;
+    public GameObject bigCivilPrefab;
+    public GameObject enemyPrefab;
+    public int numberOfNormalCivil = 10;
+    public int numberOfBigCivil = 5;
     public float spawnRadius = 10f;
+
+    private GameManager manager;
+    private int lastSpawnedScore;
 
     void Start()
     {
+        manager = GameManager.manager; // Assuming GameManager is a singleton or has a static reference
+        lastSpawnedScore = manager.GetScore();
         StartCoroutine(SpawnHumans());
+    }
+
+    void Update()
+    {
+        int currentScore = manager.GetScore();
+
+        // Check if the score has crossed a threshold since the last time enemies were spawned
+        if (currentScore > lastSpawnedScore)
+        {
+            // Spawn enemies based on the score difference
+            int scoreDifference = currentScore - lastSpawnedScore;
+            int numberOfEnemiesToSpawn = (int)(currentScore / 50) * 10; // 10 enemies per 50 score
+
+            for (int i = 0; i < numberOfEnemiesToSpawn; i++)
+            {
+                Vector3 randomPosition = GetRandomPosition();
+
+                // Check if the position is valid
+                if (!float.IsInfinity(randomPosition.x))
+                {
+                    GameObject newEnemy = Instantiate(enemyPrefab, randomPosition, Quaternion.identity);
+                }
+            }
+
+            lastSpawnedScore = currentScore;
+        }
     }
 
     IEnumerator SpawnHumans()
     {
-        for (int i = 0; i < numberOfHumans; i++)
+        // Spawn normal civilians
+        for (int i = 0; i < numberOfNormalCivil; i++)
         {
             Vector3 randomPosition = GetRandomPosition();
 
             // Check if the position is valid
             if (!float.IsInfinity(randomPosition.x))
             {
-                GameObject newHuman = Instantiate(humanPrefab, randomPosition, Quaternion.identity);
+                GameObject newNormalCivil = Instantiate(normalCivilPrefab, randomPosition, Quaternion.identity);
+            }
 
+            yield return null;
+        }
+
+        // Spawn big civilians
+        for (int i = 0; i < numberOfBigCivil; i++)
+        {
+            Vector3 randomPosition = GetRandomPosition();
+
+            // Check if the position is valid
+            if (!float.IsInfinity(randomPosition.x))
+            {
+                GameObject newBigCivil = Instantiate(bigCivilPrefab, randomPosition, Quaternion.identity);
             }
 
             yield return null;
