@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    private static GameManager manager;
+    public static GameManager manager;
 
     [SerializeField]
     [Tooltip("The image used as the hunger meter.")]
