@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d21e6b35aa6e43679e73e0d83ff39b15, type: 3}
+  m_Name: Palette_9
+  m_EditorClassIdentifier: 
+  _hat: {r: 0, g: 0.107924566, b: 0.7056604, a: 1}
+  _neckThing: {r: 0.37629753, g: 0.8107842, b: 0.89433956, a: 1}
+  _coat: {r: 1, g: 0.47358483, b: 0.8451191, a: 1}
+  _gloves: {r: 0.9169811, g: 0.9169811, b: 0.9169811, a: 1}
+  _pants: {r: 0.61698115, g: 0.6532471, b: 1, a: 1}
+  _boots: {r: 0.18700601, g: 0.18910092, b: 0.19245279, a: 1}
+  _scarf: {r: 1, g: 0.25471687, b: 0.5653683, a: 1}
