@@ -25,7 +25,7 @@ public class Enemy : Eatable
     public float wanderTimer = 2f;
     public float cooldownDuration = 5.0f;
     public float attackRange = 1.5f;
-    
+    public int normalEnemyDamage = 30;
 
 
     // Variables for internal use
@@ -160,11 +160,25 @@ public class Enemy : Eatable
             float distanceToPlayer = Vector3.Distance(transform.position, playerTransform.position);
             if (distanceToPlayer > detectionRadius)
             {
-                // Player is not in line of sight at the last known position, go back to Wonder state
-                currentState = EnemyState.Wonder;
-                navMeshAgent.speed = normalWanderSpeed;
-                timer = wanderTimer; // Reset the timer for the next idle destination
-                lastKnownPlayerPosition = Vector3.zero; // Reset the last known position
+                // Player is not in line of sight at the last known position
+
+                // Increment the timer
+                stuckTimer += Time.deltaTime;
+
+                if (stuckTimer > 5.0f) // If the enemy has been stuck for more than 5 seconds
+                {
+                    // Go back to Wonder state
+                    currentState = EnemyState.Wonder;
+                    navMeshAgent.speed = normalWanderSpeed;
+                    timer = wanderTimer; // Reset the timer for the next idle destination
+                    lastKnownPlayerPosition = Vector3.zero; // Reset the last known position
+                    stuckTimer = 0; // Reset the stuck timer
+                }
+            }
+            else
+            {
+                // Player is still within the detection radius, reset the stuck timer
+                stuckTimer = 0;
             }
         }
     }
@@ -232,6 +246,6 @@ public class Enemy : Eatable
     public void DealDamage()
     {
         //Deal damage to player
-
+        GameManager.manager.ReduceScore(normalEnemyDamage);
     }
 }
