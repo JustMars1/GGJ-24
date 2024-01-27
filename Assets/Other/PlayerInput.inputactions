@@ -81,6 +81,17 @@
                     "isPartOfComposite": true
                 },
                 {
+                    "name": "",
+                    "id": "7979ebbb-e809-421f-a6ae-130953b256f6",
+                    "path": "<Gamepad>/leftStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
                     "name": "2D Vector",
                     "id": "a06d8afc-55c0-469a-80bd-cfb2a0388a29",
                     "path": "2DVector",
@@ -134,6 +145,17 @@
                     "action": "Look",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "1bc44074-95f8-43df-8108-e1c7a595ac57",
+                    "path": "<Gamepad>/rightStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Look",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }
