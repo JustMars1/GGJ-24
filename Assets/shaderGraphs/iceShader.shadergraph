@@ -37,6 +37,9 @@
         },
         {
             "m_Id": "72540a1be060472788bb021170a3aa04"
+        },
+        {
+            "m_Id": "8ac44e0f053f4c38958b5ba9f9e0a7ba"
         }
     ],
     "m_GroupDatas": [],
@@ -82,6 +85,9 @@
             },
             {
                 "m_Id": "72540a1be060472788bb021170a3aa04"
+            },
+            {
+                "m_Id": "8ac44e0f053f4c38958b5ba9f9e0a7ba"
             }
         ]
     },
@@ -176,8 +182,23 @@
     "m_Hidden": false,
     "m_ShaderOutputName": "Smoothness",
     "m_StageCapability": 2,
-    "m_Value": 0.5,
+    "m_Value": 1.0,
     "m_DefaultValue": 0.5,
+    "m_Labels": []
+}
+
+{
+    "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.Vector1MaterialSlot",
+    "m_ObjectId": "210b6b8ad2314f97a5aa767cc20fea13",
+    "m_Id": 0,
+    "m_DisplayName": "Alpha",
+    "m_SlotType": 0,
+    "m_Hidden": false,
+    "m_ShaderOutputName": "Alpha",
+    "m_StageCapability": 2,
+    "m_Value": 1.0,
+    "m_DefaultValue": 1.0,
     "m_Labels": []
 }
 
@@ -316,7 +337,7 @@
         "m_Id": "84b228ec960f434fb57d07b567cfc09e"
     },
     "m_AllowMaterialOverride": false,
-    "m_SurfaceType": 0,
+    "m_SurfaceType": 1,
     "m_ZTestMode": 4,
     "m_ZWriteControl": 0,
     "m_AlphaMode": 0,
@@ -492,6 +513,40 @@
 {
     "m_SGVersion": 0,
     "m_Type": "UnityEditor.ShaderGraph.BlockNode",
+    "m_ObjectId": "8ac44e0f053f4c38958b5ba9f9e0a7ba",
+    "m_Group": {
+        "m_Id": ""
+    },
+    "m_Name": "SurfaceDescription.Alpha",
+    "m_DrawState": {
+        "m_Expanded": true,
+        "m_Position": {
+            "serializedVersion": "2",
+            "x": 0.0,
+            "y": 0.0,
+            "width": 0.0,
+            "height": 0.0
+        }
+    },
+    "m_Slots": [
+        {
+            "m_Id": "210b6b8ad2314f97a5aa767cc20fea13"
+        }
+    ],
+    "synonyms": [],
+    "m_Precision": 0,
+    "m_PreviewExpanded": true,
+    "m_DismissedVersion": 0,
+    "m_PreviewMode": 0,
+    "m_CustomColors": {
+        "m_SerializableColors": []
+    },
+    "m_SerializedDescriptor": "SurfaceDescription.Alpha"
+}
+
+{
+    "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.BlockNode",
     "m_ObjectId": "8b786bca304a4d3fa317aa5929ba7e0c",
     "m_Group": {
         "m_Id": ""
@@ -634,9 +689,9 @@
     "m_ShaderOutputName": "BaseColor",
     "m_StageCapability": 2,
     "m_Value": {
-        "x": 0.5,
-        "y": 0.5,
-        "z": 0.5
+        "x": 0.6273584961891174,
+        "y": 0.6660341620445252,
+        "z": 1.0
     },
     "m_DefaultValue": {
         "x": 0.0,
