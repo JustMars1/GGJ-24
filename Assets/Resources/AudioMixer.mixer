@@ -69,6 +69,8 @@ AudioMixerController:
     name: musicVol
   - guid: 74031a6839462584e86fcc5926137e40
     name: soundVol
+  - guid: 743bc1eb81b56ab4cb7f3a9452ecd917
+    name: voiceVol
   m_AudioMixerGroupViews:
   - guids:
     - c023192366a788d448a143f792ebef8c
@@ -124,9 +126,10 @@ AudioMixerSnapshotController:
   m_AudioMixer: {fileID: 24100000}
   m_SnapshotID: ac13dcc267b848d47a9cc6d3877bd018
   m_FloatValues:
-    0896b64353cb57f4b848fdee9ec5938f: -0.39762527
+    0896b64353cb57f4b848fdee9ec5938f: -0.10231405
     64dab6e43e4c266499def6cf880a08f5: -0.1668526
-    74031a6839462584e86fcc5926137e40: -1.0800337
+    74031a6839462584e86fcc5926137e40: -0.30163807
+    743bc1eb81b56ab4cb7f3a9452ecd917: -0.08374829
   m_TransitionOverrides: {}
 --- !u!243 &347544635683207189
 AudioMixerGroupController:
