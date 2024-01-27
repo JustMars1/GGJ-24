@@ -134,6 +134,11 @@ public class GameManager : MonoBehaviour
         score -= scoreWorth;
     }
 
+    public int GetScore()
+    {
+        return score;
+    }
+
     private void AddSatiate()
     {
         if (satiate + 10 >= maxSatiate)
