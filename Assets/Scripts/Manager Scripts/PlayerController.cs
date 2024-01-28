@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Numerics;
+using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Serialization;
@@ -87,6 +88,7 @@ public class PlayerController : MonoBehaviour
     public AudioClip rightFootstep;
     public AudioClip leftFootstep;
     public AudioClip slidingSound;
+    bool slidingIsPlaying = false;
 
     // Start is called before the first frame update
     void Start()
@@ -279,7 +281,11 @@ public class PlayerController : MonoBehaviour
 
                 isOnSlope = true;
                 _animator.SetBool("onSlope", true);
-                PlaySlidingSound();
+                if(!slidingIsPlaying)
+                {
+                    PlaySlidingSound();
+                    slidingIsPlaying = true;
+                }
             }
             else
             {
@@ -295,7 +301,11 @@ public class PlayerController : MonoBehaviour
 
                 isOnSlope = false;
                 _animator.SetBool("onSlope", false);
-                StopSlidingSound();
+                if(slidingIsPlaying)
+                {
+                    Debug.Log("Stopped loop");
+                    StopSlidingSound();
+                }
             }
         }
     }
