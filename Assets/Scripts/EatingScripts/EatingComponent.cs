@@ -13,6 +13,7 @@ public class EatingComponent : MonoBehaviour
     private Animator animator;
 
     public Transform eatPoint;
+    public PlayerController playerController;
 
     // Audio
     public AudioClip[] eatSoundList;
@@ -24,9 +25,15 @@ public class EatingComponent : MonoBehaviour
 
     public void Eat(Eatable eatableComponent)
     {
-        animator.SetBool("startEat", true);
+        if (playerController.isOnSlope)
+        {
+            animator.SetBool("slideEat", true);
+        }
+        else
+        {
+            animator.SetBool("startEat", true);
+        }
         eatableComponent.Consume(eatPoint);
-        //StartCoroutine(ChangeEatBool());
         print("eat");
     }
 
@@ -43,12 +50,6 @@ public class EatingComponent : MonoBehaviour
                 Eat(eatableComponent);
             }
         }
-    }
-
-    IEnumerator ChangeEatBool()
-    {
-        yield return new WaitForSeconds(0.1f);
-        animator.SetBool("startEat", false);
     }
 
     public void PlayEatingSound()

@@ -62,7 +62,7 @@ public class PlayerController : MonoBehaviour
     float _krokoFatness = 0.0f;
 
     [SerializeField] 
-    Animator _animator;
+    public Animator _animator;
     
     // bone transforms
     [SerializeField]
