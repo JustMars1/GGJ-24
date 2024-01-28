@@ -62,3 +62,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 6d20cfc2fd3e48d428044da7ace2449c, type: 2}
   _bigPalettes:
   - {fileID: 11400000, guid: 4267cf0f17ea54b40b6457b6a8304197, type: 2}
+  - {fileID: 11400000, guid: 410defbd7c806724ea35268ed507820c, type: 2}
+  - {fileID: 11400000, guid: bc2799adf1ffeea43a2c7849ea9a4bb0, type: 2}
+  - {fileID: 11400000, guid: 4742d5fa2b1c30146803744cb6b58dcb, type: 2}
+  - {fileID: 11400000, guid: 151df6a1ebf5d3649bcf9da027ca3c1e, type: 2}
+  - {fileID: 11400000, guid: d8d7b125bccfc164e860376e5166ca08, type: 2}

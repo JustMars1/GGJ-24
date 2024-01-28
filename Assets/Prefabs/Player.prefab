@@ -27,8 +27,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1105746701067361405}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.14857002, y: -0, z: -0, w: 0.9889019}
-  m_LocalPosition: {x: 0, y: 3.31, z: -5.31}
+  m_LocalRotation: {x: 0.1623362, y: 0.8113413, z: -0.2678749, w: 0.493574}
+  m_LocalPosition: {x: -14.100952, y: 13.01506, z: 5.793503}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -219,7 +219,6 @@ MonoBehaviour:
   isOnRamp: 0
   isOnGround: 0
   _krokoFatness: 0
-  animator: {fileID: 1171135845340481528}
   _rig: {fileID: 7521283410090852179}
   _head: {fileID: 7646318259430703469}
   _leftArm: {fileID: 5494295049388601217}
@@ -227,6 +226,9 @@ MonoBehaviour:
   _leftLeg: {fileID: 8838119303418240849}
   _rightLeg: {fileID: 9006196795144121707}
   _tail: {fileID: 8542173219866590094}
+  eatSoundList: []
+  footstepSoundList: []
+  slidingSound: {fileID: 0}
 --- !u!65 &4342394678112440382
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -301,7 +303,7 @@ HingeJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0, y: 0, z: 0}
+  m_ConnectedAnchor: {x: 0, y: -5.5499673, z: 0}
   serializedVersion: 2
   m_UseSpring: 0
   m_Spring:
@@ -341,7 +343,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inWindZone: 0
-  windStrength: 100
+  windStrength: 50
   animator: {fileID: 1171135845340481528}
   hingeJoint: {fileID: 4896125245425208310}
 --- !u!1 &2715937166737607321
