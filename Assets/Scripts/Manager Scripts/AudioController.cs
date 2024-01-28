@@ -50,7 +50,7 @@ public static class AudioController
     /// </summary>
     /// <param name="soundEffect">ƒ‰niefekti joka halutaan soittaa.</param>
     /// <param name="position">Lokaatio mihin ‰‰nisource luodaan. Vaikuttaa siihen mist‰ suunnasta ‰‰ni kuuluu.</param>
-    public static void PlaySound(AudioClip soundEffect, Vector3 position)
+    public static void PlaySound(AudioClip soundEffect, Vector3 position, bool isLoopable)
     {
         // On yksi tai useampi audio source
         if(audioSources.Count > 0)
@@ -60,6 +60,10 @@ public static class AudioController
                 // On audiosource vapaana
                 if (!source.isPlaying)
                 {
+                    if(isLoopable)
+                    {
+                        source.loop = true;
+                    }
                     source.clip = soundEffect;
                     source.Play();
                     break;
@@ -119,5 +123,19 @@ public static class AudioController
         audioGo.transform.position = position;
 
         return audioSource;
+    }
+
+    public static void StopPlayingSound(AudioClip soundEffect)
+    {
+        foreach (AudioSource source in audioSources)
+        {
+            // Check if the AudioSource is playing the specified AudioClip
+            if (source.isPlaying && source.clip == soundEffect)
+            {
+                // Stop the AudioSource
+                source.Stop();
+                break;
+            }
+        }
     }
 }
