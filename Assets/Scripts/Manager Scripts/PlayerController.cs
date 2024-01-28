@@ -271,7 +271,7 @@ public class PlayerController : MonoBehaviour
                 if (isOnRamp)
                 {
                     Debug.Log("Kroko Launch off ramp!");
-                    Vector3 rampJumpImpulse = _globalSlopeDirection * 100.0f + Vector3.up * 5.0f;
+                    Vector3 rampJumpImpulse = _globalSlopeDirection * 15.0f + Vector3.up * 5.0f;
                     _rb.AddForce(rampJumpImpulse, ForceMode.VelocityChange);
                     Debug.DrawLine(transform.position, transform.position + rampJumpImpulse, Color.red, 2.0f);
                     isOnRamp = false;
