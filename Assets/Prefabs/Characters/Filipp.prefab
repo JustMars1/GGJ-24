@@ -113,6 +113,10 @@ MonoBehaviour:
   timeBetweenDestinations: 1.5
   stuckTimerThreshold: 2
   currentState: 0
+  screamList:
+  - {fileID: 8300000, guid: a1ba6f9f6ea6fbb458510b1449772583, type: 3}
+  - {fileID: 8300000, guid: cc31d2584303b934984a18290b689b40, type: 3}
+  - {fileID: 8300000, guid: b054eaaa970c6aa42960a162a643865f, type: 3}
 --- !u!95 &4860002134903733127
 Animator:
   serializedVersion: 5

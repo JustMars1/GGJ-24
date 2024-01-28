@@ -54,6 +54,10 @@ public class Civilian : Eatable
     // Reference to house GameObjects
     private GameObject[] houses;
 
+    // Audio
+    public AudioClip[] screamList;
+    private bool hasScreamed;
+
     protected override void Start()
     {
         base.Start();
@@ -77,6 +81,9 @@ public class Civilian : Eatable
 
         // Set the initial speed to normal wandering speed
         navMeshAgent.speed = normalWanderSpeed;
+
+        // Initializing the scream flag to false
+        hasScreamed = false;
     }
 
     public void Update()
@@ -91,15 +98,22 @@ public class Civilian : Eatable
         {
             case CivilianState.Wonder:
                 UpdateWonderState();
+                hasScreamed = false;
                 break;
             case CivilianState.RunningAway:
                 UpdateRunningAwayState();
+                if(screamList.Length > 0 && !hasScreamed)
+                {
+                    AudioController.PlaySound(screamList[Random.Range(0, screamList.Length)], transform.position);
+                    hasScreamed = true;
+                }
                 break;
             case CivilianState.FallingOver:
                 // Falling over state is handled separately
                 break;
             case CivilianState.Cooldown:
                 UpdateCooldownState();
+                hasScreamed = false;
                 break;
             case CivilianState.RunningToHouse:
                 UpdateRunningToHouseState();
