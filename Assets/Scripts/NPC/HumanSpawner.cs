@@ -108,15 +108,15 @@ public class HumanSpawner : MonoBehaviour
                 
                 Renderer renderer = newBigCivil.GetComponentInChildren<Renderer>(true);
                 
-                // BigColorPalette palette = _bigPalettes[Random.Range(0, _bigPalettes.Count)];
-                //
-                // renderer.materials[0].SetColor(_baseColor, palette.coat);
-                // renderer.materials[1].SetColor(_baseColor, palette.boots);
-                // renderer.materials[2].SetColor(_baseColor, palette.neckThing);
-                // renderer.materials[3].SetColor(_baseColor, palette.pants);
-                // renderer.materials[4].SetColor(_baseColor, palette.gloves);
-                //
-                // renderer.materials[5].SetInt(_index, Random.Range(0, 4));
+                BigColorPalette palette = _bigPalettes[Random.Range(0, _bigPalettes.Count)];
+                
+                renderer.materials[0].SetInt(_index, Random.Range(0, 4));
+                renderer.materials[1].SetColor(_baseColor, palette.coat);
+                renderer.materials[2].SetColor(_baseColor, palette.pants);
+                renderer.materials[3].SetColor(_baseColor, palette.neckThing);
+                renderer.materials[4].SetColor(_baseColor, palette.gloves);
+                renderer.materials[5].SetColor(_baseColor, palette.boots);
+                
             }
 
             yield return null;
