@@ -10,6 +10,7 @@ public class House : MonoBehaviour
     public GameObject bigCivilPrefab;
     GameObject doorCollider;
     public float spawnRadius = 10f;
+    public int destroyableThreshold;
 
     // Start is called before the first frame update
     void Start()
@@ -29,7 +30,7 @@ public class House : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("Player"))
+        if(other.CompareTag("Player") && CheckThreshold())
         {
             Debug.Log("Player hit trigger");
             DestroyDoorCollider();
@@ -46,11 +47,33 @@ public class House : MonoBehaviour
             Transform[] childList = GetChildren();
             foreach(Transform child in childList)
             {
-                // Start shrinking and fading out the child gameobjects
-                StartCoroutine(ShrinkAndFadeOut(child));
+                // Triggering the particle systems
+                if(child.name == "particleBuildingCollapse")
+                {
+                    int children = child.childCount;
+
+                    for (int i = 0; i < children; ++i)
+                    {
+                        if(child.GetChild(i).GetComponent<ParticleSystem>())
+                        {
+                            child.GetChild(i).GetComponent<ParticleSystem>().Play();
+                        }
+                    }
+                } else
+                {
+                    // Start shrinking and fading out the child gameobjects
+                    StartCoroutine(ShrinkAndFadeOut(child));
+                }
             }
 
             StartCoroutine(SpawnHumans());
+
+            // Disabling the house trigger colliders
+            BoxCollider[] collidersInChildren = GetComponentsInChildren<BoxCollider>();
+            for(int i = 0; i < collidersInChildren.Length; ++i)
+            {
+                collidersInChildren[i].enabled = false;
+            }
         }
     }
 
@@ -122,5 +145,10 @@ public class House : MonoBehaviour
             GameObject newHuman = Instantiate(selectedPrefab, transform.position, Quaternion.identity);
             yield return null;
         }
+    }
+
+    public bool CheckThreshold()
+    {
+        return destroyableThreshold < GameManager.manager.score;
     }
 }

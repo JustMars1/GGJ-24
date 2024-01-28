@@ -8,11 +8,16 @@ public class Skier : Eatable
     [SerializeField] 
     LayerMask _slopeMask;
 
-    private Vector3 _globalSlopeDirection = Vector3.forward;
-    private Rigidbody _rb;
-    private bool _isOnRamp;
-    private bool _isOnSlope;
-    private bool _isOnGround;
+    static Vector3 _globalSlopeDirection = Vector3.right;
+    Rigidbody _rb;
+    bool _isOnRamp;
+    bool _isOnSlope;
+    bool _isOnGround;
+
+    float _skiSpeed = 5.0f;
+    float _slopeSpeed = 10.0f;
+    private Vector3 _rampImpulse = _globalSlopeDirection * 10.0f + Vector3.up * 3.0f;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -39,7 +44,7 @@ public class Skier : Eatable
             Vector3 slopeSlideDir = Vector3.Cross(hit2.normal, slopeAxis);
             Debug.DrawLine(transform.position, transform.position + slopeSlideDir, Color.yellow);
             
-            _rb.MovePosition(_rb.position + Time.fixedDeltaTime * 20.0f * slopeSlideDir);
+            _rb.MovePosition(_rb.position + Time.fixedDeltaTime * _slopeSpeed * slopeSlideDir);
 
             if (Vector3.Dot(slopeSlideDir, Vector3.up) > 0.0f)
             {
@@ -50,6 +55,11 @@ public class Skier : Eatable
         }
         else
         {
+            if (_isOnGround && !_isOnRamp)
+            {
+                _rb.MovePosition(_rb.position + Time.fixedDeltaTime * _skiSpeed * _globalSlopeDirection);
+            }
+            
             if (_isOnRamp)
             {
                 Debug.Log("Launch off ramp!");

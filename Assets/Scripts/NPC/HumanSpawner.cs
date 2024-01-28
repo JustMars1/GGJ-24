@@ -13,11 +13,13 @@ public class HumanSpawner : MonoBehaviour
 
     private GameManager manager;
     private int lastSpawnedScore;
+    private bool enemiesSpawnedForCurrentInterval;
 
     void Start()
     {
         manager = GameManager.manager; // Assuming GameManager is a singleton or has a static reference
         lastSpawnedScore = manager.GetScore();
+        enemiesSpawnedForCurrentInterval = false;
         StartCoroutine(SpawnHumans());
     }
 
@@ -25,12 +27,11 @@ public class HumanSpawner : MonoBehaviour
     {
         int currentScore = manager.GetScore();
 
-        // Check if the score has crossed a threshold since the last time enemies were spawned
-        if (currentScore > lastSpawnedScore)
+        // Check if the score has crossed a 100-score interval and enemies haven't been spawned for the current interval
+        if (currentScore > lastSpawnedScore && (currentScore / 100 > lastSpawnedScore / 100) && !enemiesSpawnedForCurrentInterval)
         {
             // Spawn enemies based on the score difference
-            int scoreDifference = currentScore - lastSpawnedScore;
-            int numberOfEnemiesToSpawn = (int)(currentScore / 50) * 10; // 10 enemies per 50 score
+            int numberOfEnemiesToSpawn = 5; // 5 enemies per 100 score
 
             for (int i = 0; i < numberOfEnemiesToSpawn; i++)
             {
@@ -40,10 +41,20 @@ public class HumanSpawner : MonoBehaviour
                 if (!float.IsInfinity(randomPosition.x))
                 {
                     GameObject newEnemy = Instantiate(enemyPrefab, randomPosition, Quaternion.identity);
+                    //Debug how many enemies are spawned and what is the current score
+                    Debug.Log("Enemy spawned at " + randomPosition + " with score " + currentScore);
+                    
                 }
             }
 
             lastSpawnedScore = currentScore;
+            enemiesSpawnedForCurrentInterval = true; // Set the flag to true to indicate enemies have been spawned for the current interval
+        }
+
+        // Reset the flag if the score goes back to a previous 50-score interval
+        if (currentScore / 100 > lastSpawnedScore / 100)
+        {
+            enemiesSpawnedForCurrentInterval = false;
         }
     }
 

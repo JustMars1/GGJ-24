@@ -150,7 +150,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreWorth: 10
-  eatThreshold: 1
+  eatThreshold: 0
   eatDuration: 1
   _slopeMask:
     serializedVersion: 2

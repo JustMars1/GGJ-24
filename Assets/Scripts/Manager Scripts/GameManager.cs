@@ -7,9 +7,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager manager;
 
-    [SerializeField]
-    [Tooltip("The image used as the hunger meter.")]
-    private Image hungerMeter;
+    [SerializeField] PlayerController playerController;
     
     // Score of the player
     [HideInInspector]
@@ -89,7 +87,7 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if(currentState == GameState.ENDED)
+        if(currentState != GameState.PLAYING)
         {
             return;
         }
@@ -97,6 +95,7 @@ public class GameManager : MonoBehaviour
         if(satiate <= 0)
         {
             // Lose game
+            EndGame();
         }
 
         // Decrease satiate with each frame
@@ -115,10 +114,7 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        if(hungerMeter)
-        {
-            hungerMeter.fillAmount = satiate / maxSatiate;
-        }
+        UpdateHungerUI();
     }
 
     public GameManager GetGameManager()
@@ -130,11 +126,14 @@ public class GameManager : MonoBehaviour
     {
         score += scoreWorth;
         AddSatiate();
+        UpdateScoreUI();
     }
 
     public void ReduceScore(int scoreWorth)
     {
         score -= scoreWorth;
+        UpdateScoreUI();
+        ReduceSatiate();
     }
 
     public int GetScore()
@@ -151,10 +150,24 @@ public class GameManager : MonoBehaviour
         }
 
         satiate += 10;
+        UpdateHungerUI();
+    }
+
+    private void ReduceSatiate()
+    {
+        satiate -= 10;
+        UpdateHungerUI();
     }
 
     public void StartGame()
     {
+        // T�h�n playaamaan se helikopterin alku animaatio tms
+        playerController.StartCameraBlend();
+    }
+
+    public void StartPlaying()
+    {
+        // T�� runnataan kun helikopteri juttu loppuu. Aika yms alkaa kulkemaan vasta kun pelaajasta saa kontrollin
         currentState = GameState.PLAYING;
         timeFromStart = 0;
     }
@@ -178,5 +191,18 @@ public class GameManager : MonoBehaviour
     public void EndGame()
     {
         currentState = GameState.ENDED;
+        MenuManager.instance.OpenGameOverMenu();
+
+        // Open death screen and then main menu?
+    }
+
+    void UpdateScoreUI()
+    {
+        MenuManager.instance.gameplayUI.scoreText.text = score.ToString();
+    }
+
+    void UpdateHungerUI()
+    {
+        MenuManager.instance.gameplayUI.hungerMeter.fillAmount = satiate / maxSatiate;
     }
 }
