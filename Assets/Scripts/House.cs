@@ -36,7 +36,7 @@ public class House : MonoBehaviour
         {
             if(collapseAudio)
             {
-                AudioController.PlaySound(collapseAudio, transform.position);
+                AudioController.PlaySound(collapseAudio, transform.position, false);
             }
 
             Debug.Log("Player hit trigger");
