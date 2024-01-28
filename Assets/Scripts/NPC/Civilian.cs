@@ -104,7 +104,7 @@ public class Civilian : Eatable
                 UpdateRunningAwayState();
                 if(screamList.Length > 0 && !hasScreamed)
                 {
-                    AudioController.PlaySound(screamList[Random.Range(0, screamList.Length)], transform.position);
+                    AudioController.PlaySound(screamList[Random.Range(0, screamList.Length)], transform.position, false);
                     hasScreamed = true;
                 }
                 break;

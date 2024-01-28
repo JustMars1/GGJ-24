@@ -6,16 +6,17 @@ using UnityEngine;
 /// <summary>
 /// Requires a trigger collider to be able to eat. Also the eatable object needs to have a collider to be eaten.
 /// </summary>
-[RequireComponent(typeof(Animator))]
+//[RequireComponent(typeof(Animator))]
 public class EatingComponent : MonoBehaviour
 {
+    [SerializeField] 
     private Animator animator;
 
     public Transform eatPoint;
 
     void Start()
     {
-        animator = GetComponent<Animator>();
+        //animator = GetComponent<Animator>();
     }
 
     public void Eat(Eatable eatableComponent)
