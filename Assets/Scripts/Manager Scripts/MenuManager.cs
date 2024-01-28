@@ -56,6 +56,8 @@ public class MenuManager : MonoBehaviour
         _pauseMenu.settingsButton.onClick.AddListener(OpenSettings);
         
         _backButton.onClick.AddListener(PopMenu);
+        
+        PushMenu(_mainMenu);
     }
 
     void Update()
@@ -80,8 +82,8 @@ public class MenuManager : MonoBehaviour
     void Play()
     {
         PopAllMenus();
-        GameManager.manager.StartGame();
         _gameplayUI.gameObject.SetActive(true);
+        GameManager.manager.StartGame();
     }
 
     void OpenSettings()
@@ -107,6 +109,11 @@ public class MenuManager : MonoBehaviour
     
     void PushMenu(Menu menu)
     {
+        if (_menuStack.Count > 0)
+        {
+            _menuStack.Peek().Close();
+        }
+        
         _menuStack.Push(menu);
         menu.Open();
         
@@ -122,6 +129,11 @@ public class MenuManager : MonoBehaviour
         
         Menu menu = _menuStack.Pop();
         menu.Close();
+        
+        if (_menuStack.Count > 0)
+        {
+            _menuStack.Peek().Open();
+        }
         
         UpdateState();
     }

@@ -94,7 +94,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bc1a67c3356ccb45922669514710fe3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreWorth: 20
+  scoreWorth: 10
   eatThreshold: 0
   eatDuration: 1
   detectionRadius: 10
