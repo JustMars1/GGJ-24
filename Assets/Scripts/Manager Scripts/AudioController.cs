@@ -124,4 +124,18 @@ public static class AudioController
 
         return audioSource;
     }
+
+    public static void StopPlayingSound(AudioClip soundEffect)
+    {
+        foreach (AudioSource source in audioSources)
+        {
+            // Check if the AudioSource is playing the specified AudioClip
+            if (source.isPlaying && source.clip == soundEffect)
+            {
+                // Stop the AudioSource
+                source.Stop();
+                break;
+            }
+        }
+    }
 }

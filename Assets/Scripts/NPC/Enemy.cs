@@ -280,7 +280,7 @@ public class Enemy : Eatable
     {
         if(attackSound)
         {
-            AudioController.PlaySound(attackSound, transform.position);
+            AudioController.PlaySound(attackSound, transform.position, false);
         }
     }
 }
