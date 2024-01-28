@@ -109,6 +109,11 @@ public class PlayerController : MonoBehaviour
         StartCameraBlend();
     }
 
+    public void OnFatnessChanged(float newFatness)
+    {
+        _krokoFatness = newFatness;
+    }
+
     public void StartCameraBlend()
     {
         StartCoroutine(StartCameraBlendCo());
@@ -275,7 +280,7 @@ public class PlayerController : MonoBehaviour
     {
         UpdatePlayerCamera();
         Orient();
-
+        
         _rig.transform.localScale = Vector3.Lerp(Vector3.one*100.0f, new Vector3(1000.0f, 1000.0f, 1000.0f), _krokoFatness);
         Vector3 limbScale = Vector3.Lerp(Vector3.one, new Vector3(0.1f, 0.1f, 0.1f), _krokoFatness);
         _head.transform.localScale = limbScale;

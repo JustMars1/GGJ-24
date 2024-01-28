@@ -204,5 +204,6 @@ public class GameManager : MonoBehaviour
     void UpdateHungerUI()
     {
         MenuManager.instance.gameplayUI.hungerMeter.fillAmount = satiate / maxSatiate;
+        playerController.OnFatnessChanged((satiate / maxSatiate)/10);
     }
 }
