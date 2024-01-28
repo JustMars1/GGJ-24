@@ -27,8 +27,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1105746701067361405}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.1623362, y: 0.8113413, z: -0.2678749, w: 0.493574}
-  m_LocalPosition: {x: -14.100952, y: 13.01506, z: 5.793503}
+  m_LocalRotation: {x: 0.1678507, y: 0.80304813, z: -0.26782057, w: 0.5051852}
+  m_LocalPosition: {x: -14.829895, y: 15.285782, z: 11.104816}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -219,6 +219,7 @@ MonoBehaviour:
   isOnRamp: 0
   isOnGround: 0
   _krokoFatness: 0
+  _animator: {fileID: 1171135845340481528}
   _rig: {fileID: 7521283410090852179}
   _head: {fileID: 7646318259430703469}
   _leftArm: {fileID: 5494295049388601217}
@@ -343,7 +344,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inWindZone: 0
-  windStrength: 50
+  windStrength: 5
   animator: {fileID: 1171135845340481528}
   hingeJoint: {fileID: 4896125245425208310}
 --- !u!1 &2715937166737607321

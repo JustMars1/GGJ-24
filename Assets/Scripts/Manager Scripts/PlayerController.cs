@@ -60,6 +60,9 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField]
     float _krokoFatness = 0.0f;
+
+    [SerializeField] 
+    Animator _animator;
     
     // bone transforms
     [SerializeField]
@@ -275,7 +278,7 @@ public class PlayerController : MonoBehaviour
                 }
 
                 isOnSlope = true;
-                GetComponent<Animator>().SetBool("onSlope", true);
+                _animator.SetBool("onSlope", true);
             }
             else
             {
@@ -290,7 +293,7 @@ public class PlayerController : MonoBehaviour
                 }
 
                 isOnSlope = false;
-                GetComponent<Animator>().SetBool("onSlope", false);
+                _animator.SetBool("onSlope", false);
             }
         }
     }
