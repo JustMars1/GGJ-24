@@ -60,6 +60,9 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField]
     float _krokoFatness = 0.0f;
+
+    [SerializeField] 
+    Animator _animator;
     
     // bone transforms
     [SerializeField]
@@ -82,7 +85,8 @@ public class PlayerController : MonoBehaviour
 
     // Audio
     public AudioClip[] eatSoundList;
-    public AudioClip[] footstepSoundList;
+    public AudioClip rightFootstep;
+    public AudioClip leftFootstep;
     public AudioClip slidingSound;
 
     // Start is called before the first frame update
@@ -275,7 +279,7 @@ public class PlayerController : MonoBehaviour
                 }
 
                 isOnSlope = true;
-                GetComponent<Animator>().SetBool("onSlope", true);
+                _animator.SetBool("onSlope", true);
             }
             else
             {
@@ -290,7 +294,7 @@ public class PlayerController : MonoBehaviour
                 }
 
                 isOnSlope = false;
-                GetComponent<Animator>().SetBool("onSlope", false);
+                _animator.SetBool("onSlope", false);
             }
         }
     }
@@ -328,8 +332,13 @@ public class PlayerController : MonoBehaviour
         AudioController.StopPlayingSound(slidingSound);
     }
 
-    public void PlayFootstepSound()
+    public void PlayLeftFootstep()
     {
-        AudioController.PlaySound(footstepSoundList[Random.Range(0, footstepSoundList.Length)], transform.position, false);
+        AudioController.PlaySound(leftFootstep, transform.position, false);
+    }
+
+    public void PlayRightFootstep()
+    {
+        AudioController.PlaySound(rightFootstep, transform.position, false);
     }
 }

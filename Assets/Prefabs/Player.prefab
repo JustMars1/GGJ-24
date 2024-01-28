@@ -27,8 +27,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1105746701067361405}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.1623362, y: 0.8113413, z: -0.2678749, w: 0.493574}
-  m_LocalPosition: {x: -14.100952, y: 13.01506, z: 5.793503}
+  m_LocalRotation: {x: 0.1678507, y: 0.80304813, z: -0.26782057, w: 0.5051852}
+  m_LocalPosition: {x: -14.829895, y: 15.285782, z: 11.104816}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -155,7 +155,7 @@ GameObject:
   - component: {fileID: 5011340235715536060}
   m_Layer: 0
   m_Name: rigidbody
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -219,6 +219,7 @@ MonoBehaviour:
   isOnRamp: 0
   isOnGround: 0
   _krokoFatness: 0
+  _animator: {fileID: 1171135845340481528}
   _rig: {fileID: 7521283410090852179}
   _head: {fileID: 7646318259430703469}
   _leftArm: {fileID: 5494295049388601217}
@@ -226,9 +227,12 @@ MonoBehaviour:
   _leftLeg: {fileID: 8838119303418240849}
   _rightLeg: {fileID: 9006196795144121707}
   _tail: {fileID: 8542173219866590094}
-  eatSoundList: []
-  footstepSoundList: []
-  slidingSound: {fileID: 0}
+  eatSoundList:
+  - {fileID: 8300000, guid: 7999af82040b23949807995d12d5ba7d, type: 3}
+  - {fileID: 8300000, guid: 1c483e4acaeb6cd4b90dbccf254774c8, type: 3}
+  rightFootstep: {fileID: 8300000, guid: 5eb5ce38483c0cc45a73c3d5dd839d41, type: 3}
+  leftFootstep: {fileID: 8300000, guid: 205f47ca6fa420043a5b2e4d4651b4c2, type: 3}
+  slidingSound: {fileID: 8300000, guid: 3636f79b6e574524aa22410e07334fd7, type: 3}
 --- !u!65 &4342394678112440382
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -343,7 +347,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inWindZone: 0
-  windStrength: 50
+  windStrength: 5
   animator: {fileID: 1171135845340481528}
   hingeJoint: {fileID: 4896125245425208310}
 --- !u!1 &2715937166737607321
