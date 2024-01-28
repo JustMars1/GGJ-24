@@ -194,12 +194,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5347692755128619322}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.59, z: 0.5220001}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0.000000100582824, y: -0.000000075497894, z: -1.6431299e-14, w: 1}
+  m_LocalPosition: {x: 0, y: 0.0014043734, z: 0.005510602}
+  m_LocalScale: {x: 0.01, y: 0.010000001, z: 0.01}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 5089235856422788482}
+  m_Father: {fileID: 7646318259430703469}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &4695601232650156649
 PrefabInstance:
@@ -249,6 +249,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -6247945034147084998, guid: 92b65f94356f4f04eb6ffff6274942b0, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: -6247945034147084998, guid: 92b65f94356f4f04eb6ffff6274942b0, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: -6247945034147084998, guid: 92b65f94356f4f04eb6ffff6274942b0, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: -6247945034147084998, guid: 92b65f94356f4f04eb6ffff6274942b0, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 92b65f94356f4f04eb6ffff6274942b0, type: 3}
       propertyPath: m_Name
       value: kroko_rig (2)
@@ -272,7 +288,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 92b65f94356f4f04eb6ffff6274942b0, type: 3}
+    - targetCorrespondingSourceObject: {fileID: 3113972513878375172, guid: 92b65f94356f4f04eb6ffff6274942b0, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8469787937058046700}
     m_AddedComponents:
@@ -382,7 +398,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 1, y: 20, z: 1}
   m_Center: {x: 0, y: 1, z: 0.65}
 --- !u!114 &2257071089471310372
 MonoBehaviour:
@@ -397,7 +413,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   eatPoint: {fileID: 8469787937058046700}
-  eatAnimationName: 
 --- !u!54 &7065145208959746996
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -437,7 +452,7 @@ HingeJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0, y: 0, z: 0}
+  m_ConnectedAnchor: {x: 0, y: 0.40999997, z: 0}
   serializedVersion: 2
   m_UseSpring: 0
   m_Spring:
@@ -477,7 +492,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inWindZone: 0
-  windStrength: 3
+  windStrength: 100
   hingeJoint: {fileID: 7916466510540948723}
 --- !u!4 &7521283410090852179 stripped
 Transform:
