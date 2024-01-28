@@ -14,6 +14,9 @@ public class EatingComponent : MonoBehaviour
 
     public Transform eatPoint;
 
+    // Audio
+    public AudioClip[] eatSoundList;
+
     void Start()
     {
         //animator = GetComponent<Animator>();
@@ -46,5 +49,13 @@ public class EatingComponent : MonoBehaviour
     {
         yield return new WaitForSeconds(0.1f);
         animator.SetBool("startEat", false);
+    }
+
+    public void PlayEatingSound()
+    {
+        if (eatSoundList.Length > 0)
+        {
+            AudioController.PlaySound(eatSoundList[Random.Range(0, eatSoundList.Length)], transform.position, false);
+        }
     }
 }

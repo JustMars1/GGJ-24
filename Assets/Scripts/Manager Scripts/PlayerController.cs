@@ -84,7 +84,6 @@ public class PlayerController : MonoBehaviour
     Transform _tail;
 
     // Audio
-    public AudioClip[] eatSoundList;
     public AudioClip rightFootstep;
     public AudioClip leftFootstep;
     public AudioClip slidingSound;
@@ -280,6 +279,7 @@ public class PlayerController : MonoBehaviour
 
                 isOnSlope = true;
                 _animator.SetBool("onSlope", true);
+                PlaySlidingSound();
             }
             else
             {
@@ -295,6 +295,7 @@ public class PlayerController : MonoBehaviour
 
                 isOnSlope = false;
                 _animator.SetBool("onSlope", false);
+                StopSlidingSound();
             }
         }
     }
@@ -312,14 +313,6 @@ public class PlayerController : MonoBehaviour
         _leftLeg.transform.localScale = limbScale;
         _rightLeg.transform.localScale = limbScale;
         _tail.transform.localScale = limbScale;
-    }
-
-    public void PlayEatingSound()
-    {
-        if (eatSoundList.Length > 0)
-        {
-            AudioController.PlaySound(eatSoundList[Random.Range(0, eatSoundList.Length)], transform.position, false);
-        }
     }
 
     public void PlaySlidingSound()
