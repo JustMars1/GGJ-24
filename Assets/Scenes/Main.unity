@@ -122,12 +122,9 @@ NavMeshSettings:
     preserveTilesOutsideBounds: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 23800000, guid: 327a4fb67b532694a9020d7f5b6d7b8a, type: 2}
---- !u!54 &72420688 stripped
-Rigidbody:
-  m_CorrespondingSourceObject: {fileID: 3143267536891618058, guid: 6ed0992aceca54b44a9a7172bc6fb169, type: 3}
-  m_PrefabInstance: {fileID: 672254371}
-  m_PrefabAsset: {fileID: 0}
+
+  m_NavMeshData: {fileID: 0}
+
 --- !u!1001 &305609378
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -139,42 +136,6 @@ PrefabInstance:
     - target: {fileID: 2715937166737607321, guid: b1a9349a30030c948834c00f3f97e946, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 4896125245425208310, guid: b1a9349a30030c948834c00f3f97e946, type: 3}
-      propertyPath: m_ConnectedBody
-      value: 
-      objectReference: {fileID: 72420688}
-    - target: {fileID: 5011340235715536060, guid: b1a9349a30030c948834c00f3f97e946, type: 3}
-      propertyPath: windStrength
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5961693973916765703, guid: b1a9349a30030c948834c00f3f97e946, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -14.829895
-      objectReference: {fileID: 0}
-    - target: {fileID: 5961693973916765703, guid: b1a9349a30030c948834c00f3f97e946, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 15.285782
-      objectReference: {fileID: 0}
-    - target: {fileID: 5961693973916765703, guid: b1a9349a30030c948834c00f3f97e946, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 11.104816
-      objectReference: {fileID: 0}
-    - target: {fileID: 5961693973916765703, guid: b1a9349a30030c948834c00f3f97e946, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.5051852
-      objectReference: {fileID: 0}
-    - target: {fileID: 5961693973916765703, guid: b1a9349a30030c948834c00f3f97e946, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0.1678507
-      objectReference: {fileID: 0}
-    - target: {fileID: 5961693973916765703, guid: b1a9349a30030c948834c00f3f97e946, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0.80304813
-      objectReference: {fileID: 0}
-    - target: {fileID: 5961693973916765703, guid: b1a9349a30030c948834c00f3f97e946, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0.26782057
       objectReference: {fileID: 0}
     - target: {fileID: 8863171356861257734, guid: b1a9349a30030c948834c00f3f97e946, type: 3}
       propertyPath: m_LocalPosition.x
@@ -599,10 +560,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 163455218859328055, guid: c68e23c88402b234eba8f72eb4e178e3, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 10.6
-      objectReference: {fileID: 0}
     - target: {fileID: 771123956203680944, guid: c68e23c88402b234eba8f72eb4e178e3, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -646,22 +603,6 @@ PrefabInstance:
     - target: {fileID: 2561546635894785024, guid: c68e23c88402b234eba8f72eb4e178e3, type: 3}
       propertyPath: m_Name
       value: Graphics
-      objectReference: {fileID: 0}
-    - target: {fileID: 3983198588655209721, guid: c68e23c88402b234eba8f72eb4e178e3, type: 3}
-      propertyPath: m_BoundingSphereOverride.w
-      value: 112828664
-      objectReference: {fileID: 0}
-    - target: {fileID: 3983198588655209721, guid: c68e23c88402b234eba8f72eb4e178e3, type: 3}
-      propertyPath: m_BoundingSphereOverride.x
-      value: 1.27866e-40
-      objectReference: {fileID: 0}
-    - target: {fileID: 3983198588655209721, guid: c68e23c88402b234eba8f72eb4e178e3, type: 3}
-      propertyPath: m_BoundingSphereOverride.y
-      value: 4e-45
-      objectReference: {fileID: 0}
-    - target: {fileID: 3983198588655209721, guid: c68e23c88402b234eba8f72eb4e178e3, type: 3}
-      propertyPath: m_BoundingSphereOverride.z
-      value: 1.5778726e+21
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
