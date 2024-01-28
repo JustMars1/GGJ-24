@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1c4a8cc8272324fefaeb8c7a84b5bef1, type: 3}
-  m_Name: 1
+  m_Name: BigPalette_1
   m_EditorClassIdentifier: 
-  _neckThing: {r: 1, g: 1, b: 1, a: 1}
-  _coat: {r: 1, g: 1, b: 1, a: 1}
-  _gloves: {r: 1, g: 1, b: 1, a: 1}
-  _pants: {r: 1, g: 1, b: 1, a: 1}
-  _boots: {r: 1, g: 1, b: 1, a: 1}
+  _neckThing: {r: 0.94716984, g: 0.9418085, b: 0.9418085, a: 1}
+  _coat: {r: 0.89433956, g: 0.82177997, b: 0.82177997, a: 1}
+  _gloves: {r: 0.8867924, g: 0.07194724, b: 0.07194724, a: 1}
+  _pants: {r: 0.23018861, g: 0.2010893, b: 0.2010893, a: 1}
+  _boots: {r: 0.10188681, g: 0.10188681, b: 0.10188681, a: 1}
