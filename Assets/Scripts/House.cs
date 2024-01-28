@@ -59,13 +59,21 @@ public class House : MonoBehaviour
                             child.GetChild(i).GetComponent<ParticleSystem>().Play();
                         }
                     }
+                } else
+                {
+                    // Start shrinking and fading out the child gameobjects
+                    StartCoroutine(ShrinkAndFadeOut(child));
                 }
-
-                // Start shrinking and fading out the child gameobjects
-                StartCoroutine(ShrinkAndFadeOut(child));
             }
 
             StartCoroutine(SpawnHumans());
+
+            // Disabling the house trigger colliders
+            BoxCollider[] collidersInChildren = GetComponentsInChildren<BoxCollider>();
+            for(int i = 0; i < collidersInChildren.Length; ++i)
+            {
+                collidersInChildren[i].enabled = false;
+            }
         }
     }
 
