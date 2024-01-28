@@ -282,7 +282,7 @@ MonoBehaviour:
   normalCivilPrefab: {fileID: 584301822052563484, guid: d38c1ed7688ff4244b6e94605f86fb47, type: 3}
   bigCivilPrefab: {fileID: 3619541380589020684, guid: 3aac9c5ca3fd496418b3b8382d410d17, type: 3}
   spawnRadius: 10
-  destroyableThreshold: 0
+  destroyableThreshold: 30
   collapseAudio: {fileID: 8300000, guid: f18bed06467ec8f488d1bd89133cb384, type: 3}
 --- !u!1001 &93489017873002380
 PrefabInstance:
@@ -1202,6 +1202,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 9aaf3ce1a1ebe4b47b1cf1d7ded9bfbf, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: b51bf27829cd5864c9224f9f03ef05e4, type: 2}
     - target: {fileID: 919132149155446097, guid: 9aaf3ce1a1ebe4b47b1cf1d7ded9bfbf, type: 3}
       propertyPath: m_Name
       value: house_roof_side (10)
@@ -2316,6 +2320,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 9aaf3ce1a1ebe4b47b1cf1d7ded9bfbf, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: b51bf27829cd5864c9224f9f03ef05e4, type: 2}
     - target: {fileID: 919132149155446097, guid: 9aaf3ce1a1ebe4b47b1cf1d7ded9bfbf, type: 3}
       propertyPath: m_Name
       value: house_roof_side (7)
@@ -3626,6 +3634,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 9aaf3ce1a1ebe4b47b1cf1d7ded9bfbf, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: b51bf27829cd5864c9224f9f03ef05e4, type: 2}
     - target: {fileID: 919132149155446097, guid: 9aaf3ce1a1ebe4b47b1cf1d7ded9bfbf, type: 3}
       propertyPath: m_Name
       value: house_roof_side (9)
@@ -4870,6 +4882,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 3c21ba26f1437dc47b38a66571c30eab, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: b51bf27829cd5864c9224f9f03ef05e4, type: 2}
     - target: {fileID: 919132149155446097, guid: 3c21ba26f1437dc47b38a66571c30eab, type: 3}
       propertyPath: m_Name
       value: house_roof_corner (9)
@@ -8562,6 +8578,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 3c21ba26f1437dc47b38a66571c30eab, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: b51bf27829cd5864c9224f9f03ef05e4, type: 2}
     - target: {fileID: 919132149155446097, guid: 3c21ba26f1437dc47b38a66571c30eab, type: 3}
       propertyPath: m_Name
       value: house_roof_corner (8)
@@ -8806,6 +8826,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 713c7c53cb859484fb06409db1a58549, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: e6f5d1a0fad0f974a809e4d6a599100a, type: 2}
     - target: {fileID: 919132149155446097, guid: 713c7c53cb859484fb06409db1a58549, type: 3}
       propertyPath: m_Name
       value: house_door
@@ -9802,6 +9826,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 9aaf3ce1a1ebe4b47b1cf1d7ded9bfbf, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: b51bf27829cd5864c9224f9f03ef05e4, type: 2}
     - target: {fileID: 919132149155446097, guid: 9aaf3ce1a1ebe4b47b1cf1d7ded9bfbf, type: 3}
       propertyPath: m_Name
       value: house_roof_side (8)
@@ -10676,6 +10704,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 3c21ba26f1437dc47b38a66571c30eab, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: b51bf27829cd5864c9224f9f03ef05e4, type: 2}
     - target: {fileID: 919132149155446097, guid: 3c21ba26f1437dc47b38a66571c30eab, type: 3}
       propertyPath: m_Name
       value: house_roof_corner (10)
@@ -11912,6 +11944,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 603ce4fc9e140a44ebb82072f484f471, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: e6f5d1a0fad0f974a809e4d6a599100a, type: 2}
     - target: {fileID: 919132149155446097, guid: 603ce4fc9e140a44ebb82072f484f471, type: 3}
       propertyPath: m_Name
       value: house_chimney (2)
@@ -12298,6 +12334,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 3c21ba26f1437dc47b38a66571c30eab, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: b51bf27829cd5864c9224f9f03ef05e4, type: 2}
     - target: {fileID: 919132149155446097, guid: 3c21ba26f1437dc47b38a66571c30eab, type: 3}
       propertyPath: m_Name
       value: house_roof_corner (11)
