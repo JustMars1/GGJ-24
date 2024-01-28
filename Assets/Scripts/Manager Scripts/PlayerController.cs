@@ -261,6 +261,7 @@ public class PlayerController : MonoBehaviour
                 }
 
                 isOnSlope = true;
+                GetComponent<Animator>().SetBool("onSlope", true);
             }
             else
             {
@@ -273,6 +274,7 @@ public class PlayerController : MonoBehaviour
                 }
 
                 isOnSlope = false;
+                GetComponent<Animator>().SetBool("onSlope", false);
             }
         }
     }
