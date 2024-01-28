@@ -94,7 +94,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bc1a67c3356ccb45922669514710fe3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreWorth: 10
+  scoreWorth: 1
   eatThreshold: 0
   eatDuration: 1
   detectionRadius: 10
@@ -123,8 +123,8 @@ Animator:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3619541380589020684}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 69428f526cd21824699bb735d4b01e0d, type: 2}
+  m_Avatar: {fileID: 9000000, guid: 9fbd0101a14b2074a91c40aeccc9d1bd, type: 3}
+  m_Controller: {fileID: 9100000, guid: 6ba02ec02ebf280459bb22fb4e856cd5, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -214,6 +214,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: big_dude_Final_rig
       objectReference: {fileID: 0}
+    - target: {fileID: 5866666021909216657, guid: 9fbd0101a14b2074a91c40aeccc9d1bd, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 6ba02ec02ebf280459bb22fb4e856cd5, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
