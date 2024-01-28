@@ -89,7 +89,7 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if(currentState == GameState.ENDED)
+        if(currentState != GameState.PLAYING)
         {
             return;
         }
@@ -97,6 +97,7 @@ public class GameManager : MonoBehaviour
         if(satiate <= 0)
         {
             // Lose game
+            EndGame();
         }
 
         // Decrease satiate with each frame
@@ -135,6 +136,7 @@ public class GameManager : MonoBehaviour
     public void ReduceScore(int scoreWorth)
     {
         score -= scoreWorth;
+        ReduceSatiate();
     }
 
     public int GetScore()
@@ -153,8 +155,19 @@ public class GameManager : MonoBehaviour
         satiate += 10;
     }
 
+    private void ReduceSatiate()
+    {
+        satiate -= 10;
+    }
+
     public void StartGame()
     {
+        // Tähän playaamaan se helikopterin alku animaatio tms
+    }
+
+    public void StartPlaying()
+    {
+        // Tää runnataan kun helikopteri juttu loppuu. Aika yms alkaa kulkemaan vasta kun pelaajasta saa kontrollin
         currentState = GameState.PLAYING;
         timeFromStart = 0;
     }
@@ -178,5 +191,7 @@ public class GameManager : MonoBehaviour
     public void EndGame()
     {
         currentState = GameState.ENDED;
+
+        // Open death screen and then main menu?
     }
 }
