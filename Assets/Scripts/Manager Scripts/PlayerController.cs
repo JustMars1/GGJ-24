@@ -87,7 +87,7 @@ public class PlayerController : MonoBehaviour
 
         _playerInput.PlayerInputActionMaps.Move.performed += OnMove;
         _playerInput.PlayerInputActionMaps.Look.performed += OnLook;
-        //_playerInput.PlayerInputActionMaps.Debug1.performed += OnDebug1Pressed;
+        _playerInput.PlayerInputActionMaps.Debug1.performed += OnDebug1Pressed;
 
         _cameraInitialLoc = _cam.transform.position;
         _cameraInitialRot = _cam.transform.rotation;
