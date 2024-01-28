@@ -45,6 +45,9 @@ public class GameManager : MonoBehaviour
 
     public PlayerRopeWind ropeWindScript;
 
+    private bool smallPopUpShown = false;
+    private bool largePopUpShown = false;
+
 #if UNITY_EDITOR
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
     static void Init()
@@ -130,6 +133,18 @@ public class GameManager : MonoBehaviour
         score += scoreWorth;
         AddSatiate();
         UpdateScoreUI();
+
+        if(score >= 10 && !smallPopUpShown)
+        {
+            smallPopUpShown = true;
+            ShowSmallHousePopUp();
+        }
+
+        if (score >= 30 && !largePopUpShown)
+        {
+            largePopUpShown = true;
+            ShowLargeHousePopUp();
+        }
     }
 
     public void ReduceScore(int scoreWorth)
@@ -215,5 +230,15 @@ public class GameManager : MonoBehaviour
     {
         MenuManager.instance.gameplayUI.hungerMeter.fillAmount = satiate / maxSatiate;
         playerController.OnFatnessChanged(Mathf.Clamp((score / 200), 0, 1));
+    }
+
+    public void ShowSmallHousePopUp()
+    {
+
+    }
+
+    public void ShowLargeHousePopUp()
+    {
+
     }
 }
