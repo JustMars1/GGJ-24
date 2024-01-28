@@ -84,7 +84,7 @@ public class GameManager : MonoBehaviour
             secondInterval = 60;
         }
 
-        satiate = maxSatiate/10;
+        satiate = maxSatiate;
     }
 
     private void Update()
