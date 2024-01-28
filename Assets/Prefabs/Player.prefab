@@ -269,6 +269,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 1171135845340481528}
   eatPoint: {fileID: 8469787937058046700}
+  playerController: {fileID: 6446482793608043523}
 --- !u!54 &8063008278253169864
 Rigidbody:
   m_ObjectHideFlags: 0
