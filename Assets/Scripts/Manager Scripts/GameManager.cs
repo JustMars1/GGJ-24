@@ -153,7 +153,7 @@ public class GameManager : MonoBehaviour
         UpdateScoreUI();
         ReduceSatiate();
 
-        //playerController.
+        playerController._animator.SetBool("gotHit", true);
     }
 
     public int GetScore()
