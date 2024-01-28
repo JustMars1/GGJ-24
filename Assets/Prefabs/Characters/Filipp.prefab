@@ -117,6 +117,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 84ee41a9cd21e1846840732d77cd8b65, type: 3}
   - {fileID: 8300000, guid: b1922be681349294981a3cb3fc8867cb, type: 3}
   - {fileID: 8300000, guid: d711f532544a386409c7247d89f8cd25, type: 3}
+  rightFootstep: {fileID: 8300000, guid: 2242a4a1c10892f42bea91903f0859ad, type: 3}
+  leftFootstep: {fileID: 8300000, guid: 2242a4a1c10892f42bea91903f0859ad, type: 3}
 --- !u!95 &4860002134903733127
 Animator:
   serializedVersion: 5
