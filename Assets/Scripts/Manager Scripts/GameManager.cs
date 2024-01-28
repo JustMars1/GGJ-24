@@ -7,9 +7,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager manager;
 
-    [SerializeField]
-    [Tooltip("The image used as the hunger meter.")]
-    private Image hungerMeter;
+    [SerializeField] PlayerController playerController;
     
     // Score of the player
     [HideInInspector]
@@ -85,6 +83,8 @@ public class GameManager : MonoBehaviour
         {
             secondInterval = 60;
         }
+
+        satiate = maxSatiate;
     }
 
     private void Update()
@@ -94,7 +94,7 @@ public class GameManager : MonoBehaviour
             return;
         }
 
-        if(satiate <= 0)
+        if(satiate < 0)
         {
             // Lose game
             EndGame();
@@ -116,10 +116,7 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        if(hungerMeter)
-        {
-            hungerMeter.fillAmount = satiate / maxSatiate;
-        }
+        UpdateHungerUI();
     }
 
     public GameManager GetGameManager()
@@ -131,11 +128,13 @@ public class GameManager : MonoBehaviour
     {
         score += scoreWorth;
         AddSatiate();
+        UpdateScoreUI();
     }
 
     public void ReduceScore(int scoreWorth)
     {
         score -= scoreWorth;
+        UpdateScoreUI();
         ReduceSatiate();
     }
 
@@ -153,21 +152,24 @@ public class GameManager : MonoBehaviour
         }
 
         satiate += 10;
+        UpdateHungerUI();
     }
 
     private void ReduceSatiate()
     {
         satiate -= 10;
+        UpdateHungerUI();
     }
 
     public void StartGame()
     {
-        // Tähän playaamaan se helikopterin alku animaatio tms
+        // Tï¿½hï¿½n playaamaan se helikopterin alku animaatio tms
+        playerController.StartCameraBlend();
     }
 
     public void StartPlaying()
     {
-        // Tää runnataan kun helikopteri juttu loppuu. Aika yms alkaa kulkemaan vasta kun pelaajasta saa kontrollin
+        // Tï¿½ï¿½ runnataan kun helikopteri juttu loppuu. Aika yms alkaa kulkemaan vasta kun pelaajasta saa kontrollin
         currentState = GameState.PLAYING;
         timeFromStart = 0;
     }
@@ -176,7 +178,8 @@ public class GameManager : MonoBehaviour
     {
         currentState = GameState.PAUSED;
         Time.timeScale = 0;
-
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
         // Open pause menu..? Or is opened somewhere else?
     }
 
@@ -184,14 +187,31 @@ public class GameManager : MonoBehaviour
     {
         currentState = GameState.PLAYING;
         Time.timeScale = 1;
-
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
         // Close pause menu or done somewhere else?
     }
 
     public void EndGame()
     {
         currentState = GameState.ENDED;
+        MenuManager.instance.OpenGameOverMenu();
+        
+        Time.timeScale = 0;
 
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
         // Open death screen and then main menu?
+    }
+
+    void UpdateScoreUI()
+    {
+        MenuManager.instance.gameplayUI.scoreText.text = score.ToString();
+    }
+
+    void UpdateHungerUI()
+    {
+        MenuManager.instance.gameplayUI.hungerMeter.fillAmount = satiate / maxSatiate;
+        playerController.OnFatnessChanged((satiate / maxSatiate)/10);
     }
 }
