@@ -57,7 +57,7 @@ public class GameManager : MonoBehaviour
     {
         if (manager == null)
         {
-            DontDestroyOnLoad(gameObject);
+            //DontDestroyOnLoad(gameObject);
             manager = this;
         }
         else
@@ -86,7 +86,7 @@ public class GameManager : MonoBehaviour
             secondInterval = 60;
         }
 
-        satiate = maxSatiate / 10;
+        satiate = maxSatiate;
     }
 
     private void Update()

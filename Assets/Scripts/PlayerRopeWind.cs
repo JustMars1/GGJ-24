@@ -57,6 +57,7 @@ public class PlayerRopeWind : MonoBehaviour
     public void DetatchRope()
     {
         Destroy(hingeJoint);
+        GetComponent<Animator>().SetBool("droppedFromHeli", true);
     }
 
     private void OnTriggerEnter(Collider other)
