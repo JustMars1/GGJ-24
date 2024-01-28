@@ -1,4 +1,6 @@
 using System.Collections;
+using System.Collections.Generic;
+using NPC;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -11,9 +13,14 @@ public class HumanSpawner : MonoBehaviour
     public int numberOfBigCivil = 5;
     public float spawnRadius = 10f;
 
+    [SerializeField ]List<ColorPalette> _palettes = new List<ColorPalette>();
+    [SerializeField ]List<BigColorPalette> _bigPalettes = new List<BigColorPalette>();
+
     private GameManager manager;
     private int lastSpawnedScore;
     private bool enemiesSpawnedForCurrentInterval;
+    static readonly int _baseColor = Shader.PropertyToID("_BaseColor");
+    static readonly int _index = Shader.PropertyToID("_index");
 
     void Start()
     {
@@ -69,6 +76,21 @@ public class HumanSpawner : MonoBehaviour
             if (!float.IsInfinity(randomPosition.x))
             {
                 GameObject newNormalCivil = Instantiate(normalCivilPrefab, randomPosition, Quaternion.identity);
+                
+                Renderer renderer = newNormalCivil.GetComponentInChildren<Renderer>(true);
+
+                ColorPalette palette = _palettes[Random.Range(0, _palettes.Count)];
+                
+                renderer.materials[0].SetColor(_baseColor, palette.coat);
+                renderer.materials[1].SetColor(_baseColor, palette.boots);
+                renderer.materials[2].SetColor(_baseColor, palette.neckThing);
+                renderer.materials[3].SetColor(_baseColor, palette.pants);
+                renderer.materials[4].SetColor(_baseColor, palette.gloves);
+                
+                renderer.materials[5].SetInt(_index, Random.Range(0, 9));
+                
+                renderer.materials[6].SetColor(_baseColor, palette.hat);
+                renderer.materials[6].SetColor(_baseColor, palette.scarf);
             }
 
             yield return null;
@@ -83,6 +105,18 @@ public class HumanSpawner : MonoBehaviour
             if (!float.IsInfinity(randomPosition.x))
             {
                 GameObject newBigCivil = Instantiate(bigCivilPrefab, randomPosition, Quaternion.identity);
+                
+                Renderer renderer = newBigCivil.GetComponentInChildren<Renderer>(true);
+                
+                // BigColorPalette palette = _bigPalettes[Random.Range(0, _bigPalettes.Count)];
+                //
+                // renderer.materials[0].SetColor(_baseColor, palette.coat);
+                // renderer.materials[1].SetColor(_baseColor, palette.boots);
+                // renderer.materials[2].SetColor(_baseColor, palette.neckThing);
+                // renderer.materials[3].SetColor(_baseColor, palette.pants);
+                // renderer.materials[4].SetColor(_baseColor, palette.gloves);
+                //
+                // renderer.materials[5].SetInt(_index, Random.Range(0, 4));
             }
 
             yield return null;
