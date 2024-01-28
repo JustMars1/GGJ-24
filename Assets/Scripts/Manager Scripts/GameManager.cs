@@ -65,6 +65,7 @@ public class GameManager : MonoBehaviour
 
         score = 0;
         timeFromStart = 0;
+        satiate = maxSatiate;
 
         // If user didn't specify the values, give them a default value.
         if(maxSatiate <= 0)
@@ -92,7 +93,7 @@ public class GameManager : MonoBehaviour
             return;
         }
 
-        if(satiate <= 0)
+        if(satiate < 0)
         {
             // Lose game
             EndGame();
@@ -176,7 +177,8 @@ public class GameManager : MonoBehaviour
     {
         currentState = GameState.PAUSED;
         Time.timeScale = 0;
-
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
         // Open pause menu..? Or is opened somewhere else?
     }
 
@@ -184,7 +186,8 @@ public class GameManager : MonoBehaviour
     {
         currentState = GameState.PLAYING;
         Time.timeScale = 1;
-
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
         // Close pause menu or done somewhere else?
     }
 
@@ -192,7 +195,11 @@ public class GameManager : MonoBehaviour
     {
         currentState = GameState.ENDED;
         MenuManager.instance.OpenGameOverMenu();
+        
+        Time.timeScale = 0;
 
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
         // Open death screen and then main menu?
     }
 
