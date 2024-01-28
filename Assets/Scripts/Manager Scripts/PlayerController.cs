@@ -173,7 +173,7 @@ public class PlayerController : MonoBehaviour
 
     void UpdatePlayerCamera()
     {
-        if (_canUpdatePlayerCamRotations)
+        if (_canUpdatePlayerCamRotations && Time.timeScale > 0.01f)
         {
             float ffInd = Time.deltaTime / (1.0f / 60.0f) * 3.0f;
             _cameraYAngle += _lookInput.x * _cameraSensitivity * (_isGamepad ? ffInd : 1.0f);
