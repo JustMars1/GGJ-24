@@ -92,6 +92,12 @@ public class PlayerController : MonoBehaviour
 
         _cameraInitialLoc = _cam.transform.position;
         _cameraInitialRot = _cam.transform.rotation;
+
+        if (GameObject.FindWithTag("Helicopter") == null)
+        {
+            Debug.Log("no heli in scene!");
+            GetComponent<PlayerRopeWind>().DetatchRope();
+        }
     }
 
     void OnMove(InputAction.CallbackContext ctx)
