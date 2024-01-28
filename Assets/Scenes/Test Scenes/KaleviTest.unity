@@ -630,7 +630,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d96610ac5ea294449f97560ac05728f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerController: {fileID: 515739424}
+  playerController: {fileID: 0}
   score: 0
   maxSatiate: 100
   hungerSpeed: 1
@@ -742,17 +742,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
---- !u!114 &515739424 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8059821489059000383, guid: b1a9349a30030c948834c00f3f97e946, type: 3}
-  m_PrefabInstance: {fileID: 8805901420545152898}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4c51630f9b333934da678227af59a578, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &616984346
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2317,6 +2306,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1171135845340481528, guid: b1a9349a30030c948834c00f3f97e946, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1223290499133074422, guid: b1a9349a30030c948834c00f3f97e946, type: 3}
       propertyPath: m_LocalPosition.x
       value: -7.2

@@ -41,6 +41,8 @@ public class Enemy : Eatable
 
     private Vector3 lastKnownPlayerPosition = Vector3.zero;
 
+    public AudioClip attackSound;
+
     protected override void Start()
     {
         base.Start();
@@ -261,5 +263,13 @@ public class Enemy : Eatable
     {
         //Deal damage to player
         GameManager.manager.ReduceScore(normalEnemyDamage);
+    }
+
+    public void AttackSound()
+    {
+        if(attackSound)
+        {
+            AudioController.PlaySound(attackSound, transform.position);
+        }
     }
 }

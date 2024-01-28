@@ -228,7 +228,7 @@ public class PlayerController : MonoBehaviour
         
             if (Physics.Raycast(transform.position, -transform.up, out RaycastHit hit1, 1.2f))
             {
-                Debug.Log("Hit");
+                //Debug.Log("Hit");
                 _groundHitLoc = hit1.point;
                 DrawDebugPoint(_groundHitLoc, Color.red);
 
@@ -238,7 +238,7 @@ public class PlayerController : MonoBehaviour
                 moveDirection = Quaternion.AngleAxis(slopeAngle, slopeAxis) * moveDirection;
                 Debug.DrawLine(transform.position, transform.position + slopeAxis, Color.blue);
                 Debug.DrawLine(transform.position, transform.position + moveDirection, Color.green);
-                Debug.Log(slopeAngle);
+                //Debug.Log(slopeAngle);
 
                 isOnGround = true;
             }
@@ -249,7 +249,7 @@ public class PlayerController : MonoBehaviour
         
             if (Physics.Raycast(transform.position, -transform.up, out RaycastHit hit2, 1.2f, _slopeMask))
             {
-                Debug.Log("On Slope");
+                //Debug.Log("On Slope");
 
                 Vector3 slopeAxis = Vector3.Cross(_globalSlopeDirection, hit2.normal);
                 Vector3 slopeSlideDir = Vector3.Cross(hit2.normal, slopeAxis);
@@ -270,8 +270,10 @@ public class PlayerController : MonoBehaviour
                 _rb.MovePosition(_rb.position + Time.fixedDeltaTime * _moveSpeed * moveDirection);
                 if (isOnRamp)
                 {
-                    Debug.Log("Launch off ramp!");
-                    _rb.AddForce(_globalSlopeDirection*15.0f+Vector3.up*5.0f, ForceMode.Impulse);
+                    Debug.Log("Kroko Launch off ramp!");
+                    Vector3 rampJumpImpulse = _globalSlopeDirection * 15.0f + Vector3.up * 5.0f;
+                    _rb.AddForce(rampJumpImpulse, ForceMode.VelocityChange);
+                    Debug.DrawLine(transform.position, transform.position + rampJumpImpulse, Color.red, 2.0f);
                     isOnRamp = false;
                 }
 
