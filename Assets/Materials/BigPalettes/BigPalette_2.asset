@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c4a8cc8272324fefaeb8c7a84b5bef1, type: 3}
+  m_Name: BigPalette_2
+  m_EditorClassIdentifier: 
+  _neckThing: {r: 0.81886786, g: 0.6044808, b: 0.18385892, a: 1}
+  _coat: {r: 0.6679245, g: 0.389885, b: 0.30623704, a: 1}
+  _gloves: {r: 0.7433963, g: 0.57301974, b: 0.31278744, a: 1}
+  _pants: {r: 0.29231036, g: 0.29617465, b: 0.6075471, a: 1}
+  _boots: {r: 0.23773581, g: 0.22203627, b: 0.22203627, a: 1}

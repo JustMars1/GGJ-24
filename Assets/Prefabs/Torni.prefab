@@ -283,6 +283,7 @@ MonoBehaviour:
   bigCivilPrefab: {fileID: 3619541380589020684, guid: 3aac9c5ca3fd496418b3b8382d410d17, type: 3}
   spawnRadius: 10
   destroyableThreshold: 0
+  collapseAudio: {fileID: 8300000, guid: f18bed06467ec8f488d1bd89133cb384, type: 3}
 --- !u!1 &7711523748797538948
 GameObject:
   m_ObjectHideFlags: 0
