@@ -253,6 +253,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: kroko_rig (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 92b65f94356f4f04eb6ffff6274942b0, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 1569289479589062075, guid: 92b65f94356f4f04eb6ffff6274942b0, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -287,6 +291,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 92b65f94356f4f04eb6ffff6274942b0, type: 3}
       insertIndex: -1
       addedObject: {fileID: 7065145208959746996}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 92b65f94356f4f04eb6ffff6274942b0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7916466510540948723}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 92b65f94356f4f04eb6ffff6274942b0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 113487139541779998}
   m_SourcePrefab: {fileID: 100100000, guid: 92b65f94356f4f04eb6ffff6274942b0, type: 3}
 --- !u!4 &5089235856422788482 stripped
 Transform:
@@ -415,6 +425,60 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!59 &7916466510540948723
+HingeJoint:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5614662314993289016}
+  m_ConnectedBody: {fileID: 0}
+  m_ConnectedArticulationBody: {fileID: 0}
+  m_Anchor: {x: 0, y: 0, z: 0}
+  m_Axis: {x: 1, y: 0, z: 0}
+  m_AutoConfigureConnectedAnchor: 1
+  m_ConnectedAnchor: {x: 0, y: 0, z: 0}
+  serializedVersion: 2
+  m_UseSpring: 0
+  m_Spring:
+    spring: 0
+    damper: 0
+    targetPosition: 0
+  m_UseMotor: 0
+  m_Motor:
+    targetVelocity: 0
+    force: 0
+    freeSpin: 0
+  m_UseLimits: 0
+  m_ExtendedLimits: 0
+  m_UseAcceleration: 0
+  m_Limits:
+    min: 0
+    max: 0
+    bounciness: 0
+    bounceMinVelocity: 0.2
+    contactDistance: 0
+  m_BreakForce: Infinity
+  m_BreakTorque: Infinity
+  m_EnableCollision: 0
+  m_EnablePreprocessing: 1
+  m_MassScale: 1
+  m_ConnectedMassScale: 1
+--- !u!114 &113487139541779998
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5614662314993289016}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fe00d1c8c34a014ca5c1a4c5c0fba99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inWindZone: 0
+  windStrength: 3
+  hingeJoint: {fileID: 7916466510540948723}
 --- !u!4 &7521283410090852179 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -6247945034147084998, guid: 92b65f94356f4f04eb6ffff6274942b0, type: 3}

@@ -105,6 +105,7 @@ public class MenuManager : MonoBehaviour
     void ExitToMainMenu()
     {
         PopAllMenus();
+        Time.timeScale = 1;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
     
