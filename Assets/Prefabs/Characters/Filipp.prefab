@@ -94,17 +94,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bc1a67c3356ccb45922669514710fe3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreWorth: 10
+  scoreWorth: 1
   eatThreshold: 0
   eatDuration: 1
-  detectionRadius: 10
+  detectionRadius: 15
   normalWanderSpeed: 2
   runAwaySpeed: 6
   wanderRadius: 20
   wanderTimer: 2
   runAwayDistance: 20
   fearZigzagFactor: 8
-  fallChance: 0.0003
+  fallChance: 0.0005
   fallDuration: 3
   cooldownDuration: 5
   runAwayDuration: 8
