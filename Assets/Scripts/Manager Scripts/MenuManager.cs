@@ -99,6 +99,7 @@ public class MenuManager : MonoBehaviour
     void Resume()
     {
         PopAllMenus();
+        GameManager.manager.UnPauseGame();
     }
 
     void ExitToMainMenu()
@@ -170,8 +171,7 @@ public class MenuManager : MonoBehaviour
         {
             if (_menuStack.Peek() is PauseMenu)
             {
-                PopMenu();
-                GameManager.manager.UnPauseGame();
+                Resume();
             }
         }
         else

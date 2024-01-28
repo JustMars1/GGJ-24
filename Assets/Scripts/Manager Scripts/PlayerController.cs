@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Numerics;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 using Quaternion = UnityEngine.Quaternion;
 using Vector2 = UnityEngine.Vector2;
 using Vector3 = UnityEngine.Vector3;
@@ -49,10 +50,10 @@ public class PlayerController : MonoBehaviour
 
     Vector3 _globalSlopeDirection = Vector3.right;
 
-    bool _isOnSlope = false;
-    bool _isOnRamp = false;
+    public bool isOnSlope = false;
+    public bool isOnRamp = false;
 
-    bool _isOnGround = false;
+    public bool isOnGround = false;
 
     Vector3 _cameraPivotOffset = new Vector3(0.0f, 2.0f, 0.0f);
 
@@ -109,6 +110,13 @@ public class PlayerController : MonoBehaviour
         StartCameraBlend();
     }
 
+    public void OnFatnessChanged(float newFatness)
+    {
+        _krokoFatness = newFatness;
+        Debug.Log("OnFatnessChanged called");
+        Debug.LogFormat("OnFatness = {0}", _krokoFatness);
+    }
+
     public void StartCameraBlend()
     {
         StartCoroutine(StartCameraBlendCo());
@@ -160,11 +168,11 @@ public class PlayerController : MonoBehaviour
 
             float angleToSlopeSlideDir = signSlope * Mathf.Acos(dotWithSlopeDir) * Mathf.Rad2Deg;
  
-            if (moveInputXZ.magnitude > 0.0f && !_isOnSlope)
+            if (moveInputXZ.magnitude > 0.0f && !isOnSlope)
             {
                 _rb.MoveRotation(_rb.rotation * Quaternion.Euler(0.0f, angleToMoveDir * _orientSpeed, 0.0f));
             }
-            if (_isOnSlope)
+            if (isOnSlope)
             {
                 _rb.MoveRotation(_rb.rotation * Quaternion.Euler(0.0f, angleToSlopeSlideDir * _orientSpeed, 0.0f));
             }
@@ -211,7 +219,7 @@ public class PlayerController : MonoBehaviour
         if (_canMove)
         {
             _rb.AddForce(Vector3.down*9.81f, ForceMode.Acceleration);
-            if (_isOnGround)
+            if (isOnGround)
             {
                 _rb.velocity = new Vector3(0.0f, _rb.velocity.y, 0.0f);
             }
@@ -232,11 +240,11 @@ public class PlayerController : MonoBehaviour
                 Debug.DrawLine(transform.position, transform.position + moveDirection, Color.green);
                 Debug.Log(slopeAngle);
 
-                _isOnGround = true;
+                isOnGround = true;
             }
             else
             {
-                _isOnGround = false;
+                isOnGround = false;
             }
         
             if (Physics.Raycast(transform.position, -transform.up, out RaycastHit hit2, 1.2f, _slopeMask))
@@ -251,22 +259,24 @@ public class PlayerController : MonoBehaviour
 
                 if (Vector3.Dot(slopeSlideDir, Vector3.up) > 0.0f)
                 {
-                    _isOnRamp = true;
+                    isOnRamp = true;
                 }
 
-                _isOnSlope = true;
+                isOnSlope = true;
+                GetComponent<Animator>().SetBool("onSlope", true);
             }
             else
             {
                 _rb.MovePosition(_rb.position + Time.fixedDeltaTime * _moveSpeed * moveDirection);
-                if (_isOnRamp)
+                if (isOnRamp)
                 {
                     Debug.Log("Launch off ramp!");
                     _rb.AddForce(_globalSlopeDirection*15.0f+Vector3.up*5.0f, ForceMode.Impulse);
-                    _isOnRamp = false;
+                    isOnRamp = false;
                 }
 
-                _isOnSlope = false;
+                isOnSlope = false;
+                GetComponent<Animator>().SetBool("onSlope", false);
             }
         }
     }
@@ -275,8 +285,8 @@ public class PlayerController : MonoBehaviour
     {
         UpdatePlayerCamera();
         Orient();
-
-        _rig.transform.localScale = Vector3.Lerp(Vector3.one*100.0f, new Vector3(1000.0f, 1000.0f, 1000.0f), _krokoFatness);
+        
+        _rig.transform.localScale = Vector3.Lerp(Vector3.one*100.0f, Vector3.one*500.0f, _krokoFatness);
         Vector3 limbScale = Vector3.Lerp(Vector3.one, new Vector3(0.1f, 0.1f, 0.1f), _krokoFatness);
         _head.transform.localScale = limbScale;
         _leftArm.transform.localScale = limbScale;
