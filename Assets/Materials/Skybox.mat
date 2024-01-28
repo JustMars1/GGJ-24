@@ -127,12 +127,12 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     - _auroraNoise: 181.19
-    - _auroraPower: 5
+    - _auroraPower: 3.31
     - _disSpeed: 1
-    - _horizonBlend: 1
+    - _horizonBlend: 3
     - _lightBlend: 3
     - _nadiarBlend: 0.5
-    - _nauroraNoiseInsenti: 0.42
+    - _nauroraNoiseInsenti: 0.66
     - _radiantOffset: 0
     - _starCount: 35
     - _startHeight: 500
@@ -149,7 +149,7 @@ Material:
     - _minmax: {r: 10, g: 12, b: 0, a: 0}
     - _scrollSpeed: {r: 0, g: 0.05, b: 0, a: 0}
     - _skyColor: {r: 0, g: 0, b: 0, a: 0}
-    - _tiling: {r: 1, g: 1, b: 0, a: 0}
+    - _tiling: {r: 1, g: 3.42, b: 0, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &2021641830954696896
 MonoBehaviour:
