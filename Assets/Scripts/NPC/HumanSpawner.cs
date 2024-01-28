@@ -27,11 +27,11 @@ public class HumanSpawner : MonoBehaviour
     {
         int currentScore = manager.GetScore();
 
-        // Check if the score has crossed a 50-score interval and enemies haven't been spawned for the current interval
-        if (currentScore > lastSpawnedScore && (currentScore / 50 > lastSpawnedScore / 50) && !enemiesSpawnedForCurrentInterval)
+        // Check if the score has crossed a 100-score interval and enemies haven't been spawned for the current interval
+        if (currentScore > lastSpawnedScore && (currentScore / 100 > lastSpawnedScore / 100) && !enemiesSpawnedForCurrentInterval)
         {
             // Spawn enemies based on the score difference
-            int numberOfEnemiesToSpawn = 10; // 10 enemies per 50 score
+            int numberOfEnemiesToSpawn = 5; // 5 enemies per 100 score
 
             for (int i = 0; i < numberOfEnemiesToSpawn; i++)
             {
@@ -41,6 +41,9 @@ public class HumanSpawner : MonoBehaviour
                 if (!float.IsInfinity(randomPosition.x))
                 {
                     GameObject newEnemy = Instantiate(enemyPrefab, randomPosition, Quaternion.identity);
+                    //Debug how many enemies are spawned and what is the current score
+                    Debug.Log("Enemy spawned at " + randomPosition + " with score " + currentScore);
+                    
                 }
             }
 
@@ -49,7 +52,7 @@ public class HumanSpawner : MonoBehaviour
         }
 
         // Reset the flag if the score goes back to a previous 50-score interval
-        if (currentScore / 50 > lastSpawnedScore / 50)
+        if (currentScore / 100 > lastSpawnedScore / 100)
         {
             enemiesSpawnedForCurrentInterval = false;
         }
