@@ -114,19 +114,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef8880f51cacbd44ab7a4adcf5681464, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreWorth: 10
+  scoreWorth: 1
   eatThreshold: 0
   eatDuration: 1
-  detectionRadius: 10
+  detectionRadius: 30
   normalWanderSpeed: 2
   followPlayerSpeed: 6
   wanderRadius: 20
   wanderTimer: 2
   cooldownDuration: 5
   attackRange: 1.5
-  normalEnemyDamage: 30
+  normalEnemyDamage: 3
   timeBetweenDestinations: 1.5
   stuckTimerThreshold: 2
+  attackSound: {fileID: 0}
 --- !u!1001 &7060962460088910430
 PrefabInstance:
   m_ObjectHideFlags: 0
