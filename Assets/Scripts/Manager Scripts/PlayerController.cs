@@ -6,6 +6,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Serialization;
 using Quaternion = UnityEngine.Quaternion;
+using Random = UnityEngine.Random;
 using Vector2 = UnityEngine.Vector2;
 using Vector3 = UnityEngine.Vector3;
 
@@ -59,9 +60,6 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField]
     float _krokoFatness = 0.0f;
-
-    [SerializeField]  
-    Animator animator;
     
     // bone transforms
     [SerializeField]
@@ -82,10 +80,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     Transform _tail;
 
-    public PlayerController(Animator animator)
-    {
-        this.animator = animator;
-    }
+    // Audio
+    public AudioClip[] eatSoundList;
+    public AudioClip[] footstepSoundList;
+    public AudioClip slidingSound;
 
     // Start is called before the first frame update
     void Start()
@@ -277,7 +275,7 @@ public class PlayerController : MonoBehaviour
                 }
 
                 isOnSlope = true;
-                animator.SetBool("onSlope", true);
+                GetComponent<Animator>().SetBool("onSlope", true);
             }
             else
             {
@@ -292,7 +290,7 @@ public class PlayerController : MonoBehaviour
                 }
 
                 isOnSlope = false;
-                animator.SetBool("onSlope", false);
+                GetComponent<Animator>().SetBool("onSlope", false);
             }
         }
     }
@@ -310,5 +308,28 @@ public class PlayerController : MonoBehaviour
         _leftLeg.transform.localScale = limbScale;
         _rightLeg.transform.localScale = limbScale;
         _tail.transform.localScale = limbScale;
+    }
+
+    public void PlayEatingSound()
+    {
+        if (eatSoundList.Length > 0)
+        {
+            AudioController.PlaySound(eatSoundList[Random.Range(0, eatSoundList.Length)], transform.position, false);
+        }
+    }
+
+    public void PlaySlidingSound()
+    {
+        AudioController.PlaySound(slidingSound, transform.position, true);
+    }
+
+    public void StopSlidingSound()
+    {
+        AudioController.StopPlayingSound(slidingSound);
+    }
+
+    public void PlayFootstepSound()
+    {
+        AudioController.PlaySound(footstepSoundList[Random.Range(0, footstepSoundList.Length)], transform.position, false);
     }
 }
