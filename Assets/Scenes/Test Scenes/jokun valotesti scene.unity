@@ -518,62 +518,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Graphics
       objectReference: {fileID: 0}
-    - target: {fileID: 3983198588655209721, guid: c68e23c88402b234eba8f72eb4e178e3, type: 3}
-      propertyPath: m_Intensity
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3983198588655209721, guid: c68e23c88402b234eba8f72eb4e178e3, type: 3}
-      propertyPath: m_Lightmapping
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3983198588655209721, guid: c68e23c88402b234eba8f72eb4e178e3, type: 3}
-      propertyPath: m_Shadows.m_Type
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3983198588655209721, guid: c68e23c88402b234eba8f72eb4e178e3, type: 3}
-      propertyPath: m_BoundingSphereOverride.w
-      value: 0.28521484
-      objectReference: {fileID: 0}
-    - target: {fileID: 3983198588655209721, guid: c68e23c88402b234eba8f72eb4e178e3, type: 3}
-      propertyPath: m_BoundingSphereOverride.x
-      value: -1.0236858
-      objectReference: {fileID: 0}
-    - target: {fileID: 3983198588655209721, guid: c68e23c88402b234eba8f72eb4e178e3, type: 3}
-      propertyPath: m_BoundingSphereOverride.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3983198588655209721, guid: c68e23c88402b234eba8f72eb4e178e3, type: 3}
-      propertyPath: m_BoundingSphereOverride.z
-      value: 0.8891769
-      objectReference: {fileID: 0}
-    - target: {fileID: 4852802073091156375, guid: c68e23c88402b234eba8f72eb4e178e3, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.9173917
-      objectReference: {fileID: 0}
-    - target: {fileID: 4852802073091156375, guid: c68e23c88402b234eba8f72eb4e178e3, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0.32090652
-      objectReference: {fileID: 0}
-    - target: {fileID: 4852802073091156375, guid: c68e23c88402b234eba8f72eb4e178e3, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0.22219464
-      objectReference: {fileID: 0}
-    - target: {fileID: 4852802073091156375, guid: c68e23c88402b234eba8f72eb4e178e3, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0.07772439
-      objectReference: {fileID: 0}
-    - target: {fileID: 4852802073091156375, guid: c68e23c88402b234eba8f72eb4e178e3, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 27.23
-      objectReference: {fileID: 0}
-    - target: {fileID: 7260047514807975171, guid: c68e23c88402b234eba8f72eb4e178e3, type: 3}
-      propertyPath: weight
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7260047514807975171, guid: c68e23c88402b234eba8f72eb4e178e3, type: 3}
-      propertyPath: sharedProfile
-      value: 
-      objectReference: {fileID: 11400000, guid: 525a5e1bbf95f824baca8fb017ac7374, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
