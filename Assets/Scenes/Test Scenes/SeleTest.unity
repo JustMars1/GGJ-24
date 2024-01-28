@@ -1364,7 +1364,7 @@ MonoBehaviour:
   enemyPrefab: {fileID: 3399045552607249049, guid: cacde2fd5e2dcdc4ebc7b40b16935981, type: 3}
   numberOfNormalCivil: 10
   numberOfBigCivil: 5
-  spawnRadius: 10
+  spawnRadius: 50
 --- !u!4 &1240516766
 Transform:
   m_ObjectHideFlags: 0

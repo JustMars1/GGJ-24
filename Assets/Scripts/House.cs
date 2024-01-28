@@ -59,10 +59,11 @@ public class House : MonoBehaviour
                             child.GetChild(i).GetComponent<ParticleSystem>().Play();
                         }
                     }
+                } else
+                {
+                    // Start shrinking and fading out the child gameobjects
+                    StartCoroutine(ShrinkAndFadeOut(child));
                 }
-
-                // Start shrinking and fading out the child gameobjects
-                StartCoroutine(ShrinkAndFadeOut(child));
             }
 
             StartCoroutine(SpawnHumans());
