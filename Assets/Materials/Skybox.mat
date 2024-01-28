@@ -144,7 +144,7 @@ Material:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
-    - _groundClolor: {r: 0.1559265, g: 0.14126332, b: 0.12477186, a: 0}
+    - _groundClolor: {r: 0, g: 0, b: 0, a: 0}
     - _horizonColor: {r: 0.036044866, g: 0.036044866, b: 0.084905684, a: 0}
     - _minmax: {r: 10, g: 12, b: 0, a: 0}
     - _scrollSpeed: {r: 0, g: 0.05, b: 0, a: 0}
