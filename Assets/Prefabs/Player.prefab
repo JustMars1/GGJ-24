@@ -155,7 +155,7 @@ GameObject:
   - component: {fileID: 5011340235715536060}
   m_Layer: 0
   m_Name: rigidbody
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -227,9 +227,12 @@ MonoBehaviour:
   _leftLeg: {fileID: 8838119303418240849}
   _rightLeg: {fileID: 9006196795144121707}
   _tail: {fileID: 8542173219866590094}
-  eatSoundList: []
-  footstepSoundList: []
-  slidingSound: {fileID: 0}
+  eatSoundList:
+  - {fileID: 8300000, guid: 7999af82040b23949807995d12d5ba7d, type: 3}
+  - {fileID: 8300000, guid: 1c483e4acaeb6cd4b90dbccf254774c8, type: 3}
+  rightFootstep: {fileID: 8300000, guid: 5eb5ce38483c0cc45a73c3d5dd839d41, type: 3}
+  leftFootstep: {fileID: 8300000, guid: 205f47ca6fa420043a5b2e4d4651b4c2, type: 3}
+  slidingSound: {fileID: 8300000, guid: 3636f79b6e574524aa22410e07334fd7, type: 3}
 --- !u!65 &4342394678112440382
 BoxCollider:
   m_ObjectHideFlags: 0
