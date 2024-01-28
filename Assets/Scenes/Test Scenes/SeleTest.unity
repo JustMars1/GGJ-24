@@ -431,8 +431,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1995605456111776076, guid: b1a9349a30030c948834c00f3f97e946, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 2715937166737607321, guid: b1a9349a30030c948834c00f3f97e946, type: 3}
       propertyPath: m_Name
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 2715937166737607321, guid: b1a9349a30030c948834c00f3f97e946, type: 3}
+      propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 8863171356861257734, guid: b1a9349a30030c948834c00f3f97e946, type: 3}
@@ -614,6 +622,57 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 0
+--- !u!1 &380273455
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 380273457}
+  - component: {fileID: 380273456}
+  m_Layer: 0
+  m_Name: GameObject (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &380273456
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 380273455}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d96610ac5ea294449f97560ac05728f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hungerMeter: {fileID: 0}
+  score: 0
+  maxSatiate: 0
+  hungerSpeed: 0
+  currentState: 0
+  firstInterval: 0
+  secondInterval: 0
+--- !u!4 &380273457
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 380273455}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3.3067675, y: -67.688644, z: -11.536051}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &535570939
 GameObject:
   m_ObjectHideFlags: 0
@@ -1243,8 +1302,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56bd505a93551d64692eba72008ed947, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  humanPrefab: {fileID: 584301822052563484, guid: d38c1ed7688ff4244b6e94605f86fb47, type: 3}
-  numberOfHumans: 10
+  normalCivilPrefab: {fileID: 584301822052563484, guid: d38c1ed7688ff4244b6e94605f86fb47, type: 3}
+  bigCivilPrefab: {fileID: 3619541380589020684, guid: 3aac9c5ca3fd496418b3b8382d410d17, type: 3}
+  enemyPrefab: {fileID: 3399045552607249049, guid: cacde2fd5e2dcdc4ebc7b40b16935981, type: 3}
+  numberOfNormalCivil: 10
+  numberOfBigCivil: 5
   spawnRadius: 10
 --- !u!4 &1240516766
 Transform:
@@ -1443,8 +1505,8 @@ MonoBehaviour:
   residentsAmount: 0
   maxResidents: 2
   force: 20
-  doorPoint: {fileID: 0}
-  humanPrefab: {fileID: 584301822052563484, guid: d38c1ed7688ff4244b6e94605f86fb47, type: 3}
+  normalCivilPrefab: {fileID: 0}
+  bigCivilPrefab: {fileID: 0}
   spawnRadius: 10
 --- !u!1 &1845238468
 GameObject:
@@ -1521,3 +1583,4 @@ SceneRoots:
   - {fileID: 1586068476}
   - {fileID: 245245314}
   - {fileID: 1240516766}
+  - {fileID: 380273457}

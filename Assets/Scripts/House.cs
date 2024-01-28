@@ -6,7 +6,8 @@ public class House : MonoBehaviour
     public int residentsAmount;
     public int maxResidents;
     public float force;
-    public GameObject humanPrefab;
+    public GameObject normalCivilPrefab;
+    public GameObject bigCivilPrefab;
     GameObject doorCollider;
     public float spawnRadius = 10f;
 
@@ -113,7 +114,12 @@ public class House : MonoBehaviour
     {
         for (int i = 0; i < residentsAmount; i++)
         {
-            GameObject newHuman = Instantiate(humanPrefab, transform.position, Quaternion.identity);
+            float randomValue = Random.value;
+            float normalCivilProbability = 0.7f;
+            float bigCivilProbability = 1.0f - normalCivilProbability;
+            GameObject selectedPrefab = randomValue < normalCivilProbability ? normalCivilPrefab : bigCivilPrefab;
+
+            GameObject newHuman = Instantiate(selectedPrefab, transform.position, Quaternion.identity);
             yield return null;
         }
     }
