@@ -152,6 +152,8 @@ public class GameManager : MonoBehaviour
         score -= scoreWorth;
         UpdateScoreUI();
         ReduceSatiate();
+
+        //playerController.
     }
 
     public int GetScore()
