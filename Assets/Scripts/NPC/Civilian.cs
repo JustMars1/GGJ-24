@@ -57,6 +57,8 @@ public class Civilian : Eatable
     // Audio
     public AudioClip[] screamList;
     private bool hasScreamed;
+    public AudioClip rightFootstep;
+    public AudioClip leftFootstep;
 
     protected override void Start()
     {
@@ -378,5 +380,15 @@ public class Civilian : Eatable
 
         // The house position is considered valid
         return true;
+    }
+
+    public void PlayRightFootstep()
+    {
+        AudioController.PlaySound(rightFootstep, transform.position, false);
+    }
+
+    public void PlayLeftFootstep()
+    {
+        AudioController.PlaySound(leftFootstep, transform.position, false);
     }
 }
