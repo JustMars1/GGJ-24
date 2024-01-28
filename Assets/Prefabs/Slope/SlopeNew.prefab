@@ -69,6 +69,10 @@ PrefabInstance:
       value: SnowRamp (6)
       objectReference: {fileID: 0}
     - target: {fileID: 1204274978619927254, guid: 4f502a53a75d20540992ccd5f09af509, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1204274978619927254, guid: 4f502a53a75d20540992ccd5f09af509, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -157,8 +161,16 @@ PrefabInstance:
       value: -95.978
       objectReference: {fileID: 0}
     - target: {fileID: 4556103674090331797, guid: 4f502a53a75d20540992ccd5f09af509, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4556103674090331797, guid: 4f502a53a75d20540992ccd5f09af509, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 5044302567853732962, guid: 4f502a53a75d20540992ccd5f09af509, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5044302567853732962, guid: 4f502a53a75d20540992ccd5f09af509, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -261,6 +273,10 @@ PrefabInstance:
       value: SnowRamp (2)
       objectReference: {fileID: 0}
     - target: {fileID: 1204274978619927254, guid: 4f502a53a75d20540992ccd5f09af509, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1204274978619927254, guid: 4f502a53a75d20540992ccd5f09af509, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -349,8 +365,16 @@ PrefabInstance:
       value: -95.978
       objectReference: {fileID: 0}
     - target: {fileID: 4556103674090331797, guid: 4f502a53a75d20540992ccd5f09af509, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4556103674090331797, guid: 4f502a53a75d20540992ccd5f09af509, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 5044302567853732962, guid: 4f502a53a75d20540992ccd5f09af509, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5044302567853732962, guid: 4f502a53a75d20540992ccd5f09af509, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -377,6 +401,10 @@ PrefabInstance:
     - target: {fileID: 1204274978619927254, guid: 4f502a53a75d20540992ccd5f09af509, type: 3}
       propertyPath: m_Name
       value: SnowRamp (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1204274978619927254, guid: 4f502a53a75d20540992ccd5f09af509, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 1204274978619927254, guid: 4f502a53a75d20540992ccd5f09af509, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -467,8 +495,16 @@ PrefabInstance:
       value: -95.978
       objectReference: {fileID: 0}
     - target: {fileID: 4556103674090331797, guid: 4f502a53a75d20540992ccd5f09af509, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4556103674090331797, guid: 4f502a53a75d20540992ccd5f09af509, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 5044302567853732962, guid: 4f502a53a75d20540992ccd5f09af509, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5044302567853732962, guid: 4f502a53a75d20540992ccd5f09af509, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -495,6 +531,10 @@ PrefabInstance:
     - target: {fileID: 1204274978619927254, guid: 4f502a53a75d20540992ccd5f09af509, type: 3}
       propertyPath: m_Name
       value: SnowRamp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1204274978619927254, guid: 4f502a53a75d20540992ccd5f09af509, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 1204274978619927254, guid: 4f502a53a75d20540992ccd5f09af509, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -585,8 +625,16 @@ PrefabInstance:
       value: -95.978
       objectReference: {fileID: 0}
     - target: {fileID: 4556103674090331797, guid: 4f502a53a75d20540992ccd5f09af509, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4556103674090331797, guid: 4f502a53a75d20540992ccd5f09af509, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 5044302567853732962, guid: 4f502a53a75d20540992ccd5f09af509, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5044302567853732962, guid: 4f502a53a75d20540992ccd5f09af509, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -1249,6 +1297,10 @@ PrefabInstance:
       value: SnowRamp (4)
       objectReference: {fileID: 0}
     - target: {fileID: 1204274978619927254, guid: 4f502a53a75d20540992ccd5f09af509, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1204274978619927254, guid: 4f502a53a75d20540992ccd5f09af509, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -1337,8 +1389,16 @@ PrefabInstance:
       value: -95.978
       objectReference: {fileID: 0}
     - target: {fileID: 4556103674090331797, guid: 4f502a53a75d20540992ccd5f09af509, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4556103674090331797, guid: 4f502a53a75d20540992ccd5f09af509, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 5044302567853732962, guid: 4f502a53a75d20540992ccd5f09af509, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5044302567853732962, guid: 4f502a53a75d20540992ccd5f09af509, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -1441,6 +1501,10 @@ PrefabInstance:
       value: SnowRamp (3)
       objectReference: {fileID: 0}
     - target: {fileID: 1204274978619927254, guid: 4f502a53a75d20540992ccd5f09af509, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1204274978619927254, guid: 4f502a53a75d20540992ccd5f09af509, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -1529,8 +1593,16 @@ PrefabInstance:
       value: -95.978
       objectReference: {fileID: 0}
     - target: {fileID: 4556103674090331797, guid: 4f502a53a75d20540992ccd5f09af509, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4556103674090331797, guid: 4f502a53a75d20540992ccd5f09af509, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 5044302567853732962, guid: 4f502a53a75d20540992ccd5f09af509, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5044302567853732962, guid: 4f502a53a75d20540992ccd5f09af509, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -1557,6 +1629,10 @@ PrefabInstance:
     - target: {fileID: 1204274978619927254, guid: 4f502a53a75d20540992ccd5f09af509, type: 3}
       propertyPath: m_Name
       value: SnowRamp (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1204274978619927254, guid: 4f502a53a75d20540992ccd5f09af509, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 2593221577669810588, guid: 4f502a53a75d20540992ccd5f09af509, type: 3}
       propertyPath: m_LocalScale.x
@@ -1641,6 +1717,14 @@ PrefabInstance:
     - target: {fileID: 3778898913758659631, guid: 4f502a53a75d20540992ccd5f09af509, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: -95.978
+      objectReference: {fileID: 0}
+    - target: {fileID: 4556103674090331797, guid: 4f502a53a75d20540992ccd5f09af509, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5044302567853732962, guid: 4f502a53a75d20540992ccd5f09af509, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1809,8 +1893,38 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6844951905078733511, guid: e0bb584ba23322d4f9e3c732e7f9f8ae, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1956067678655621142}
   m_SourcePrefab: {fileID: 100100000, guid: e0bb584ba23322d4f9e3c732e7f9f8ae, type: 3}
+--- !u!1 &1430915046509261118 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6844951905078733511, guid: e0bb584ba23322d4f9e3c732e7f9f8ae, type: 3}
+  m_PrefabInstance: {fileID: 5558997588539857913}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &1956067678655621142
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1430915046509261118}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 0}
 --- !u!4 &8639271228576043092 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4233768144959490989, guid: e0bb584ba23322d4f9e3c732e7f9f8ae, type: 3}
@@ -2055,6 +2169,10 @@ PrefabInstance:
       value: SnowRamp (7)
       objectReference: {fileID: 0}
     - target: {fileID: 1204274978619927254, guid: 4f502a53a75d20540992ccd5f09af509, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1204274978619927254, guid: 4f502a53a75d20540992ccd5f09af509, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -2143,8 +2261,16 @@ PrefabInstance:
       value: -95.978
       objectReference: {fileID: 0}
     - target: {fileID: 4556103674090331797, guid: 4f502a53a75d20540992ccd5f09af509, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4556103674090331797, guid: 4f502a53a75d20540992ccd5f09af509, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 5044302567853732962, guid: 4f502a53a75d20540992ccd5f09af509, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5044302567853732962, guid: 4f502a53a75d20540992ccd5f09af509, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -2247,6 +2373,10 @@ PrefabInstance:
       value: SnowRamp (1)
       objectReference: {fileID: 0}
     - target: {fileID: 1204274978619927254, guid: 4f502a53a75d20540992ccd5f09af509, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1204274978619927254, guid: 4f502a53a75d20540992ccd5f09af509, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -2335,8 +2465,16 @@ PrefabInstance:
       value: -95.978
       objectReference: {fileID: 0}
     - target: {fileID: 4556103674090331797, guid: 4f502a53a75d20540992ccd5f09af509, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4556103674090331797, guid: 4f502a53a75d20540992ccd5f09af509, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 5044302567853732962, guid: 4f502a53a75d20540992ccd5f09af509, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5044302567853732962, guid: 4f502a53a75d20540992ccd5f09af509, type: 3}
       propertyPath: m_StaticEditorFlags

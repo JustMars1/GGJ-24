@@ -123,6 +123,28 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &55529174 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5011340235715536060, guid: b1a9349a30030c948834c00f3f97e946, type: 3}
+  m_PrefabInstance: {fileID: 8805901420545152898}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fe00d1c8c34a014ca5c1a4c5c0fba99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &55529179 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6446482793608043523, guid: b1a9349a30030c948834c00f3f97e946, type: 3}
+  m_PrefabInstance: {fileID: 8805901420545152898}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c51630f9b333934da678227af59a578, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &81519898
 GameObject:
   m_ObjectHideFlags: 0
@@ -630,14 +652,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d96610ac5ea294449f97560ac05728f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerController: {fileID: 0}
+  playerController: {fileID: 55529179}
   score: 0
   maxSatiate: 100
   hungerSpeed: 1
   currentState: 0
   firstInterval: 0
   secondInterval: 0
-  ropeWindScript: {fileID: 0}
+  ropeWindScript: {fileID: 55529174}
 --- !u!1 &476109868
 GameObject:
   m_ObjectHideFlags: 0

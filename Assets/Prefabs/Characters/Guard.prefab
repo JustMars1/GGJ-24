@@ -127,7 +127,7 @@ MonoBehaviour:
   normalEnemyDamage: 3
   timeBetweenDestinations: 1.5
   stuckTimerThreshold: 2
-  attackSound: {fileID: 0}
+  attackSound: {fileID: 8300000, guid: 4c1771b5867310046a88097bdf4bcc1d, type: 3}
 --- !u!1001 &7060962460088910430
 PrefabInstance:
   m_ObjectHideFlags: 0

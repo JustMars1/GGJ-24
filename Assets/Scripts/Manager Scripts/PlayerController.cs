@@ -85,7 +85,8 @@ public class PlayerController : MonoBehaviour
 
     // Audio
     public AudioClip[] eatSoundList;
-    public AudioClip[] footstepSoundList;
+    public AudioClip rightFootstep;
+    public AudioClip leftFootstep;
     public AudioClip slidingSound;
 
     // Start is called before the first frame update
@@ -331,8 +332,13 @@ public class PlayerController : MonoBehaviour
         AudioController.StopPlayingSound(slidingSound);
     }
 
-    public void PlayFootstepSound()
+    public void PlayLeftFootstep()
     {
-        AudioController.PlaySound(footstepSoundList[Random.Range(0, footstepSoundList.Length)], transform.position, false);
+        AudioController.PlaySound(leftFootstep, transform.position, false);
+    }
+
+    public void PlayRightFootstep()
+    {
+        AudioController.PlaySound(rightFootstep, transform.position, false);
     }
 }
