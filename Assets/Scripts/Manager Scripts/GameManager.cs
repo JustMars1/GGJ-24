@@ -6,6 +6,8 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     public static GameManager manager;
+
+    [SerializeField] PlayerController playerController;
     
     // Score of the player
     [HideInInspector]
@@ -160,6 +162,7 @@ public class GameManager : MonoBehaviour
     public void StartGame()
     {
         // T�h�n playaamaan se helikopterin alku animaatio tms
+        playerController.StartCameraBlend();
     }
 
     public void StartPlaying()
