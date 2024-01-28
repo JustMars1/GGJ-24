@@ -55,6 +55,28 @@ public class PlayerController : MonoBehaviour
     bool _isOnGround = false;
 
     Vector3 _cameraPivotOffset = new Vector3(0.0f, 2.0f, 0.0f);
+
+    [SerializeField]
+    float _krokoFatness = 0.0f;
+    
+    // bone transforms
+    [SerializeField]
+    Transform _rig;
+    [SerializeField]
+    Transform _head;
+    
+    [SerializeField]
+    Transform _leftArm;
+    [SerializeField]
+    Transform _rightArm;
+    
+    [SerializeField]
+    Transform _leftLeg;
+    [SerializeField]
+    Transform _rightLeg;
+    
+    [SerializeField]
+    Transform _tail;
     
     // Start is called before the first frame update
     void Start()
@@ -67,11 +89,8 @@ public class PlayerController : MonoBehaviour
         _playerInput.PlayerInputActionMaps.Look.performed += OnLook;
         _playerInput.PlayerInputActionMaps.Debug1.performed += OnDebug1Pressed;
 
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
-
-       _cameraInitialLoc = _cam.transform.position;
-       _cameraInitialRot = _cam.transform.rotation;
+        _cameraInitialLoc = _cam.transform.position;
+        _cameraInitialRot = _cam.transform.rotation;
     }
 
     void OnMove(InputAction.CallbackContext ctx)
@@ -103,12 +122,15 @@ public class PlayerController : MonoBehaviour
             yield return null;
             time += Time.deltaTime / 2.0f;
 
-           _cam.transform.position = Vector3.Lerp(_cameraInitialLoc, _calculatedPlayerCameraLoc, time);
-           _cam.transform.rotation = Quaternion.Lerp(_cameraInitialRot, _calculatedPlayerCameraRot, time);
+            _cam.transform.position = Vector3.Lerp(_cameraInitialLoc, _calculatedPlayerCameraLoc, time);
+            _cam.transform.rotation = Quaternion.Lerp(_cameraInitialRot, _calculatedPlayerCameraRot, time);
         }
         _shouldMoveCameraToPlayerCamLoc = true;
         _canUpdatePlayerCamRotations = true;
         _canMove = true;
+        GameManager.manager.StartPlaying();
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     void Orient()
@@ -253,5 +275,14 @@ public class PlayerController : MonoBehaviour
     {
         UpdatePlayerCamera();
         Orient();
+
+        _rig.transform.localScale = Vector3.Lerp(Vector3.one*100.0f, new Vector3(1000.0f, 1000.0f, 1000.0f), _krokoFatness);
+        Vector3 limbScale = Vector3.Lerp(Vector3.one, new Vector3(0.1f, 0.1f, 0.1f), _krokoFatness);
+        _head.transform.localScale = limbScale;
+        _leftArm.transform.localScale = limbScale;
+        _rightArm.transform.localScale = limbScale;
+        _leftLeg.transform.localScale = limbScale;
+        _rightLeg.transform.localScale = limbScale;
+        _tail.transform.localScale = limbScale;
     }
 }

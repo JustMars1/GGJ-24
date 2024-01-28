@@ -552,7 +552,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d96610ac5ea294449f97560ac05728f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hungerMeter: {fileID: 0}
+  playerController: {fileID: 0}
   score: 0
   maxSatiate: 0
   hungerSpeed: 0

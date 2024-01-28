@@ -7,7 +7,7 @@ using UnityEngine.UI;
 using TMPro;
 using UnityEngine.Audio;
 
-public class SettingsMenu : MonoBehaviour
+public class SettingsMenu : Menu
 {
     [SerializeField] Slider _masterVolumeSlider;
     [SerializeField] Slider _musicVolumeSlider;
@@ -174,6 +174,7 @@ public class SettingsMenu : MonoBehaviour
         }
 
         Screen.fullScreen = isOn;
+        
         if (isOn)
         {
             Screen.SetResolution(Display.main.systemWidth, Display.main.systemHeight, true);
@@ -183,5 +184,15 @@ public class SettingsMenu : MonoBehaviour
     void OnVSyncChanged(bool isOn)
     {
         QualitySettings.vSyncCount = isOn ? 1 : 0;
+    }
+    
+    public override void Open()
+    {
+        menu.gameObject.SetActive(true);
+    }
+
+    public override void Close()
+    {
+        menu.gameObject.SetActive(false);
     }
 }
