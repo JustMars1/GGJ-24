@@ -47,13 +47,14 @@ public class PlayerController : MonoBehaviour
 
     bool _canMove = false;
 
-    Vector3 _globalSlopeDirection = Vector3.forward;
+    Vector3 _globalSlopeDirection = Vector3.right;
 
     bool _isOnSlope = false;
     bool _isOnRamp = false;
 
     bool _isOnGround = false;
-    
+
+    Vector3 _cameraPivotOffset = new Vector3(0.0f, 2.0f, 0.0f);
     
     // Start is called before the first frame update
     void Start()
@@ -164,7 +165,7 @@ public class PlayerController : MonoBehaviour
         Vector3 camPos = -_forwardVec;
         camPos = Quaternion.AngleAxis(-_cameraXAngle, _rightVec) * camPos;
         
-        _calculatedPlayerCameraLoc = _rb.position + camPos*_cameraBoomLength;
+        _calculatedPlayerCameraLoc = _rb.position + _cameraPivotOffset + camPos*_cameraBoomLength;
         _calculatedPlayerCameraRot = Quaternion.Euler(_cameraXAngle, _cameraYAngle, 0.0f);
         
         if (_shouldMoveCameraToPlayerCamLoc)
