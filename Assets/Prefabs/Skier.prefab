@@ -141,7 +141,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de378f46ed0561045bf02fd058be8899, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreWorth: 10
+  scoreWorth: 1
   eatThreshold: 0
   eatDuration: 1
   _slopeMask:
