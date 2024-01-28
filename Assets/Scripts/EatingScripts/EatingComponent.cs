@@ -35,6 +35,7 @@ public class EatingComponent : MonoBehaviour
         }
         eatableComponent.Consume(eatPoint);
         print("eat");
+        PlayEatingSound();
     }
 
     private void OnTriggerEnter(Collider other)
