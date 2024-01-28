@@ -106,6 +106,7 @@ public class MenuManager : MonoBehaviour
     {
         PopAllMenus();
         Time.timeScale = 1;
+        AudioController.ClearCachedSources();
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
     

@@ -13,6 +13,18 @@ public static class AudioController
     private static List<AudioSource> audioSources = new List<AudioSource>();
     private static int noOfTimesFailed = 0;
 
+    public static void ClearCachedSources() 
+    {
+        foreach (AudioSource source in audioSources)
+        {
+            if (source != null)
+            {
+                AudioSource.Destroy(source.gameObject);
+            }
+        }
+        audioSources.Clear();
+    }
+
 #if UNITY_EDITOR
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
     static void Init()
