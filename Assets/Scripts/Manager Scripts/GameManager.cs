@@ -43,6 +43,8 @@ public class GameManager : MonoBehaviour
     [Tooltip("The second interval when the hunger speed rises even further. Amount is in seconds after the first interval. Defaults to 60 in code if left at 0.")]
     public int secondInterval;
 
+    public PlayerRopeWind ropeWindScript;
+
 #if UNITY_EDITOR
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
     static void Init()
@@ -55,7 +57,7 @@ public class GameManager : MonoBehaviour
     {
         if (manager == null)
         {
-            DontDestroyOnLoad(gameObject);
+            //DontDestroyOnLoad(gameObject);
             manager = this;
         }
         else
@@ -83,8 +85,7 @@ public class GameManager : MonoBehaviour
         {
             secondInterval = 60;
         }
-
-        satiate = maxSatiate/10;
+        satiate = maxSatiate;
     }
 
     private void Update()
@@ -165,6 +166,7 @@ public class GameManager : MonoBehaviour
     {
         // T�h�n playaamaan se helikopterin alku animaatio tms
         playerController.StartCameraBlend();
+        ropeWindScript.DetatchRope();
     }
 
     public void StartPlaying()
@@ -212,6 +214,6 @@ public class GameManager : MonoBehaviour
     void UpdateHungerUI()
     {
         MenuManager.instance.gameplayUI.hungerMeter.fillAmount = satiate / maxSatiate;
-        playerController.OnFatnessChanged((satiate / maxSatiate));
+        playerController.OnFatnessChanged(Mathf.Clamp((score / 200), 0, 1));
     }
 }

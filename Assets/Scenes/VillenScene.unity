@@ -572,13 +572,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d96610ac5ea294449f97560ac05728f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hungerMeter: {fileID: 0}
+  playerController: {fileID: 0}
   score: 0
   maxSatiate: 0
   hungerSpeed: 0
   currentState: 0
   firstInterval: 0
   secondInterval: 0
+  ropeWindScript: {fileID: 0}
 --- !u!4 &301340480
 Transform:
   m_ObjectHideFlags: 0
@@ -1260,6 +1261,8 @@ MonoBehaviour:
   numberOfNormalCivil: 10
   numberOfBigCivil: 10
   spawnRadius: 100
+  _palettes: []
+  _bigPalettes: []
 --- !u!4 &889890071
 Transform:
   m_ObjectHideFlags: 0
@@ -1415,6 +1418,8 @@ MonoBehaviour:
   numberOfNormalCivil: 10
   numberOfBigCivil: 10
   spawnRadius: 100
+  _palettes: []
+  _bigPalettes: []
 --- !u!4 &1036751650
 Transform:
   m_ObjectHideFlags: 0

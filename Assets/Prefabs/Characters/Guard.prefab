@@ -33,7 +33,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 3879515998115339194}
+  - {fileID: 7383416908223784373}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!136 &2997707178337208489
@@ -90,7 +90,7 @@ Animator:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3399045552607249049}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
+  m_Avatar: {fileID: 9000000, guid: 9662b0e65f3c1124d9fc97de4950b0b5, type: 3}
   m_Controller: {fileID: 9100000, guid: 6bdff6bbeac0ee7439c06c9c0459738a, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
@@ -127,7 +127,7 @@ MonoBehaviour:
   normalEnemyDamage: 30
   timeBetweenDestinations: 1.5
   stuckTimerThreshold: 2
---- !u!1001 &3628905432415829073
+--- !u!1001 &7060962460088910430
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -183,13 +183,17 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 9a0db1b51dd58c84f8355abaa8228967, type: 2}
+    - target: {fileID: 5866666021909216657, guid: 9662b0e65f3c1124d9fc97de4950b0b5, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 6bdff6bbeac0ee7439c06c9c0459738a, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9662b0e65f3c1124d9fc97de4950b0b5, type: 3}
---- !u!4 &3879515998115339194 stripped
+--- !u!4 &7383416908223784373 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 9662b0e65f3c1124d9fc97de4950b0b5, type: 3}
-  m_PrefabInstance: {fileID: 3628905432415829073}
+  m_PrefabInstance: {fileID: 7060962460088910430}
   m_PrefabAsset: {fileID: 0}
