@@ -258,7 +258,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -282,7 +282,7 @@ MonoBehaviour:
   normalCivilPrefab: {fileID: 584301822052563484, guid: d38c1ed7688ff4244b6e94605f86fb47, type: 3}
   bigCivilPrefab: {fileID: 3619541380589020684, guid: 3aac9c5ca3fd496418b3b8382d410d17, type: 3}
   spawnRadius: 10
-  destroyableThreshold: 10
+  destroyableThreshold: 0
   collapseAudio: {fileID: 8300000, guid: f18bed06467ec8f488d1bd89133cb384, type: 3}
 --- !u!1 &7711523748797538948
 GameObject:

@@ -122,7 +122,7 @@ NavMeshSettings:
     preserveTilesOutsideBounds: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 0}
+  m_NavMeshData: {fileID: 23800000, guid: 327a4fb67b532694a9020d7f5b6d7b8a, type: 2}
 --- !u!1001 &305609378
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -134,6 +134,10 @@ PrefabInstance:
     - target: {fileID: 2715937166737607321, guid: b1a9349a30030c948834c00f3f97e946, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 6119578284156411858, guid: b1a9349a30030c948834c00f3f97e946, type: 3}
+      propertyPath: m_LightProbeUsage
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8863171356861257734, guid: b1a9349a30030c948834c00f3f97e946, type: 3}
       propertyPath: m_LocalPosition.x
@@ -381,6 +385,10 @@ PrefabInstance:
     - target: {fileID: 6891100360858724172, guid: 3304310fa64134810b357f4e0da35ad1, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -467.79303
+      objectReference: {fileID: 0}
+    - target: {fileID: 7033828796642552840, guid: 3304310fa64134810b357f4e0da35ad1, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -64
       objectReference: {fileID: 0}
     - target: {fileID: 7349291052927733518, guid: 3304310fa64134810b357f4e0da35ad1, type: 3}
       propertyPath: m_AnchorMax.y
@@ -1058,11 +1066,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1401134586441225437, guid: 29764b3d17f83472d9cca3298b0075b9, type: 3}
       propertyPath: numberOfBigCivil
-      value: 30
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 1401134586441225437, guid: 29764b3d17f83472d9cca3298b0075b9, type: 3}
       propertyPath: numberOfNormalCivil
-      value: 60
+      value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 5476331568233286756, guid: 29764b3d17f83472d9cca3298b0075b9, type: 3}
       propertyPath: m_Name
