@@ -461,46 +461,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Graphics
       objectReference: {fileID: 0}
-    - target: {fileID: 3908055677078546131, guid: c68e23c88402b234eba8f72eb4e178e3, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 152.5364
-      objectReference: {fileID: 0}
-    - target: {fileID: 3983198588655209721, guid: c68e23c88402b234eba8f72eb4e178e3, type: 3}
-      propertyPath: m_Color.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3983198588655209721, guid: c68e23c88402b234eba8f72eb4e178e3, type: 3}
-      propertyPath: m_Color.g
-      value: 0.9150943
-      objectReference: {fileID: 0}
-    - target: {fileID: 3983198588655209721, guid: c68e23c88402b234eba8f72eb4e178e3, type: 3}
-      propertyPath: m_Color.r
-      value: 0.9167954
-      objectReference: {fileID: 0}
-    - target: {fileID: 3983198588655209721, guid: c68e23c88402b234eba8f72eb4e178e3, type: 3}
-      propertyPath: m_Intensity
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3983198588655209721, guid: c68e23c88402b234eba8f72eb4e178e3, type: 3}
-      propertyPath: m_BoundingSphereOverride.w
-      value: 3.4028235e+38
-      objectReference: {fileID: 0}
-    - target: {fileID: 3983198588655209721, guid: c68e23c88402b234eba8f72eb4e178e3, type: 3}
-      propertyPath: m_BoundingSphereOverride.x
-      value: 3.4028235e+38
-      objectReference: {fileID: 0}
-    - target: {fileID: 3983198588655209721, guid: c68e23c88402b234eba8f72eb4e178e3, type: 3}
-      propertyPath: m_BoundingSphereOverride.y
-      value: 3.4028235e+38
-      objectReference: {fileID: 0}
-    - target: {fileID: 3983198588655209721, guid: c68e23c88402b234eba8f72eb4e178e3, type: 3}
-      propertyPath: m_BoundingSphereOverride.z
-      value: 3.4028235e+38
-      objectReference: {fileID: 0}
-    - target: {fileID: 5245032955322317846, guid: c68e23c88402b234eba8f72eb4e178e3, type: 3}
-      propertyPath: m_BoxOffset.y
-      value: 97.89996
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
