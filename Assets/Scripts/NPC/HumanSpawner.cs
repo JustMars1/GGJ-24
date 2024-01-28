@@ -34,11 +34,11 @@ public class HumanSpawner : MonoBehaviour
     {
         int currentScore = manager.GetScore();
 
-        // Check if the score has crossed a 100-score interval and enemies haven't been spawned for the current interval
-        if (currentScore > lastSpawnedScore && (currentScore / 100 > lastSpawnedScore / 100) && !enemiesSpawnedForCurrentInterval)
+        // Check if the score has crossed a 10-score interval and enemies haven't been spawned for the current interval
+        if (currentScore > lastSpawnedScore && (currentScore / 10 > lastSpawnedScore / 10) && !enemiesSpawnedForCurrentInterval)
         {
             // Spawn enemies based on the score difference
-            int numberOfEnemiesToSpawn = 5; // 5 enemies per 100 score
+            int numberOfEnemiesToSpawn = 5; // 5 enemies per 10 score
 
             for (int i = 0; i < numberOfEnemiesToSpawn; i++)
             {
@@ -59,7 +59,7 @@ public class HumanSpawner : MonoBehaviour
         }
 
         // Reset the flag if the score goes back to a previous 50-score interval
-        if (currentScore / 100 > lastSpawnedScore / 100)
+        if (currentScore / 10 > lastSpawnedScore / 10)
         {
             enemiesSpawnedForCurrentInterval = false;
         }
