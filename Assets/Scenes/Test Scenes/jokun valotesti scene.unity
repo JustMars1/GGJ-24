@@ -15,9 +15,9 @@ RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 9
   m_Fog: 1
-  m_FogColor: {r: 0.79369885, g: 0.7937003, b: 0.8584906, a: 1}
+  m_FogColor: {r: 0.17377181, g: 0.17996922, b: 0.33490568, a: 1}
   m_FogMode: 3
-  m_FogDensity: 0.002
+  m_FogDensity: 0.004
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
   m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: b379f1f548479ec44bf62a4a4ef72742, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.45007086, g: 0.5001183, b: 0.5754841, a: 1}
+  m_IndirectSpecularColor: {r: 0.292896, g: 0.2572512, b: 0.295831, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -123,18 +123,13 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!4 &728721376 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1223290499133074422, guid: b1a9349a30030c948834c00f3f97e946, type: 3}
-  m_PrefabInstance: {fileID: 1746950013}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1090352022
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 728721376}
+    m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2407610328160785144, guid: d46b74ccd1cb2c74b984ee9786b45a43, type: 3}
       propertyPath: m_Name
@@ -185,11 +180,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d46b74ccd1cb2c74b984ee9786b45a43, type: 3}
---- !u!4 &1360863599 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8838849375352420532, guid: d46b74ccd1cb2c74b984ee9786b45a43, type: 3}
-  m_PrefabInstance: {fileID: 1090352022}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1746950013
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -248,10 +238,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 1223290499133074422, guid: b1a9349a30030c948834c00f3f97e946, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1360863599}
+    m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b1a9349a30030c948834c00f3f97e946, type: 3}
 --- !u!1 &1920210852
@@ -532,6 +519,10 @@ PrefabInstance:
       value: Graphics
       objectReference: {fileID: 0}
     - target: {fileID: 3983198588655209721, guid: c68e23c88402b234eba8f72eb4e178e3, type: 3}
+      propertyPath: m_Intensity
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3983198588655209721, guid: c68e23c88402b234eba8f72eb4e178e3, type: 3}
       propertyPath: m_Lightmapping
       value: 1
       objectReference: {fileID: 0}
@@ -541,19 +532,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3983198588655209721, guid: c68e23c88402b234eba8f72eb4e178e3, type: 3}
       propertyPath: m_BoundingSphereOverride.w
-      value: -0.07105729
+      value: 0.28521484
       objectReference: {fileID: 0}
     - target: {fileID: 3983198588655209721, guid: c68e23c88402b234eba8f72eb4e178e3, type: 3}
       propertyPath: m_BoundingSphereOverride.x
-      value: NaN
+      value: -1.0236858
       objectReference: {fileID: 0}
     - target: {fileID: 3983198588655209721, guid: c68e23c88402b234eba8f72eb4e178e3, type: 3}
       propertyPath: m_BoundingSphereOverride.y
-      value: -0.000013993693
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3983198588655209721, guid: c68e23c88402b234eba8f72eb4e178e3, type: 3}
       propertyPath: m_BoundingSphereOverride.z
-      value: NaN
+      value: 0.8891769
       objectReference: {fileID: 0}
     - target: {fileID: 4852802073091156375, guid: c68e23c88402b234eba8f72eb4e178e3, type: 3}
       propertyPath: m_LocalRotation.w
@@ -597,3 +588,4 @@ SceneRoots:
   - {fileID: 2035847278}
   - {fileID: 1984700851}
   - {fileID: 1746950013}
+  - {fileID: 1090352022}

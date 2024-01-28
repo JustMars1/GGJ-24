@@ -12,6 +12,8 @@ public class House : MonoBehaviour
     public float spawnRadius = 10f;
     public int destroyableThreshold;
 
+    public AudioClip collapseAudio;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -32,6 +34,11 @@ public class House : MonoBehaviour
     {
         if(other.CompareTag("Player") && CheckThreshold())
         {
+            if(collapseAudio)
+            {
+                AudioController.PlaySound(collapseAudio, transform.position, false);
+            }
+
             Debug.Log("Player hit trigger");
             DestroyDoorCollider();
             Rigidbody[] rbList = gameObject.GetComponentsInChildren<Rigidbody>();
@@ -44,6 +51,7 @@ public class House : MonoBehaviour
                 rb.AddForce(Vector3.Normalize(forceDirection) * force, ForceMode.Impulse);
             }
 
+            // Activating shrinking and fade out for the building parts
             Transform[] childList = GetChildren();
             foreach(Transform child in childList)
             {

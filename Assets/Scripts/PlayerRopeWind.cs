@@ -17,6 +17,9 @@ public class PlayerRopeWind : MonoBehaviour
     Vector2 random = Vector2.zero;
     Vector3 windDir = Vector3.zero;
 
+    [SerializeField]
+    private Animator animator;
+
     public HingeJoint hingeJoint;
 
     void Start()
@@ -57,6 +60,7 @@ public class PlayerRopeWind : MonoBehaviour
     public void DetatchRope()
     {
         Destroy(hingeJoint);
+        animator.SetBool("droppedFromHeli", true);
     }
 
     private void OnTriggerEnter(Collider other)

@@ -72,6 +72,15 @@ public class Enemy : Eatable
         stuckTimer += Time.deltaTime;
         cooldownTimer -= Time.deltaTime;
 
+        // Check if the player is still within attack range
+        if (Vector3.Distance(transform.position, playerTransform.position) <= attackRange)
+        {
+            Debug.Log("Player is in attack range");
+            // Player is in attack range, initiate attack animation
+            // The animation should have an event calling the DealDamage() function
+            animator.SetTrigger("MeleeAttack");
+        }
+
         // State machine to handle different human behaviors based on the current state
         switch (currentState)
         {
@@ -81,9 +90,9 @@ public class Enemy : Eatable
             case EnemyState.FollowingPlayer:
                 UpdateFollowingPlayerState();
                 break;
-            case EnemyState.AttackPlayer: 
-                UpdateAttackPlayerState();
-                break;
+            //case EnemyState.AttackPlayer: 
+               // UpdateAttackPlayerState();
+                //break;
             case EnemyState.Cooldown:
                 UpdateCooldownState();
                 break;
@@ -183,7 +192,6 @@ public class Enemy : Eatable
 
                 if (stuckTimer > 5.0f) // If the enemy has been stuck for more than 5 seconds
                 {
-                    // Go back to Wonder state
                     currentState = EnemyState.Wonder;
                     navMeshAgent.speed = normalWanderSpeed;
                     timer = wanderTimer; // Reset the timer for the next idle destination
@@ -198,6 +206,7 @@ public class Enemy : Eatable
             }
         }
     }
+    /*
     public void UpdateAttackPlayerState()
     {
         //Start animation attack player if player is in attack range
@@ -218,6 +227,7 @@ public class Enemy : Eatable
             navMeshAgent.speed = followPlayerSpeed;
         }
     }
+    */
 
     public void UpdateCooldownState()
     {
@@ -262,6 +272,7 @@ public class Enemy : Eatable
     public void DealDamage()
     {
         //Deal damage to player
+        Debug.Log("Dealing damage to player");
         GameManager.manager.ReduceScore(normalEnemyDamage);
     }
 
@@ -269,7 +280,7 @@ public class Enemy : Eatable
     {
         if(attackSound)
         {
-            AudioController.PlaySound(attackSound, transform.position);
+            AudioController.PlaySound(attackSound, transform.position, false);
         }
     }
 }
