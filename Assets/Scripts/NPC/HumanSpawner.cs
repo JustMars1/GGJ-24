@@ -13,11 +13,13 @@ public class HumanSpawner : MonoBehaviour
 
     private GameManager manager;
     private int lastSpawnedScore;
+    private bool enemiesSpawnedForCurrentInterval;
 
     void Start()
     {
         manager = GameManager.manager; // Assuming GameManager is a singleton or has a static reference
         lastSpawnedScore = manager.GetScore();
+        enemiesSpawnedForCurrentInterval = false;
         StartCoroutine(SpawnHumans());
     }
 
@@ -25,12 +27,11 @@ public class HumanSpawner : MonoBehaviour
     {
         int currentScore = manager.GetScore();
 
-        // Check if the score has crossed a threshold since the last time enemies were spawned
-        if (currentScore > lastSpawnedScore)
+        // Check if the score has crossed a 50-score interval and enemies haven't been spawned for the current interval
+        if (currentScore > lastSpawnedScore && (currentScore / 50 > lastSpawnedScore / 50) && !enemiesSpawnedForCurrentInterval)
         {
             // Spawn enemies based on the score difference
-            int scoreDifference = currentScore - lastSpawnedScore;
-            int numberOfEnemiesToSpawn = (int)(currentScore / 50) * 10; // 10 enemies per 50 score
+            int numberOfEnemiesToSpawn = 10; // 10 enemies per 50 score
 
             for (int i = 0; i < numberOfEnemiesToSpawn; i++)
             {
@@ -44,6 +45,13 @@ public class HumanSpawner : MonoBehaviour
             }
 
             lastSpawnedScore = currentScore;
+            enemiesSpawnedForCurrentInterval = true; // Set the flag to true to indicate enemies have been spawned for the current interval
+        }
+
+        // Reset the flag if the score goes back to a previous 50-score interval
+        if (currentScore / 50 > lastSpawnedScore / 50)
+        {
+            enemiesSpawnedForCurrentInterval = false;
         }
     }
 

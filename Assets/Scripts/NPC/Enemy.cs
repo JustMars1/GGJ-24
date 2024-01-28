@@ -25,7 +25,7 @@ public class Enemy : Eatable
     public float wanderTimer = 2f;
     public float cooldownDuration = 5.0f;
     public float attackRange = 1.5f;
-    public int normalEnemyDamage = 30;
+    public int normalEnemyDamage = 3;
 
 
     // Variables for internal use
