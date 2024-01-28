@@ -67,6 +67,13 @@ public class House : MonoBehaviour
             }
 
             StartCoroutine(SpawnHumans());
+
+            // Disabling the house trigger colliders
+            BoxCollider[] collidersInChildren = GetComponentsInChildren<BoxCollider>();
+            for(int i = 0; i < collidersInChildren.Length; ++i)
+            {
+                collidersInChildren[i].enabled = false;
+            }
         }
     }
 
