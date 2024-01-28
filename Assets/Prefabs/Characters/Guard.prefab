@@ -179,6 +179,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: guard_rig
       objectReference: {fileID: 0}
+    - target: {fileID: 4120670770215604363, guid: 9662b0e65f3c1124d9fc97de4950b0b5, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 9a0db1b51dd58c84f8355abaa8228967, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
