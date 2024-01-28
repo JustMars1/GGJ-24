@@ -140,10 +140,38 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 7916466510540948723, guid: b1a9349a30030c948834c00f3f97e946, type: 3}
+    - target: {fileID: 4896125245425208310, guid: b1a9349a30030c948834c00f3f97e946, type: 3}
       propertyPath: m_ConnectedBody
       value: 
       objectReference: {fileID: 72420688}
+    - target: {fileID: 5961693973916765703, guid: b1a9349a30030c948834c00f3f97e946, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -14.829895
+      objectReference: {fileID: 0}
+    - target: {fileID: 5961693973916765703, guid: b1a9349a30030c948834c00f3f97e946, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 15.285782
+      objectReference: {fileID: 0}
+    - target: {fileID: 5961693973916765703, guid: b1a9349a30030c948834c00f3f97e946, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 11.104816
+      objectReference: {fileID: 0}
+    - target: {fileID: 5961693973916765703, guid: b1a9349a30030c948834c00f3f97e946, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.5051852
+      objectReference: {fileID: 0}
+    - target: {fileID: 5961693973916765703, guid: b1a9349a30030c948834c00f3f97e946, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.1678507
+      objectReference: {fileID: 0}
+    - target: {fileID: 5961693973916765703, guid: b1a9349a30030c948834c00f3f97e946, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.80304813
+      objectReference: {fileID: 0}
+    - target: {fileID: 5961693973916765703, guid: b1a9349a30030c948834c00f3f97e946, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.26782057
+      objectReference: {fileID: 0}
     - target: {fileID: 8863171356861257734, guid: b1a9349a30030c948834c00f3f97e946, type: 3}
       propertyPath: m_LocalPosition.x
       value: -711.2
@@ -312,7 +340,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5246875757912189502, guid: 3304310fa64134810b357f4e0da35ad1, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -31.999817
+      value: -32.00006
       objectReference: {fileID: 0}
     - target: {fileID: 6884758390461297872, guid: 3304310fa64134810b357f4e0da35ad1, type: 3}
       propertyPath: m_text
@@ -352,7 +380,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7526859841374677815, guid: 3304310fa64134810b357f4e0da35ad1, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -55.999573
+      value: -55.99933
       objectReference: {fileID: 0}
     - target: {fileID: 8517723009663773119, guid: 3304310fa64134810b357f4e0da35ad1, type: 3}
       propertyPath: m_IsActive
@@ -620,17 +648,6 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 0
---- !u!114 &972246894 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1236174148517475319, guid: b1a9349a30030c948834c00f3f97e946, type: 3}
-  m_PrefabInstance: {fileID: 305609378}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4c51630f9b333934da678227af59a578, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1349170132
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -750,17 +767,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1438922391250774452, guid: 3304310fa64134810b357f4e0da35ad1, type: 3}
   m_PrefabInstance: {fileID: 484991076}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1710862930 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 113487139541779998, guid: b1a9349a30030c948834c00f3f97e946, type: 3}
-  m_PrefabInstance: {fileID: 305609378}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0fe00d1c8c34a014ca5c1a4c5c0fba99, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1802505192
 GameObject:
   m_ObjectHideFlags: 0
@@ -823,14 +829,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d96610ac5ea294449f97560ac05728f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerController: {fileID: 972246894}
+  playerController: {fileID: 0}
   score: 0
   maxSatiate: 0
   hungerSpeed: 0
   currentState: 0
   firstInterval: 0
   secondInterval: 0
-  ropeWindScript: {fileID: 1710862930}
+  ropeWindScript: {fileID: 0}
 --- !u!4 &1883592942
 Transform:
   m_ObjectHideFlags: 0
