@@ -32,6 +32,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 2907876863269962432}
   - {fileID: 6589641864569242496}
   - {fileID: 344512255926469198}
   - {fileID: 141942619361031479}
@@ -394,8 +395,52 @@ MonoBehaviour:
   residentsAmount: 0
   maxResidents: 30
   force: 20
-  humanPrefab: {fileID: 584301822052563484, guid: d38c1ed7688ff4244b6e94605f86fb47, type: 3}
+  normalCivilPrefab: {fileID: 0}
+  bigCivilPrefab: {fileID: 0}
   spawnRadius: 10
+--- !u!1 &889404973244002813
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2907876863269962432}
+  - component: {fileID: 1100434427426700292}
+  m_Layer: 0
+  m_Name: Light Probe Group
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2907876863269962432
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 889404973244002813}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.26999998, y: 0.12135, z: 0.26999998}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7052519031503626819}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!220 &1100434427426700292
+LightProbeGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 889404973244002813}
+  m_Enabled: 1
+  m_SourcePositions:
+  - {x: 0, y: 22.05496, z: 0}
+  m_Dering: 1
 --- !u!1 &7637751618315198747
 GameObject:
   m_ObjectHideFlags: 0
