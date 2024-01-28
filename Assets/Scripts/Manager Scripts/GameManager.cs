@@ -65,7 +65,6 @@ public class GameManager : MonoBehaviour
 
         score = 0;
         timeFromStart = 0;
-        satiate = maxSatiate;
 
         // If user didn't specify the values, give them a default value.
         if(maxSatiate <= 0)
@@ -84,6 +83,8 @@ public class GameManager : MonoBehaviour
         {
             secondInterval = 60;
         }
+
+        satiate = maxSatiate;
     }
 
     private void Update()

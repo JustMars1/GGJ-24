@@ -282,6 +282,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 3027610209505231551, guid: b1a9349a30030c948834c00f3f97e946, type: 3}
+      propertyPath: m_Avatar
+      value: 
+      objectReference: {fileID: 9000000, guid: 30ee14cc95346204bbfb63d0b18d8c82, type: 3}
+    - target: {fileID: 3027610209505231551, guid: b1a9349a30030c948834c00f3f97e946, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 7365cf1933e116d408ec2ece9b04072b, type: 2}
     - target: {fileID: 8863171356861257734, guid: b1a9349a30030c948834c00f3f97e946, type: 3}
       propertyPath: m_LocalPosition.x
       value: -703.2
@@ -448,6 +456,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -579.793
       objectReference: {fileID: 0}
+    - target: {fileID: 5246875757912189502, guid: 3304310fa64134810b357f4e0da35ad1, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -32
+      objectReference: {fileID: 0}
     - target: {fileID: 6891100360858724172, guid: 3304310fa64134810b357f4e0da35ad1, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
@@ -482,7 +494,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7526859841374677815, guid: 3304310fa64134810b357f4e0da35ad1, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -56
+      value: -55.999878
       objectReference: {fileID: 0}
     - target: {fileID: 8691526084148625890, guid: 3304310fa64134810b357f4e0da35ad1, type: 3}
       propertyPath: m_Name
@@ -571,6 +583,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &648519542 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8059821489059000383, guid: b1a9349a30030c948834c00f3f97e946, type: 3}
+  m_PrefabInstance: {fileID: 305609378}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c51630f9b333934da678227af59a578, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -806,7 +829,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d96610ac5ea294449f97560ac05728f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerController: {fileID: 0}
+  playerController: {fileID: 648519542}
   score: 0
   maxSatiate: 0
   hungerSpeed: 0
