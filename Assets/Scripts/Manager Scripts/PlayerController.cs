@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Numerics;
+using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Serialization;
@@ -84,10 +85,10 @@ public class PlayerController : MonoBehaviour
     Transform _tail;
 
     // Audio
-    public AudioClip[] eatSoundList;
     public AudioClip rightFootstep;
     public AudioClip leftFootstep;
     public AudioClip slidingSound;
+    bool slidingIsPlaying = false;
 
     // Start is called before the first frame update
     void Start()
@@ -280,6 +281,11 @@ public class PlayerController : MonoBehaviour
 
                 isOnSlope = true;
                 _animator.SetBool("onSlope", true);
+                if(!slidingIsPlaying)
+                {
+                    PlaySlidingSound();
+                    slidingIsPlaying = true;
+                }
             }
             else
             {
@@ -295,6 +301,11 @@ public class PlayerController : MonoBehaviour
 
                 isOnSlope = false;
                 _animator.SetBool("onSlope", false);
+                if(slidingIsPlaying)
+                {
+                    Debug.Log("Stopped loop");
+                    StopSlidingSound();
+                }
             }
         }
     }
@@ -312,14 +323,6 @@ public class PlayerController : MonoBehaviour
         _leftLeg.transform.localScale = limbScale;
         _rightLeg.transform.localScale = limbScale;
         _tail.transform.localScale = limbScale;
-    }
-
-    public void PlayEatingSound()
-    {
-        if (eatSoundList.Length > 0)
-        {
-            AudioController.PlaySound(eatSoundList[Random.Range(0, eatSoundList.Length)], transform.position, false);
-        }
     }
 
     public void PlaySlidingSound()

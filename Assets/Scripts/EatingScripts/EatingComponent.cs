@@ -15,6 +15,9 @@ public class EatingComponent : MonoBehaviour
     public Transform eatPoint;
     public PlayerController playerController;
 
+    // Audio
+    public AudioClip[] eatSoundList;
+
     void Start()
     {
         //animator = GetComponent<Animator>();
@@ -32,6 +35,7 @@ public class EatingComponent : MonoBehaviour
         }
         eatableComponent.Consume(eatPoint);
         print("eat");
+        PlayEatingSound();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -46,6 +50,14 @@ public class EatingComponent : MonoBehaviour
                 eatableComponent.GetComponent<Collider>().enabled = false;
                 Eat(eatableComponent);
             }
+        }
+    }
+
+    public void PlayEatingSound()
+    {
+        if (eatSoundList.Length > 0)
+        {
+            AudioController.PlaySound(eatSoundList[Random.Range(0, eatSoundList.Length)], transform.position, false);
         }
     }
 }
