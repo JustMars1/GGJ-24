@@ -17,6 +17,8 @@ public class PlayerRopeWind : MonoBehaviour
     Vector2 random = Vector2.zero;
     Vector3 windDir = Vector3.zero;
 
+    public HingeJoint hingeJoint;
+
     void Start()
     {
         windTimer = startingTimer;
@@ -50,6 +52,11 @@ public class PlayerRopeWind : MonoBehaviour
 
             windTimer -= Time.deltaTime;
         }
+    }
+
+    public void DetatchRope()
+    {
+        Destroy(hingeJoint);
     }
 
     private void OnTriggerEnter(Collider other)
