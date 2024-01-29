@@ -117,15 +117,17 @@ public class SettingsMenu : Menu
         {
             currentRes = Screen.currentResolution;
         }
-        
-        if (!_resolutions.Exists(res => res.width == currentRes.width && res.height == currentRes.height && Math.Abs(res.refreshRateRatio.value - currentRes.refreshRateRatio.value) <= Mathf.Epsilon))
+
+        int index = _resolutions.FindIndex(res => res.width == currentRes.width && res.height == currentRes.height && Math.Abs(res.refreshRateRatio.value - currentRes.refreshRateRatio.value) <= Mathf.Epsilon);
+        if (index == -1)
         {
             _resolutions.Insert(0, currentRes);
+            index = 0;
         }
         
         _resolutionDropdown.ClearOptions();
         _resolutionDropdown.AddOptions(_resolutions.Select(res => res.width + " x " + res.height + " @ " + res.refreshRateRatio.value.ToString("F0") + " Hz").ToList());
-        _resolutionDropdown.SetValueWithoutNotify(0);
+        _resolutionDropdown.SetValueWithoutNotify(index);
         
         _resolutionDropdown.interactable = isFullScreen;
 
