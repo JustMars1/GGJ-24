@@ -231,7 +231,7 @@ public class GameManager : MonoBehaviour
     void UpdateHungerUI()
     {
         MenuManager.instance.gameplayUI.hungerMeter.fillAmount = satiate / maxSatiate;
-        playerController.OnFatnessChanged(Mathf.Clamp((score / 200), 0, 1));
+        playerController.OnFatnessChanged(Mathf.Clamp((float)score, 0.0f, 100.0f)/100.0f);
     }
 
     public void ShowSmallHousePopUp()
@@ -242,5 +242,10 @@ public class GameManager : MonoBehaviour
     public void ShowLargeHousePopUp()
     {
 
+    }
+
+    public GameState GetGameState()
+    {
+        return currentState;
     }
 }

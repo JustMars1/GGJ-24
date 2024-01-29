@@ -18,6 +18,8 @@ public class Skier : Eatable
     float _slopeSpeed = 10.0f;
     private Vector3 _rampImpulse = _globalSlopeDirection * 10.0f + Vector3.up * 3.0f;
     
+    public bool gameStarted = false;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -35,39 +37,42 @@ public class Skier : Eatable
         {
             _rb.velocity = new Vector3(0.0f, _rb.velocity.y, 0.0f);
         }
-        
-        if (Physics.Raycast(transform.position, -transform.up, out RaycastHit hit2, 1.2f, _slopeMask))
+
+        if (GameManager.manager.GetGameState() == GameManager.GameState.PLAYING)
         {
-            Debug.Log("Skier On Slope");
+            if (Physics.Raycast(transform.position, -transform.up, out RaycastHit hit2, 1.2f, _slopeMask))
+            {
+                Debug.Log("Skier On Slope");
 
-            Vector3 slopeAxis = Vector3.Cross(_globalSlopeDirection, hit2.normal);
-            Vector3 slopeSlideDir = Vector3.Cross(hit2.normal, slopeAxis);
-            Debug.DrawLine(transform.position, transform.position + slopeSlideDir, Color.yellow);
+                Vector3 slopeAxis = Vector3.Cross(_globalSlopeDirection, hit2.normal);
+                Vector3 slopeSlideDir = Vector3.Cross(hit2.normal, slopeAxis);
+                Debug.DrawLine(transform.position, transform.position + slopeSlideDir, Color.yellow);
             
-            _rb.MovePosition(_rb.position + Time.fixedDeltaTime * _slopeSpeed * slopeSlideDir);
+                _rb.MovePosition(_rb.position + Time.fixedDeltaTime * _slopeSpeed * slopeSlideDir);
 
-            if (Vector3.Dot(slopeSlideDir, Vector3.up) > 0.0f)
-            {
-                _isOnRamp = true;
-            }
+                if (Vector3.Dot(slopeSlideDir, Vector3.up) > 0.0f)
+                {
+                    _isOnRamp = true;
+                }
 
-            _isOnSlope = true;
-        }
-        else
-        {
-            if (_isOnGround && !_isOnRamp)
-            {
-                _rb.MovePosition(_rb.position + Time.fixedDeltaTime * _skiSpeed * _globalSlopeDirection);
+                _isOnSlope = true;
             }
+            else
+            {
+                if (_isOnGround && !_isOnRamp)
+                {
+                    _rb.MovePosition(_rb.position + Time.fixedDeltaTime * _skiSpeed * _globalSlopeDirection);
+                }
             
-            if (_isOnRamp)
-            {
-                Debug.Log("Launch off ramp!");
-                _rb.AddForce(_globalSlopeDirection*15.0f+Vector3.up*5.0f, ForceMode.Impulse);
-                _isOnRamp = false;
-            }
+                if (_isOnRamp)
+                {
+                    Debug.Log("Launch off ramp!");
+                    _rb.AddForce(_globalSlopeDirection*15.0f+Vector3.up*5.0f, ForceMode.Impulse);
+                    _isOnRamp = false;
+                }
 
-            _isOnSlope = false;
+                _isOnSlope = false;
+            }
         }
     }
 }

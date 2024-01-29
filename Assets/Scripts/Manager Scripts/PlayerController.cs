@@ -131,7 +131,7 @@ public class PlayerController : MonoBehaviour
     {
         _krokoFatness = newFatness;
         Debug.Log("OnFatnessChanged called");
-        Debug.LogFormat("OnFatness = {0}", _krokoFatness);
+        Debug.LogFormat("Fatness = {0}", _krokoFatness);
     }
 
     public void StartCameraBlend()
@@ -312,6 +312,8 @@ public class PlayerController : MonoBehaviour
 
     private void LateUpdate()
     {
+        _cameraPivotOffset = Vector3.Lerp(Vector3.up * 2.0f, Vector3.up * 8.0f, _krokoFatness);
+        
         UpdatePlayerCamera();
         Orient();
         
