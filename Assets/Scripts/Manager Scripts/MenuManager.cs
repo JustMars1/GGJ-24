@@ -89,6 +89,11 @@ public class MenuManager : MonoBehaviour
 
     void OnMove(InputAction.CallbackContext ctx)
     {
+        if (Mathf.Approximately(ctx.ReadValue<Vector2>().magnitude, 0.0f))
+        {
+            return;
+        }
+        
         GameObject selected = _eventSystem.currentSelectedGameObject;
         if (selected != null && selected.activeInHierarchy || _menuStack.Count < 1)
         {
