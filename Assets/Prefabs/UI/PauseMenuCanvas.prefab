@@ -250,6 +250,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _menu: {fileID: 7785076262897934819}
+  _defaultSelectabe: {fileID: 191511382237088699}
   _resumeButton: {fileID: 191511382237088699}
   _settingsButton: {fileID: 4058618942219737236}
   _exitToMainMenuButton: {fileID: 1818244145421600629}

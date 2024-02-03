@@ -200,7 +200,7 @@ public class PlayerController : MonoBehaviour
     {
         if (_canUpdatePlayerCamRotations && Time.timeScale > 0.01f)
         {
-            float ffInd = Time.deltaTime / (1.0f / 60.0f) * 3.0f;
+            float ffInd = Time.deltaTime * 270.0f;
             _cameraYAngle += _lookInput.x * _cameraSensitivity * (_isGamepad ? ffInd : 1.0f);
             _cameraXAngle -= _lookInput.y * _cameraSensitivity * (_isGamepad ? ffInd : 1.0f);
             _cameraXAngle = Mathf.Clamp(_cameraXAngle, -90, 90);

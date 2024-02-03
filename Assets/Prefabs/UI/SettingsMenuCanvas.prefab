@@ -208,6 +208,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _menu: {fileID: 8866061253903997739}
+  _defaultSelectabe: {fileID: 5281528343825642233}
   _masterVolumeSlider: {fileID: 4336439098803812295}
   _musicVolumeSlider: {fileID: 3318977249503975763}
   _soundVolumeSlider: {fileID: 6325123721116615650}
@@ -944,8 +945,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2709536996439483354}
   m_HandleRect: {fileID: 750916084881889905}
   m_Direction: 2
-  m_Value: 1
-  m_Size: 0.57009345
+  m_Value: 1.0000002
+  m_Size: 0.63896084
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:

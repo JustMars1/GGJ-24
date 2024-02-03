@@ -904,6 +904,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _menu: {fileID: 6293399086164974909}
+  _defaultSelectabe: {fileID: 5157380593909625195}
   _playButton: {fileID: 170783565725025162}
   _settingsButton: {fileID: 5157380593909625195}
   _quitButton: {fileID: 1375508477726920980}

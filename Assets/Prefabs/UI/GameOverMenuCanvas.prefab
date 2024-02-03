@@ -253,6 +253,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _menu: {fileID: 796805776782892463}
+  _defaultSelectabe: {fileID: 6069924167902351561}
   _exitToMainMenuButton: {fileID: 6069924167902351561}
   _finalScoreText: {fileID: 2184742453444919616}
 --- !u!1 &4158008579773532164
