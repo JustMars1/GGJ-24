@@ -81,8 +81,6 @@ public static class AudioController
                 break;
         }
 
-        soundSource.volume = group == AudioGroup.Music ? 0.05f : 1.0f;
-
         soundSource.ignoreListenerPause = ignorePause;
 
         soundSource.transform.parent = _audioPool.transform;
