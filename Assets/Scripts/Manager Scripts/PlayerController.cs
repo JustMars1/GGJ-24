@@ -1,21 +1,14 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.Numerics;
-using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.Serialization;
 using Quaternion = UnityEngine.Quaternion;
-using Random = UnityEngine.Random;
 using Vector2 = UnityEngine.Vector2;
 using Vector3 = UnityEngine.Vector3;
 
 public class PlayerController : MonoBehaviour
 {
     private Rigidbody _rb;
-    [SerializeField]  
-    Camera _cam;
+    [SerializeField] Camera _cam;
 
     PlayerInput _playerInput;
     Vector2 _lookInput;
@@ -42,8 +35,7 @@ public class PlayerController : MonoBehaviour
 
     private Vector3 _groundHitLoc = Vector3.zero;
 
-    [SerializeField] 
-    LayerMask _slopeMask;
+    [SerializeField] LayerMask _slopeMask;
 
     bool _shouldMoveCameraToPlayerCamLoc = false;
     bool _canUpdatePlayerCamRotations = false;
@@ -59,34 +51,25 @@ public class PlayerController : MonoBehaviour
 
     Vector3 _cameraPivotOffset = new Vector3(0.0f, 2.0f, 0.0f);
 
-    [SerializeField]
-    float _krokoFatness = 0.0f;
+    [SerializeField] float _krokoFatness = 0.0f;
 
-    [SerializeField] 
-    public Animator _animator;
-    
+    [SerializeField] public Animator _animator;
+
     // bone transforms
-    [SerializeField]
-    Transform _rig;
-    [SerializeField]
-    Transform _head;
-    
-    [SerializeField]
-    Transform _leftArm;
-    [SerializeField]
-    Transform _rightArm;
-    
-    [SerializeField]
-    Transform _leftLeg;
-    [SerializeField]
-    Transform _rightLeg;
-    
-    [SerializeField]
-    Transform _tail;
+    [SerializeField] Transform _rig;
+    [SerializeField] Transform _head;
+
+    [SerializeField] Transform _leftArm;
+    [SerializeField] Transform _rightArm;
+
+    [SerializeField] Transform _leftLeg;
+    [SerializeField] Transform _rightLeg;
+
+    [SerializeField] Transform _tail;
 
     // Audio
     public AudioClip slidingSound;
-    bool slidingIsPlaying = false;
+    AudioSource _slidingSoundSource;
 
     // Start is called before the first frame update
     void Start()
@@ -113,7 +96,7 @@ public class PlayerController : MonoBehaviour
     {
         _moveInput = ctx.ReadValue<Vector2>();
     }
-    
+
     void OnLook(InputAction.CallbackContext ctx)
     {
         _lookInput = ctx.ReadValue<Vector2>();
@@ -128,8 +111,6 @@ public class PlayerController : MonoBehaviour
     public void OnFatnessChanged(float newFatness)
     {
         _krokoFatness = newFatness;
-        Debug.Log("OnFatnessChanged called");
-        Debug.LogFormat("Fatness = {0}", _krokoFatness);
     }
 
     public void StartCameraBlend()
@@ -148,6 +129,7 @@ public class PlayerController : MonoBehaviour
             _cam.transform.position = Vector3.Lerp(_cameraInitialLoc, _calculatedPlayerCameraLoc, time);
             _cam.transform.rotation = Quaternion.Lerp(_cameraInitialRot, _calculatedPlayerCameraRot, time);
         }
+
         _shouldMoveCameraToPlayerCamLoc = true;
         _canUpdatePlayerCamRotations = true;
         _canMove = true;
@@ -170,23 +152,24 @@ public class PlayerController : MonoBehaviour
             float sign = Mathf.Approximately(dotWithRight, 0.0f) ? 1.0f : dotWithRight / Mathf.Abs(dotWithRight);
 
             dotWithFwd = Mathf.Clamp(dotWithFwd, -1.0f, 1.0f);
-        
+
             float angleToMoveDir = sign * Mathf.Acos(dotWithFwd) * Mathf.Rad2Deg;
 
             // movement direction when sliding down slope
             float dotWithSlopeDir = Vector3.Dot(playerForward, _globalSlopeDirection);
             float dotWithSlopeAxis = Vector3.Dot(playerForward, Vector3.Cross(_globalSlopeDirection, Vector3.up));
-            
+
             float signSlope = dotWithSlopeAxis == 0.0f ? 1.0f : dotWithSlopeAxis / Mathf.Abs(dotWithSlopeAxis);
 
             dotWithSlopeDir = Mathf.Clamp(dotWithSlopeDir, -1.0f, 1.0f);
 
             float angleToSlopeSlideDir = signSlope * Mathf.Acos(dotWithSlopeDir) * Mathf.Rad2Deg;
- 
+
             if (moveInputXZ.magnitude > 0.0f && !isOnSlope)
             {
                 _rb.MoveRotation(_rb.rotation * Quaternion.Euler(0.0f, angleToMoveDir * _orientSpeed, 0.0f));
             }
+
             if (isOnSlope)
             {
                 _rb.MoveRotation(_rb.rotation * Quaternion.Euler(0.0f, angleToSlopeSlideDir * _orientSpeed, 0.0f));
@@ -203,16 +186,16 @@ public class PlayerController : MonoBehaviour
             _cameraXAngle -= _lookInput.y * _cameraSensitivity * (_isGamepad ? ffInd : 1.0f);
             _cameraXAngle = Mathf.Clamp(_cameraXAngle, -90, 90);
         }
-        
-        _forwardVec = Quaternion.AngleAxis(_cameraYAngle, Vector3.up) *  new Vector3(0.0f, 0.0f, 1.0f);
+
+        _forwardVec = Quaternion.AngleAxis(_cameraYAngle, Vector3.up) * new Vector3(0.0f, 0.0f, 1.0f);
         _rightVec = Vector3.Cross(_forwardVec, Vector3.up);
 
         Vector3 camPos = -_forwardVec;
         camPos = Quaternion.AngleAxis(-_cameraXAngle, _rightVec) * camPos;
-        
-        _calculatedPlayerCameraLoc = _rb.position + _cameraPivotOffset + camPos*_cameraBoomLength;
+
+        _calculatedPlayerCameraLoc = _rb.position + _cameraPivotOffset + camPos * _cameraBoomLength;
         _calculatedPlayerCameraRot = Quaternion.Euler(_cameraXAngle, _cameraYAngle, 0.0f);
-        
+
         if (_shouldMoveCameraToPlayerCamLoc)
         {
             _cam.transform.position = _calculatedPlayerCameraLoc;
@@ -227,20 +210,20 @@ public class PlayerController : MonoBehaviour
         Debug.DrawLine(origin, origin + Vector3.right * s, color, 1.0f);
         Debug.DrawLine(origin, origin + Vector3.forward * s, color, 1.0f);
     }
-    
+
     // Update is called once per frame
     void FixedUpdate()
     {
         if (_canMove)
         {
-            _rb.AddForce(Vector3.down*9.81f, ForceMode.Acceleration);
+            _rb.AddForce(Vector3.down * 9.81f, ForceMode.Acceleration);
             if (isOnGround)
             {
                 _rb.velocity = new Vector3(0.0f, _rb.velocity.y, 0.0f);
             }
-        
+
             Vector3 moveDirection = _forwardVec * _moveInput.y - _rightVec * _moveInput.x;
-        
+
             if (Physics.Raycast(transform.position, -transform.up, out RaycastHit hit1, 1.2f))
             {
                 //Debug.Log("Hit");
@@ -261,7 +244,7 @@ public class PlayerController : MonoBehaviour
             {
                 isOnGround = false;
             }
-        
+
             if (Physics.Raycast(transform.position, -transform.up, out RaycastHit hit2, 1.2f, _slopeMask))
             {
                 //Debug.Log("On Slope");
@@ -269,8 +252,9 @@ public class PlayerController : MonoBehaviour
                 Vector3 slopeAxis = Vector3.Cross(_globalSlopeDirection, hit2.normal);
                 Vector3 slopeSlideDir = Vector3.Cross(hit2.normal, slopeAxis);
                 Debug.DrawLine(transform.position, transform.position + slopeSlideDir, Color.yellow);
-            
-                _rb.MovePosition(_rb.position + Time.fixedDeltaTime * 20.0f * slopeSlideDir + Time.fixedDeltaTime * _moveSpeed * moveDirection);
+
+                _rb.MovePosition(_rb.position + Time.fixedDeltaTime * 20.0f * slopeSlideDir +
+                                 Time.fixedDeltaTime * _moveSpeed * moveDirection);
 
                 if (Vector3.Dot(slopeSlideDir, Vector3.up) > 0.0f)
                 {
@@ -279,10 +263,9 @@ public class PlayerController : MonoBehaviour
 
                 isOnSlope = true;
                 _animator.SetBool("onSlope", true);
-                if(!slidingIsPlaying)
+                if (_slidingSoundSource == null)
                 {
-                    PlaySlidingSound();
-                    slidingIsPlaying = true;
+                    _slidingSoundSource = AudioController.Play(slidingSound, AudioGroup.Sound, true);
                 }
             }
             else
@@ -299,10 +282,11 @@ public class PlayerController : MonoBehaviour
 
                 isOnSlope = false;
                 _animator.SetBool("onSlope", false);
-                if(slidingIsPlaying)
+                if (_slidingSoundSource != null)
                 {
                     Debug.Log("Stopped loop");
-                    StopSlidingSound();
+                    AudioController.StopAudio(_slidingSoundSource);
+                    _slidingSoundSource = null;
                 }
             }
         }
@@ -311,11 +295,11 @@ public class PlayerController : MonoBehaviour
     private void LateUpdate()
     {
         _cameraPivotOffset = Vector3.Lerp(Vector3.up * 2.0f, Vector3.up * 8.0f, _krokoFatness);
-        
+
         UpdatePlayerCamera();
         Orient();
-        
-        _rig.transform.localScale = Vector3.Lerp(Vector3.one*100.0f, Vector3.one*500.0f, _krokoFatness);
+
+        _rig.transform.localScale = Vector3.Lerp(Vector3.one * 100.0f, Vector3.one * 500.0f, _krokoFatness);
         Vector3 limbScale = Vector3.Lerp(Vector3.one, new Vector3(0.1f, 0.1f, 0.1f), _krokoFatness);
         _head.transform.localScale = limbScale;
         _leftArm.transform.localScale = limbScale;
@@ -323,16 +307,5 @@ public class PlayerController : MonoBehaviour
         _leftLeg.transform.localScale = limbScale;
         _rightLeg.transform.localScale = limbScale;
         _tail.transform.localScale = limbScale;
-    }
-
-    public void PlaySlidingSound()
-    {
-        AudioController.PlaySound(slidingSound, transform.position, true);
-    }
-
-    public void StopSlidingSound()
-    {
-        AudioController.StopPlayingSound(slidingSound);
-        slidingIsPlaying = false;
     }
 }

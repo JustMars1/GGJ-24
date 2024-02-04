@@ -10,11 +10,11 @@ public class CrocFootsteps : MonoBehaviour
 
     public void PlayLeftFootstep()
     {
-        AudioController.PlaySound(leftFootstep, transform.position, false);
+        AudioController.Play(leftFootstep, AudioGroup.Sound);
     }
 
     public void PlayRightFootstep()
     {
-        AudioController.PlaySound(rightFootstep, transform.position, false);
+        AudioController.Play(rightFootstep, AudioGroup.Sound);
     }
 }

@@ -133,14 +133,14 @@ public class MenuManager : MonoBehaviour
     {
         PopAllMenus();
         GameManager.manager.UnPauseGame();
-        AudioController.ResumePausedAudio();
     }
 
     void ExitToMainMenu()
     {
         PopAllMenus();
         Time.timeScale = 1;
-        AudioController.ClearCachedSources();
+        AudioListener.pause = false;
+        // AudioController.ClearCachedSources();
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
     
@@ -201,7 +201,6 @@ public class MenuManager : MonoBehaviour
             {
                 PushMenu(_pauseMenu);
                 GameManager.manager.PauseGame();
-                AudioController.PausePlayingSounds();
             }
         }
         else if (_menuStack.Count == 1)
@@ -219,6 +218,6 @@ public class MenuManager : MonoBehaviour
 
     public void PlayGameOver()
     {
-        AudioController.PlaySound(_gameOverSound, transform.position, false);
+        AudioController.Play(_gameOverSound, AudioGroup.Sound, ignorePause: true);
     }
 }

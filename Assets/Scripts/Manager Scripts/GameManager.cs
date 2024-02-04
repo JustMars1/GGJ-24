@@ -197,6 +197,7 @@ public class GameManager : MonoBehaviour
     {
         currentState = GameState.PAUSED;
         Time.timeScale = 0;
+        AudioListener.pause = true;
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
         // Open pause menu..? Or is opened somewhere else?
@@ -206,6 +207,7 @@ public class GameManager : MonoBehaviour
     {
         currentState = GameState.PLAYING;
         Time.timeScale = 1;
+        AudioListener.pause = false;
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
         // Close pause menu or done somewhere else?
@@ -217,6 +219,7 @@ public class GameManager : MonoBehaviour
         MenuManager.instance.OpenGameOverMenu();
         
         Time.timeScale = 0;
+        AudioListener.pause = true;
 
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;

@@ -278,9 +278,9 @@ public class Enemy : Eatable
 
     public void AttackSound()
     {
-        if(attackSound)
+        if (attackSound)
         {
-            AudioController.PlaySound(attackSound, transform.position, false);
+            AudioController.Play(attackSound, AudioGroup.Sound, spatial: true, pos: transform.position);
         }
     }
 }

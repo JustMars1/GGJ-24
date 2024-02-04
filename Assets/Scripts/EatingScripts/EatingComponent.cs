@@ -57,7 +57,7 @@ public class EatingComponent : MonoBehaviour
     {
         if (eatSoundList.Length > 0)
         {
-            AudioController.PlaySound(eatSoundList[Random.Range(0, eatSoundList.Length)], transform.position, false);
+            AudioController.Play(eatSoundList[Random.Range(0, eatSoundList.Length)], AudioGroup.Sound);
         }
     }
 }

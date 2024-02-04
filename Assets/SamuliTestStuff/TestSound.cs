@@ -9,7 +9,7 @@ public class TestSound : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        AudioController.PlayMusic(testClip);
+        AudioController.Play(testClip, AudioGroup.Music, looping: true);
     }
 
     private void OnTriggerEnter(Collider other)

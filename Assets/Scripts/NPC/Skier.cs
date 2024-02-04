@@ -42,8 +42,6 @@ public class Skier : Eatable
         {
             if (Physics.Raycast(transform.position, -transform.up, out RaycastHit hit2, 1.2f, _slopeMask))
             {
-                Debug.Log("Skier On Slope");
-
                 Vector3 slopeAxis = Vector3.Cross(_globalSlopeDirection, hit2.normal);
                 Vector3 slopeSlideDir = Vector3.Cross(hit2.normal, slopeAxis);
                 Debug.DrawLine(transform.position, transform.position + slopeSlideDir, Color.yellow);

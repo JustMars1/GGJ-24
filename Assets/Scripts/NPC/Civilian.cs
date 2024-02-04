@@ -106,7 +106,7 @@ public class Civilian : Eatable
                 UpdateRunningAwayState();
                 if(screamList.Length > 0 && !hasScreamed)
                 {
-                    AudioController.PlaySound(screamList[Random.Range(0, screamList.Length)], transform.position, false);
+                    AudioController.Play(screamList[Random.Range(0, screamList.Length)],AudioGroup.Voice, spatial: true, pos: transform.position);
                     hasScreamed = true;
                 }
                 break;
@@ -384,11 +384,11 @@ public class Civilian : Eatable
 
     public void PlayRightFootstep()
     {
-        AudioController.PlaySound(rightFootstep, transform.position, false);
+        AudioController.Play(rightFootstep, AudioGroup.Sound, spatial: true, pos: transform.position);
     }
 
     public void PlayLeftFootstep()
     {
-        AudioController.PlaySound(leftFootstep, transform.position, false);
+        AudioController.Play(leftFootstep, AudioGroup.Sound, spatial: true, pos: transform.position);
     }
 }
