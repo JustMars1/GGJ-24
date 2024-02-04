@@ -9,6 +9,8 @@ public class GameManager : MonoBehaviour
     public static GameManager manager;
 
     [SerializeField] PlayerController playerController;
+
+    [SerializeField] private AudioClip _musicClip;
     
     // Score of the player
     [HideInInspector]
@@ -61,6 +63,7 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 1;
         AudioListener.pause = false;
+        AudioController.Play(_musicClip, AudioGroup.Music, true, ignorePause: true);
     }
 
     void Start()
