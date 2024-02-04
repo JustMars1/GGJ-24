@@ -85,8 +85,6 @@ public class PlayerController : MonoBehaviour
     Transform _tail;
 
     // Audio
-    public AudioClip rightFootstep;
-    public AudioClip leftFootstep;
     public AudioClip slidingSound;
     bool slidingIsPlaying = false;
 
@@ -335,15 +333,6 @@ public class PlayerController : MonoBehaviour
     public void StopSlidingSound()
     {
         AudioController.StopPlayingSound(slidingSound);
-    }
-
-    public void PlayLeftFootstep()
-    {
-        AudioController.PlaySound(leftFootstep, transform.position, false);
-    }
-
-    public void PlayRightFootstep()
-    {
-        AudioController.PlaySound(rightFootstep, transform.position, false);
+        slidingIsPlaying = false;
     }
 }

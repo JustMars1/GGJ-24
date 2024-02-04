@@ -228,8 +228,6 @@ MonoBehaviour:
   _leftLeg: {fileID: 8838119303418240849}
   _rightLeg: {fileID: 9006196795144121707}
   _tail: {fileID: 8542173219866590094}
-  rightFootstep: {fileID: 8300000, guid: 5eb5ce38483c0cc45a73c3d5dd839d41, type: 3}
-  leftFootstep: {fileID: 8300000, guid: 205f47ca6fa420043a5b2e4d4651b4c2, type: 3}
   slidingSound: {fileID: 8300000, guid: 3636f79b6e574524aa22410e07334fd7, type: 3}
 --- !u!65 &4342394678112440382
 BoxCollider:
@@ -270,6 +268,7 @@ MonoBehaviour:
   eatSoundList:
   - {fileID: 8300000, guid: 7999af82040b23949807995d12d5ba7d, type: 3}
   - {fileID: 8300000, guid: 1c483e4acaeb6cd4b90dbccf254774c8, type: 3}
+  - {fileID: 8300000, guid: 4c4db47d58c83a64d989777fd98c392c, type: 3}
 --- !u!54 &8063008278253169864
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -554,7 +553,10 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3113972513878375172, guid: 92b65f94356f4f04eb6ffff6274942b0, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8469787937058046700}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 92b65f94356f4f04eb6ffff6274942b0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2940080352447641522}
   m_SourcePrefab: {fileID: 100100000, guid: 92b65f94356f4f04eb6ffff6274942b0, type: 3}
 --- !u!95 &1171135845340481528 stripped
 Animator:
@@ -571,6 +573,25 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 942809563764168168, guid: 92b65f94356f4f04eb6ffff6274942b0, type: 3}
   m_PrefabInstance: {fileID: 4695601232650156649}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &5614662314993289016 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 92b65f94356f4f04eb6ffff6274942b0, type: 3}
+  m_PrefabInstance: {fileID: 4695601232650156649}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2940080352447641522
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5614662314993289016}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3a8f50660895ba419866884076edeae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rightFootstep: {fileID: 8300000, guid: 5eb5ce38483c0cc45a73c3d5dd839d41, type: 3}
+  leftFootstep: {fileID: 8300000, guid: 205f47ca6fa420043a5b2e4d4651b4c2, type: 3}
 --- !u!4 &7521283410090852179 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -6247945034147084998, guid: 92b65f94356f4f04eb6ffff6274942b0, type: 3}

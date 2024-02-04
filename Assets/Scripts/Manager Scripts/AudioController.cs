@@ -13,6 +13,8 @@ public static class AudioController
     private static List<AudioSource> audioSources = new List<AudioSource>();
     private static int noOfTimesFailed = 0;
 
+    private static List<AudioSource> pausedAudios = new List<AudioSource>();
+
     public static void ClearCachedSources() 
     {
         foreach (AudioSource source in audioSources)
@@ -75,6 +77,9 @@ public static class AudioController
                     if(isLoopable)
                     {
                         source.loop = true;
+                    } else
+                    {
+                        source.loop = false;
                     }
                     source.clip = soundEffect;
                     source.Play();
@@ -148,6 +153,42 @@ public static class AudioController
                 source.Stop();
                 break;
             }
+        }
+    }
+
+    public static void PausePlayingSounds()
+    {
+        foreach (AudioSource source in audioSources)
+        {
+            // Check if the AudioSource is playing
+            if (source.isPlaying)
+            {
+                // Pause the AudioSource
+                source.Pause();
+                pausedAudios.Add(source);
+            }
+        }
+    }
+
+    public static void ResumePausedAudio()
+    {
+        List<AudioSource> sourcesToRemove = new List<AudioSource>();
+
+        foreach (AudioSource paused in pausedAudios)
+        {
+            // Check if the AudioSource is playing
+            if (paused != null)
+            {
+                // Resume playing the AudioSource
+                paused.Play();
+                sourcesToRemove.Add(paused);
+            }
+        }
+
+        // Remove resumed sources from pausedAudios
+        foreach (AudioSource removedSource in sourcesToRemove)
+        {
+            pausedAudios.Remove(removedSource);
         }
     }
 }

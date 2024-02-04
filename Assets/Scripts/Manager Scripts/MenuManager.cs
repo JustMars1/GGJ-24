@@ -19,6 +19,8 @@ public class MenuManager : MonoBehaviour
 
     [SerializeField] Button _backButton;
 
+    [SerializeField] AudioClip _gameOverSound;
+
     public static MenuManager instance { get; private set; }
 
     Stack<Menu> _menuStack = new Stack<Menu>();
@@ -77,6 +79,7 @@ public class MenuManager : MonoBehaviour
         PopAllMenus();
         PushMenu(_gameOverMenu);
         _gameplayUI.gameObject.SetActive(false);
+        PlayGameOver();
     }
     
     void Play()
@@ -100,6 +103,7 @@ public class MenuManager : MonoBehaviour
     {
         PopAllMenus();
         GameManager.manager.UnPauseGame();
+        AudioController.ResumePausedAudio();
     }
 
     void ExitToMainMenu()
@@ -167,6 +171,7 @@ public class MenuManager : MonoBehaviour
             {
                 PushMenu(_pauseMenu);
                 GameManager.manager.PauseGame();
+                AudioController.PausePlayingSounds();
             }
         }
         else if (_menuStack.Count == 1)
@@ -180,5 +185,10 @@ public class MenuManager : MonoBehaviour
         {
             PopMenu();
         }
+    }
+
+    public void PlayGameOver()
+    {
+        AudioController.PlaySound(_gameOverSound, transform.position, false);
     }
 }
