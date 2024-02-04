@@ -915,7 +915,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -945,8 +945,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2709536996439483354}
   m_HandleRect: {fileID: 750916084881889905}
   m_Direction: 2
-  m_Value: 1
-  m_Size: 0.57009345
+  m_Value: 0.9999997
+  m_Size: 0.7765381
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -2761,6 +2761,18 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7535042717278273186, guid: e2e731b150eaa4aed87d0f7b71235f48, type: 3}
+      propertyPath: audioGroup
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7535042717278273186, guid: e2e731b150eaa4aed87d0f7b71235f48, type: 3}
+      propertyPath: slideClipOverride
+      value: 
+      objectReference: {fileID: 8300000, guid: 7999af82040b23949807995d12d5ba7d, type: 3}
+    - target: {fileID: 7535042717278273186, guid: e2e731b150eaa4aed87d0f7b71235f48, type: 3}
+      propertyPath: slideSoundOverride
+      value: 
+      objectReference: {fileID: 8300000, guid: 7999af82040b23949807995d12d5ba7d, type: 3}
     - target: {fileID: 8461357528024581578, guid: e2e731b150eaa4aed87d0f7b71235f48, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -2966,6 +2978,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7535042717278273186, guid: e2e731b150eaa4aed87d0f7b71235f48, type: 3}
+      propertyPath: audioGroup
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7535042717278273186, guid: e2e731b150eaa4aed87d0f7b71235f48, type: 3}
+      propertyPath: slideClipOverride
+      value: 
+      objectReference: {fileID: 8300000, guid: 4c1771b5867310046a88097bdf4bcc1d, type: 3}
     - target: {fileID: 8461357528024581578, guid: e2e731b150eaa4aed87d0f7b71235f48, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -3340,6 +3360,18 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7535042717278273186, guid: e2e731b150eaa4aed87d0f7b71235f48, type: 3}
+      propertyPath: audioGroup
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7535042717278273186, guid: e2e731b150eaa4aed87d0f7b71235f48, type: 3}
+      propertyPath: slideClipOverride
+      value: 
+      objectReference: {fileID: 8300000, guid: da0860838bea4404c9d653d7b6a69e71, type: 3}
+    - target: {fileID: 7535042717278273186, guid: e2e731b150eaa4aed87d0f7b71235f48, type: 3}
+      propertyPath: slideSoundOverride
+      value: 
+      objectReference: {fileID: 8300000, guid: da0860838bea4404c9d653d7b6a69e71, type: 3}
     - target: {fileID: 8461357528024581578, guid: e2e731b150eaa4aed87d0f7b71235f48, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0

@@ -138,8 +138,6 @@ public class MenuManager : MonoBehaviour
     void ExitToMainMenu()
     {
         PopAllMenus();
-        Time.timeScale = 1;
-        AudioListener.pause = false;
         // AudioController.ClearCachedSources();
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }

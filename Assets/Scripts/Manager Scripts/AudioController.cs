@@ -7,12 +7,14 @@ public enum AudioGroup
 {
     Sound,
     Voice,
-    Music
+    Music,
+    None
 }
 
 public static class AudioController
 {
     public static readonly AudioMixer audioMixer = Resources.Load<AudioMixer>("AudioMixer");
+    public static readonly GlobalAudioClips globalAudioClips = Resources.Load<GlobalAudioClips>("GlobalAudioClips");
     static AudioPool _audioPool;
 
     const float MIN_VOLUME = 0.00001f;
@@ -72,6 +74,7 @@ public static class AudioController
                 soundSource.gameObject.name = "Music/" + clip.name;
                 soundSource.outputAudioMixerGroup = audioMixer.FindMatchingGroups("Master/Music")[0];
                 break;
+            case AudioGroup.None:
             default:
                 soundSource.gameObject.name = clip.name;
                 soundSource.outputAudioMixerGroup = audioMixer.FindMatchingGroups("Master")[0];

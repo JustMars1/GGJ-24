@@ -267,7 +267,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5436569660926821496}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Script: {fileID: 11500000, guid: ce18608e3dd85414598b05746376dda1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
@@ -508,6 +508,7 @@ MonoBehaviour:
   _gameOverMenu: {fileID: 4328410501861279836}
   _gameplayUI: {fileID: 6005124636241361067}
   _backButton: {fileID: 6443589437040478475}
+  _gameOverSound: {fileID: 0}
   _eventSystem: {fileID: 2258954911425723333}
   _inputModule: {fileID: 8972812364305173004}
 --- !u!1001 &2573928809051535004

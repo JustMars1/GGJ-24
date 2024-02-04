@@ -1,8 +1,8 @@
-using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
-public class CustomDropdown : TMP_Dropdown
+public class CustomButton : Button
 {
     public override void OnSelect(BaseEventData eventData)
     {
@@ -28,5 +28,17 @@ public class CustomDropdown : TMP_Dropdown
         }
         
         base.OnPointerEnter(eventData);
+    }
+
+    public override void OnPointerClick(PointerEventData eventData)
+    {
+        AudioController.Play(AudioController.globalAudioClips.pressClip, AudioGroup.Sound, ignorePause: true);
+        base.OnPointerClick(eventData);
+    }
+
+    public override void OnSubmit(BaseEventData eventData)
+    {
+        AudioController.Play(AudioController.globalAudioClips.pressClip, AudioGroup.Sound, ignorePause: true);
+        base.OnSubmit(eventData);
     }
 }

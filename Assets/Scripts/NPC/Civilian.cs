@@ -257,7 +257,6 @@ public class Civilian : Eatable
             Vector3 closestHousePos = GetClosestHousePosition();
 
             // Debug information
-            Debug.Log("Running to the closest house!");
             Debug.DrawLine(transform.position, closestHousePos, Color.yellow, 5f);
 
             // Update the chosen house position

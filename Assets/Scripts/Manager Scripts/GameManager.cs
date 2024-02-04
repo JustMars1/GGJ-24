@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -55,6 +56,12 @@ public class GameManager : MonoBehaviour
         manager = null;
     }
 #endif
+
+    private void Awake()
+    {
+        Time.timeScale = 1;
+        AudioListener.pause = false;
+    }
 
     void Start()
     {
