@@ -228,7 +228,7 @@ MonoBehaviour:
   _leftLeg: {fileID: 8838119303418240849}
   _rightLeg: {fileID: 9006196795144121707}
   _tail: {fileID: 8542173219866590094}
-  slidingSound: {fileID: 8300000, guid: 3636f79b6e574524aa22410e07334fd7, type: 3}
+  slidingSound: {fileID: 8300000, guid: 9c7c531ff0d040d4f9cc0d0965cc7b7d, type: 3}
 --- !u!65 &4342394678112440382
 BoxCollider:
   m_ObjectHideFlags: 0
