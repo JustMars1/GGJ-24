@@ -2,7 +2,9 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.UI;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
@@ -20,6 +22,8 @@ public class MenuManager : MonoBehaviour
     [SerializeField] Button _backButton;
 
     [SerializeField] AudioClip _gameOverSound;
+    [SerializeField] EventSystem _eventSystem;
+    [SerializeField] InputSystemUIInputModule _inputModule;
 
     public static MenuManager instance { get; private set; }
 
@@ -62,6 +66,16 @@ public class MenuManager : MonoBehaviour
         PushMenu(_mainMenu);
     }
 
+    void OnEnable()
+    {
+        _inputModule.move.action.performed += OnMove;
+    }
+
+    void OnDisable()
+    {
+        _inputModule.move.action.performed -= OnMove;
+    }
+
     void Update()
     {
         if (Keyboard.current != null && Keyboard.current.escapeKey.wasPressedThisFrame)
@@ -72,6 +86,22 @@ public class MenuManager : MonoBehaviour
         {
             OnEscape();
         }
+    }
+
+    void OnMove(InputAction.CallbackContext ctx)
+    {
+        if (Mathf.Approximately(ctx.ReadValue<Vector2>().magnitude, 0.0f))
+        {
+            return;
+        }
+        
+        GameObject selected = _eventSystem.currentSelectedGameObject;
+        if (selected != null && selected.activeInHierarchy || _menuStack.Count < 1)
+        {
+            return;
+        }
+        
+        _menuStack.Peek().defaultSelectable.Select();
     }
 
     public void OpenGameOverMenu()
