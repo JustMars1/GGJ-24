@@ -1214,7 +1214,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerController: {fileID: 1692336270}
-  _musicClip: {fileID: 8300000, guid: a77b669cb4d694d528ad940b4a82fd31, type: 3}
+  _musicClip: {fileID: 8300000, guid: fa0b18c97c395483fb899181f91b0f58, type: 3}
   score: 0
   maxSatiate: 0
   hungerSpeed: 0

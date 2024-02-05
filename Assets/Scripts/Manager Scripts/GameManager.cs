@@ -64,7 +64,7 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1;
         AudioListener.pause = false;
         AudioSource musicSource = AudioController.Play(_musicClip, AudioGroup.Music, true, ignorePause: true);
-        musicSource.volume = 0.05f;
+        musicSource.volume = 0.1f;
     }
 
     void Start()
